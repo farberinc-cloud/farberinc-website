@@ -2026,3 +2026,22 @@ p {
   gap: var(--space-sm);
   justify-content: center;
 }
+
+/* ========================================
+   CLOUDFLARE TURNSTILE (bot protection)
+   ======================================== */
+.cf-turnstile {
+  margin: 20px 0 16px 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.farber-branded-form button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.farber-branded-form button[type="submit"]:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}

@@ -60,6 +60,27 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="../icons/favicon-192x192.png">
   <link rel="manifest" href="../site.webmanifest">
+
+  <!-- Cloudflare Turnstile (bot protection) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script>
+    // Optional: enable submit button only after Turnstile passes
+    function onTurnstileSuccess() {
+      document.querySelectorAll('.farber-branded-form button[type="submit"]').forEach(btn => {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.style.cursor = 'pointer';
+      });
+    }
+    // Initialize submit buttons as disabled until Turnstile passes
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.farber-branded-form button[type="submit"]').forEach(btn => {
+        btn.disabled = true;
+        btn.style.opacity = '0.5';
+        btn.style.cursor = 'not-allowed';
+      });
+    });
+  </script>
 </head>
 <body>
   <!-- SVG Icons -->
@@ -369,6 +390,9 @@
                             <label>Message
                               <textarea name="message" required></textarea>
                             </label>
+                        <!-- Cloudflare Turnstile (bot protection) -->
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAADyw2708KLnsLjYa" data-callback="onTurnstileSuccess" data-theme="light"></div>
+
 
                             <button type="submit">Send Message</button>
                           </form>
