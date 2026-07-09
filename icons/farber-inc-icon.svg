@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Farber.Inc FI Icon Mark -->
+  <!-- Outer ring (gold) -->
+  <circle cx="256" cy="256" r="248" fill="none" stroke="#B8860B" stroke-width="16"/>
+  <!-- Inner circle (navy) -->
+  <circle cx="256" cy="256" r="220" fill="#0A1628"/>
+  <!-- F.I monogram (gold) -->
+  <!-- Letter F (geometric, slab style) -->
+  <g fill="#B8860B">
+    <!-- F vertical bar -->
+    <rect x="120" y="120" width="50" height="280"/>
+    <!-- F top horizontal -->
+    <rect x="120" y="120" width="200" height="50"/>
+    <!-- F middle horizontal (shorter) -->
+    <rect x="120" y="220" width="150" height="45"/>
+    <!-- Letter I (right side) -->
+    <rect x="340" y="120" width="50" height="280"/>
+    <!-- Period/dot separator (I without serif, F.I style) -->
+    <circle cx="255" cy="380" r="22"/>
+  </g>
+</svg>

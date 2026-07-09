@@ -1,0 +1,254 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <!-- Logo Icon Mark -->
+  <symbol id="logo-icon" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="24" fill="#0A1628"/>
+    <text x="24" y="30" font-family="Georgia, serif" font-size="18" font-weight="600" fill="#B8860B" text-anchor="middle">FI</text>
+  </symbol>
+  
+  <!-- SEO Icon -->
+  <symbol id="icon-seo" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="28" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M20 32 L28 40 L44 24" fill="none" stroke="#B8860B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="32" cy="32" r="20" fill="none" stroke="#B8860B" stroke-width="1" stroke-dasharray="4 4"/>
+  </symbol>
+  
+  <!-- AEO Icon -->
+  <symbol id="icon-aeo" viewBox="0 0 64 64">
+    <rect x="8" y="12" width="48" height="40" rx="4" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="20" cy="28" r="6" fill="#B8860B"/>
+    <path d="M30 24 L50 24 M30 32 L45 32 M30 40 L48 40" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="20" cy="28" r="3" fill="#0A1628"/>
+  </symbol>
+  
+  <!-- GEO Icon -->
+  <symbol id="icon-geo" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="28" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M32 8 L32 56 M8 32 L56 32" stroke="#B8860B" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="32" cy="32" r="8" fill="#B8860B"/>
+    <path d="M32 4 L32 12 M32 52 L32 60 M4 32 L12 32 M52 32 L60 32" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  
+  <!-- Google Business Profile Icon -->
+  <symbol id="icon-gbp" viewBox="0 0 64 64">
+    <path d="M32 8 C18 8 8 18 8 32 C8 46 18 56 32 56 C46 56 56 46 56 32 C56 18 46 8 32 8" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M32 16 L32 32 L44 38" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="32" cy="32" r="4" fill="#B8860B"/>
+    <rect x="24" y="44" width="16" height="4" rx="2" fill="#B8860B"/>
+  </symbol>
+  
+  <!-- Google Analytics Icon -->
+  <symbol id="icon-analytics" viewBox="0 0 64 64">
+    <rect x="8" y="8" width="48" height="48" rx="4" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M20 44 L20 32 M28 44 L28 24 M36 44 L36 28 M44 44 L44 16" stroke="#B8860B" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="20" cy="32" r="2" fill="#0A1628"/>
+    <circle cx="28" cy="24" r="2" fill="#0A1628"/>
+    <circle cx="36" cy="28" r="2" fill="#0A1628"/>
+    <circle cx="44" cy="16" r="2" fill="#0A1628"/>
+  </symbol>
+  
+  <!-- Google Search Console Icon -->
+  <symbol id="icon-gsc" viewBox="0 0 64 64">
+    <rect x="8" y="8" width="48" height="48" rx="4" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="24" cy="24" r="8" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M30 30 L42 42" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+    <path d="M24 36 L24 52 M20 48 L24 52 L28 48" stroke="#B8860B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  
+  <!-- Google Ads Icon -->
+  <symbol id="icon-ads" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="24" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M24 24 L24 40 L40 32 Z" fill="#B8860B"/>
+    <circle cx="32" cy="32" r="4" fill="#0A1628"/>
+  </symbol>
+  
+  <!-- Social Media Icon -->
+  <symbol id="icon-social" viewBox="0 0 64 64">
+    <circle cx="20" cy="20" r="8" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="44" cy="20" r="8" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="32" cy="44" r="8" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M26 24 L28 38 M38 24 L36 38" stroke="#B8860B" stroke-width="2"/>
+  </symbol>
+  
+  <!-- AI Icon -->
+  <symbol id="icon-ai" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="28" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M32 12 L32 20 M32 44 L32 52 M12 32 L20 32 M44 32 L52 32" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="32" cy="32" r="12" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="32" cy="32" r="4" fill="#B8860B"/>
+    <path d="M24 24 L40 40 M40 24 L24 40" stroke="#B8860B" stroke-width="1" stroke-dasharray="2 2"/>
+  </symbol>
+  
+  <!-- Consulting Icon -->
+  <symbol id="icon-consulting" viewBox="0 0 64 64">
+    <circle cx="32" cy="20" r="12" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M16 56 C16 44 24 36 32 36 C40 36 48 44 48 56" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M28 20 L36 20 M32 16 L32 24" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  
+  <!-- Growth Icon -->
+  <symbol id="icon-growth" viewBox="0 0 64 64">
+    <path d="M8 56 L56 56" stroke="#B8860B" stroke-width="2"/>
+    <path d="M16 48 L24 40 L32 44 L48 20" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M40 20 L48 20 L48 28" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="48" cy="20" r="3" fill="#B8860B"/>
+  </symbol>
+  
+  <!-- Automation Icon -->
+  <symbol id="icon-automation" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="20" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M32 16 L32 32 L42 38" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="32" cy="32" r="3" fill="#B8860B"/>
+    <path d="M16 32 L20 32 M44 32 L48 32 M32 16 L32 20 M32 44 L32 48" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  
+  <!-- Lead Generation Icon -->
+  <symbol id="icon-leads" viewBox="0 0 64 64">
+    <path d="M32 8 L32 56" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="32" cy="16" r="6" fill="#B8860B"/>
+    <circle cx="32" cy="32" r="6" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="32" cy="48" r="6" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M26 16 L38 16 M26 32 L38 32 M26 48 L38 48" stroke="#0A1628" stroke-width="2"/>
+  </symbol>
+  
+  <!-- Data Analytics Icon -->
+  <symbol id="icon-data" viewBox="0 0 64 64">
+    <rect x="8" y="8" width="48" height="48" rx="4" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="24" cy="28" r="3" fill="#B8860B"/>
+    <circle cx="32" cy="38" r="3" fill="#B8860B"/>
+    <circle cx="40" cy="24" r="3" fill="#B8860B"/>
+    <circle cx="44" cy="36" r="3" fill="#B8860B"/>
+    <path d="M24 28 L32 38 L40 24 L44 36" fill="none" stroke="#B8860B" stroke-width="1" stroke-dasharray="2 2"/>
+  </symbol>
+  
+  <!-- Email Icon -->
+  <symbol id="icon-email" viewBox="0 0 64 64">
+    <rect x="8" y="16" width="48" height="32" rx="4" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M8 20 L32 36 L56 20" fill="none" stroke="#B8860B" stroke-width="2"/>
+  </symbol>
+  
+  <!-- Phone Icon -->
+  <symbol id="icon-phone" viewBox="0 0 64 64">
+    <path d="M20 8 C16 8 12 12 12 16 L12 20 C12 36 24 52 44 52 L48 52 C52 52 56 48 56 44 L56 38 L44 32 L38 40 C32 36 28 32 24 26 L32 20 L26 8 Z" fill="none" stroke="#B8860B" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+  
+  <!-- Location Icon -->
+  <symbol id="icon-location" viewBox="0 0 64 64">
+    <path d="M32 56 C32 56 12 38 12 26 C12 16 20 8 32 8 C44 8 52 16 52 26 C52 38 32 56 32 56 Z" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="32" cy="26" r="8" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="32" cy="26" r="3" fill="#B8860B"/>
+  </symbol>
+  
+  <!-- Clock Icon -->
+  <symbol id="icon-clock" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="24" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M32 16 L32 32 L42 38" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  
+  <!-- Checklist Icon -->
+  <symbol id="icon-checklist" viewBox="0 0 64 64">
+    <rect x="12" y="8" width="40" height="48" rx="4" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M20 24 L24 28 L30 20" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M34 24 L48 24" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+    <path d="M20 36 L24 40 L30 32" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M34 36 L48 36" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+    <path d="M20 48 L24 52 L30 44" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M34 48 L48 48" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  
+  <!-- Rocket Icon -->
+  <symbol id="icon-rocket" viewBox="0 0 64 64">
+    <path d="M32 8 C24 16 20 28 20 40 L32 48 L44 40 C44 28 40 16 32 8 Z" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="32" cy="28" r="6" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="32" cy="28" r="2" fill="#B8860B"/>
+    <path d="M24 44 L20 52 L28 48" fill="none" stroke="#B8860B" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M40 44 L44 52 L36 48" fill="none" stroke="#B8860B" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+  
+  <!-- Target Icon -->
+  <symbol id="icon-target" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="24" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="32" cy="32" r="16" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="32" cy="32" r="8" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="32" cy="32" r="3" fill="#B8860B"/>
+  </symbol>
+  
+  <!-- Shield Icon -->
+  <symbol id="icon-shield" viewBox="0 0 64 64">
+    <path d="M32 8 L52 16 L52 32 C52 44 32 56 32 56 C32 56 12 44 12 32 L12 16 Z" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M24 32 L30 38 L40 26" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  
+  <!-- Settings Icon -->
+  <symbol id="icon-settings" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="8" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M32 8 L32 16 M32 48 L32 56 M8 32 L16 32 M48 32 L56 32" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+    <path d="M18 18 L24 24 M40 40 L46 46 M18 46 L24 40 M40 24 L46 18" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  
+  <!-- LinkedIn Icon -->
+  <symbol id="icon-linkedin" viewBox="0 0 64 64">
+    <rect x="8" y="8" width="48" height="48" rx="4" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M20 28 L20 44" stroke="#B8860B" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="20" cy="22" r="3" fill="#B8860B"/>
+    <path d="M28 44 L28 34 C28 28 32 26 36 28 L36 44" fill="none" stroke="#B8860B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M28 36 C30 32 36 30 40 34 L40 44" fill="none" stroke="#B8860B" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+  
+  <!-- Facebook Icon -->
+  <symbol id="icon-facebook" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="24" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M40 24 L36 24 C34 24 32 26 32 28 L32 32 L40 32 L38 40 L32 40 L32 56" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  
+  <!-- Arrow Right Icon -->
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+    <path d="M5 12 L19 12 M12 5 L19 12 L12 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  
+  <!-- Chevron Down Icon -->
+  <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+    <path d="M6 9 L12 15 L18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  
+  <!-- Menu Icon -->
+  <symbol id="icon-menu" viewBox="0 0 24 24">
+    <path d="M3 6 L21 6 M3 12 L21 12 M3 18 L21 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  
+  <!-- Close Icon -->
+  <symbol id="icon-close" viewBox="0 0 24 24">
+    <path d="M6 6 L18 18 M18 6 L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  
+  <!-- Check Icon -->
+  <symbol id="icon-check" viewBox="0 0 24 24">
+    <path d="M4 12 L9 17 L20 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  
+  <!-- Star Icon -->
+  <symbol id="icon-star" viewBox="0 0 24 24">
+    <path d="M12 2 L15 8 L22 9 L17 14 L18 21 L12 18 L6 21 L7 14 L2 9 L9 8 Z" fill="#B8860B" stroke="#B8860B" stroke-width="1" stroke-linejoin="round"/>
+  </symbol>
+  
+  <!-- Tools Icon -->
+  <symbol id="icon-tools" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="24" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M24 24 L40 40 M24 40 L40 24" stroke="#B8860B" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="24" cy="24" r="4" fill="#B8860B"/>
+    <circle cx="40" cy="40" r="4" fill="#B8860B"/>
+  </symbol>
+  
+  <!-- Content Icon -->
+  <symbol id="icon-content" viewBox="0 0 64 64">
+    <rect x="12" y="8" width="40" height="48" rx="4" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M20 20 L44 20 M20 28 L44 28 M20 36 L36 36 M20 44 L32 44" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  
+  <!-- Website Icon -->
+  <symbol id="icon-website" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="24" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M12 24 L52 24" stroke="#B8860B" stroke-width="1"/>
+    <path d="M12 40 L52 40" stroke="#B8860B" stroke-width="1"/>
+    <path d="M32 8 L32 56" stroke="#B8860B" stroke-width="1" stroke-dasharray="2 2"/>
+  </symbol>
+</svg>
