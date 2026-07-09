@@ -755,19 +755,43 @@ p {
   box-shadow: var(--shadow-sm);
 }
 
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-md) var(--space-lg);
-  cursor: pointer;
-  font-weight: 600;
-  color: var(--navy);
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--navy);
+    position: relative;
+    transition: var(--transition), background var(--transition);
+  }
+
+.faq-question::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: bottom;
   transition: var(--transition);
+  z-index: 1;
 }
 
 .faq-question:hover {
   background: var(--cream);
+}
+
+.faq-question:hover::before {
+  transform: scaleY(1);
+}
+
+.faq-question > * {
+  position: relative;
+  z-index: 2;
 }
 
 .faq-icon {
@@ -2063,7 +2087,9 @@ p {
 .stat-card,
 .location-card,
 .industries-list li,
-.faq-item {
+.faq-item,
+.contact-item,
+.industries-cta {
   position: relative;
   overflow: hidden;
 }
@@ -2125,7 +2151,9 @@ p {
 .pricing-card,
 .stat-card,
 .location-card,
-.faq-item {
+.faq-item,
+.contact-item,
+.industries-cta {
   border-color: transparent;
   transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
