@@ -1346,7 +1346,7 @@ p {
   padding: var(--space-lg);
   text-align: center;
   box-shadow: var(--shadow-sm);
-  border-top: 3px solid var(--gold);
+  border-top: 3px solid transparent;
   transition: var(--transition);
 }
 
@@ -1512,7 +1512,7 @@ p {
   font-weight: 500;
   color: var(--navy);
   box-shadow: var(--shadow-sm);
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid transparent;
   transition: var(--transition);
 }
 
@@ -2044,4 +2044,88 @@ p {
 .farber-branded-form button[type="submit"]:disabled:hover {
   transform: none;
   box-shadow: none;
+}
+
+/* ============================================================
+   UNIFIED CARD HOVER EFFECT
+   Matches the canonical .service-card pattern used on the
+   "Comprehensive Digital Marketing Services" section:
+     1. Gold left bar slides up from bottom (::before)
+     2. Card lifts translateY(-4px)
+     3. Shadow upgrades to --shadow-lg
+     4. Border color shifts to --gold
+   Applied to: .card, .service-card, .pricing-card, .stat-card,
+               .location-card, .industries-list li, .faq-item
+   ============================================================ */
+.card,
+.service-card,
+.pricing-card,
+.stat-card,
+.location-card,
+.industries-list li,
+.faq-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before,
+.service-card::before,
+.pricing-card::before,
+.stat-card::before,
+.location-card::before,
+.industries-list li::before,
+.faq-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: var(--transition);
+  z-index: 1;
+}
+
+.card:hover::before,
+.service-card:hover::before,
+.pricing-card:hover::before,
+.stat-card:hover::before,
+.location-card:hover::before,
+.industries-list li:hover::before,
+.faq-item:hover::before {
+  transform: scaleY(1);
+}
+
+.card:hover,
+.service-card:hover,
+.pricing-card:hover,
+.stat-card:hover,
+.location-card:hover,
+.industries-list li:hover,
+.faq-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+}
+
+/* Preserve FAQ accordion behavior — hover should be subtle, not lift */
+.faq-item:hover {
+  transform: none;
+}
+
+/* Preserve industries list — left-border treatment, no lift */
+.industries-list li:hover {
+  transform: translateY(-4px);
+}
+
+/* Ensure cards have a transitionable border-color (for the unified hover) */
+.card,
+.pricing-card,
+.stat-card,
+.location-card,
+.faq-item {
+  border-color: transparent;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
