@@ -2288,3 +2288,49 @@ p {
   display: inline-block;
   border-radius: 12px;
 }
+
+/* Local flair tags (industries) */
+.local-flair-section .flair-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.local-flair-section .flair-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--navy);
+  color: var(--cream);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 999px;
+  border: 1px solid var(--gold);
+  transition: var(--transition);
+}
+.local-flair-section .flair-tag:hover {
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-2px);
+}
+
+.local-flair-section .flair-prose p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.local-flair-section .flair-neighborhoods {
+  position: relative;
+  overflow: hidden;
+}
+
+.local-flair-section .flair-neighborhoods::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gold);
+  transform: scaleY(1);
+}
