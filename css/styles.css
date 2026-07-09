@@ -233,10 +233,72 @@ p {
   margin: 0 auto;
 }
 
-.logo {
-  display: flex;
+/* ============================================================
+   FARBER.INC LOGO — RAISED BUTTON
+   Shared styling for header .logo + footer .footer-logo
+   Visual treatment: layered box-shadow for depth, gold gradient ring,
+   gold-confetti burst on hover (animated by js/logo-confetti.js)
+   ============================================================ */
+.logo,
+.footer-logo {
+  position: relative;
+  display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
+  padding: 4px 10px 4px 4px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  background: linear-gradient(180deg, #FAF8F5 0%, #FFFFFF 100%);
+  border: 1px solid rgba(10, 22, 40, 0.08);
+  /* Raised button: layered shadow for depth */
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 -1px 0 rgba(10, 22, 40, 0.04) inset,
+    0 2px 4px rgba(10, 22, 40, 0.06),
+    0 6px 14px rgba(10, 22, 40, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  isolation: isolate;
+  will-change: transform;
+}
+
+.logo:hover,
+.footer-logo:hover,
+.logo:focus-visible,
+.footer-logo:focus-visible {
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 -1px 0 rgba(10, 22, 40, 0.05) inset,
+    0 4px 8px rgba(10, 22, 40, 0.10),
+    0 12px 24px rgba(10, 22, 40, 0.14),
+    0 0 0 3px rgba(184, 134, 11, 0.18);
+  outline: none;
+}
+
+.logo:active,
+.footer-logo:active {
+  transform: translateY(0);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 -1px 0 rgba(10, 22, 40, 0.04) inset,
+    0 1px 2px rgba(10, 22, 40, 0.10);
+}
+
+/* Gold ring glow around the logo SVG when raised */
+.logo .logo-icon,
+.footer-logo .footer-logo-icon {
+  border-radius: 50%;
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.logo:hover .logo-icon,
+.footer-logo:hover .footer-logo-icon,
+.logo:focus-visible .logo-icon,
+.footer-logo:focus-visible .footer-logo-icon {
+  filter: drop-shadow(0 0 6px rgba(184, 134, 11, 0.55));
+  transform: rotate(-6deg) scale(1.05);
 }
 
 .logo-icon {
@@ -933,12 +995,7 @@ p {
   line-height: 1.6;
 }
 
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-md);
-}
+
 
 .footer-logo-icon {
   width: 40px;
@@ -2156,4 +2213,78 @@ p {
 .industries-cta {
   border-color: transparent;
   transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+/* ============================================================
+   LOGO CONFETTI BURST
+   Spawned by js/logo-confetti.js on hover/focus of .logo and .footer-logo.
+   .logo-confetti-host is positioned at the logo center; .logo-confetti
+   particles animate outward with random angle, distance, rotation, color.
+   Honors prefers-reduced-motion.
+   ============================================================ */
+.logo-confetti-host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 2147483600;
+}
+
+.logo-confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  will-change: transform, opacity;
+  animation: logo-confetti-burst 1400ms cubic-bezier(0.18, 0.7, 0.4, 1) forwards;
+  /* CSS custom properties set inline by JS: --dx, --dy, --rot, --shape, --color, --delay, --size */
+  --dx: 0px;
+  --dy: 0px;
+  --rot: 0deg;
+  --size: 8px;
+  width: var(--size);
+  height: var(--size);
+  background: var(--color, #B8860B);
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation-delay: var(--delay, 0ms);
+  border-radius: var(--radius, 2px);
+  box-shadow: 0 0 6px rgba(184, 134, 11, 0.6);
+}
+
+@keyframes logo-confetti-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(0.4);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(calc(var(--dx) * 0.25), calc(var(--dy) * 0.25)) rotate(calc(var(--rot) * 0.25)) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-confetti {
+    animation: none;
+    opacity: 0;
+  }
+  .logo:hover,
+  .footer-logo:hover,
+  .logo:focus-visible,
+  .footer-logo:focus-visible {
+    transform: none;
+  }
+}
+
+/* Anchor wrapper around footer-logo — keep visually identical to header .logo */
+.footer-logo-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  border-radius: 12px;
 }
