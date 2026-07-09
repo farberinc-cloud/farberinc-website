@@ -40,15 +40,22 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
-  
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-320VJH0P6F"></script>
+    <!-- Google tag (gtag.js) — gated by cookie consent -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Default consent: denied until user accepts via cookie banner (Google Consent Mode v2)
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
     gtag('js', new Date());
-    gtag('config', 'G-320VJH0P6F');
+    gtag('config', 'G-320VJH0P6F', { anonymize_ip: true });
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-320VJH0P6F"></script>
   
   <title>Farber.Inc - AI Business Consulting | SEO | AEO | GEO</title>
   
@@ -266,7 +273,7 @@
 </head>
 <body>
   <!-- SVG Icons Sprite -->
-  <div style="display: none;">
+  <div hidden>
     <svg xmlns="http://www.w3.org/2000/svg">
       <!-- Logo Icon Mark -->
       <symbol id="logo-icon" viewBox="0 0 48 48">
@@ -974,6 +981,7 @@
           © <span class="current-year">2025</span> Farber.Inc. All rights reserved.
         </p>
         <div class="footer-legal">
+          <a href="pages/legal/privacy-policy.html">Privacy Policy</a>
           <a href="pages/geo-locations.html">U.S. Locations</a>
           <a href="pages/legal/seo-agreement.html">SEO Master Agreement</a>
           <a href="pages/legal/ai-consulting-agreement.html">AI Consulting Agreement</a>
@@ -988,6 +996,9 @@
   </button>
 
   <!-- JavaScript -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
+
+  <script src="js/cookie-consent.js" defer></script>
+  <script src="js/analytics-events.js" defer></script>
 </body>
 </html>

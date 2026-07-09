@@ -26,15 +26,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/styles.css">
-  
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-320VJH0P6F"></script>
+    <!-- Google tag (gtag.js) — gated by cookie consent -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Default consent: denied until user accepts via cookie banner (Google Consent Mode v2)
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
     gtag('js', new Date());
-    gtag('config', 'G-320VJH0P6F');
+    gtag('config', 'G-320VJH0P6F', { anonymize_ip: true });
   </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-320VJH0P6F"></script>
   
   <title>AI Consulting & SEO in New York, NY | Farber.Inc</title>
   
@@ -77,7 +84,7 @@
 </head>
 <body>
   <!-- SVG Icons -->
-  <div style="display: none;">
+  <div hidden>
     <svg xmlns="http://www.w3.org/2000/svg">
       <symbol id="logo-icon" viewBox="0 0 48 48">
         <circle cx="24" cy="24" r="24" fill="#0A1628"/>
@@ -458,6 +465,7 @@
       <div class="footer-bottom">
         <p class="footer-copyright">© <span class="current-year">2025</span> Farber.Inc. All rights reserved.</p>
         <div class="footer-legal">
+          <a href="../../pages/legal/privacy-policy.html">Privacy Policy</a>
           <a href="../geo-locations.html">U.S. Locations</a>
           <a href="../legal/seo-agreement.html">SEO Master Agreement</a>
           <a href="../legal/ai-consulting-agreement.html">AI Consulting Agreement</a>
@@ -466,6 +474,9 @@
     </div>
   </footer>
 
-  <script src="../../js/main.js"></script>
+  <script src="../../js/main.js" defer></script>
+
+  <script src="../../js/cookie-consent.js" defer></script>
+  <script src="../../js/analytics-events.js" defer></script>
 </body>
 </html>
