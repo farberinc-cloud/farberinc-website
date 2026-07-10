@@ -255,7 +255,7 @@
   <script>
     // Optional: enable submit button only after Turnstile passes
     function onTurnstileSuccess() {
-      document.querySelectorAll('.farber-branded-form button[type="submit"]').forEach(btn => {
+      document.querySelectorAll('.farber-branded-form button[type="submit"], .fi-contact-form button[type="submit"]').forEach(btn => {
         btn.disabled = false;
         btn.style.opacity = '1';
         btn.style.cursor = 'pointer';
@@ -263,7 +263,7 @@
     }
     // Initialize submit buttons as disabled until Turnstile passes
     document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.farber-branded-form button[type="submit"]').forEach(btn => {
+      document.querySelectorAll('.farber-branded-form button[type="submit"], .fi-contact-form button[type="submit"]').forEach(btn => {
         btn.disabled = true;
         btn.style.opacity = '0.5';
         btn.style.cursor = 'not-allowed';
@@ -900,35 +900,36 @@
         </div>
         
         <div class="fade-in stagger-2">
-                                        <div class="farber-static-form-card">
-                      <div class="farber-form-eyebrow">Start the Conversation</div>
-                      <h3>Request a Consultation</h3>
-                      <p class="farber-form-intro">Tell us what you are working on and a Farber.Inc strategist will follow up with next steps.</p>
-                      <form class="farber-branded-form" action="https://api.staticforms.dev/submit" method="POST">
+                                                                                <div class="fi-contact-panel">
+                      <div class="fi-contact-eyebrow">Start the Conversation</div>
+                      <h3 class="fi-contact-title">Request a Consultation</h3>
+
+                      <form class="fi-contact-form" action="https://api.staticforms.dev/submit" method="POST">
                         <input type="hidden" name="apiKey" value="sf_c49289756d9e68bedab13963" />
                         <input type="hidden" name="subject" value="Farber.Inc submission" />
                         <input type="hidden" name="redirectTo" value="https://www.farberinc.media/pages/services/thank-you.html" />
 
-                        <label>Name
-                          <input type="text" name="name" autocomplete="name" required />
+                        <div class="fi-form-row">
+                          <label>
+                            <input type="text" name="name" autocomplete="name" placeholder="Name" required />
+                          </label>
+                          <label>
+                            <input type="email" name="email" autocomplete="email" placeholder="Email" required />
+                          </label>
+                        </div>
+
+                        <label class="fi-form-full">
+                          <textarea name="message" placeholder="Tell us about your project or goals..." required></textarea>
                         </label>
 
-                        <label>Email
-                          <input type="email" name="email" autocomplete="email" required />
-                        </label>
+                        <div class="fi-form-actions">
+                          <div class="cf-turnstile" data-sitekey="0x4AAAAAADyw2708KLnsLjYa" data-callback="onTurnstileSuccess" data-theme="dark"></div>
+                          <button type="submit">Send Message</button>
+                        </div>
 
-                        <label>Message
-                          <textarea name="message" required></textarea>
-                        </label>
-                        <!-- Cloudflare Turnstile (bot protection) -->
-                        <div class="cf-turnstile" data-sitekey="0x4AAAAAADyw2708KLnsLjYa" data-callback="onTurnstileSuccess" data-theme="light"></div>
-
-
-                        <button type="submit">Send Message</button>
+                        <p class="fi-form-note">Your message is sent securely through StaticForms and routed to Farber.Inc.</p>
                       </form>
-                      <p class="farber-form-note">Your message is sent securely through StaticForms and routed to Farber.Inc.</p>
                     </div>
-        </div>
       </div>
     </div>
   </section>

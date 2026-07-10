@@ -2418,3 +2418,179 @@ p {
 }
 .blog-card-link svg { transition: transform 0.2s ease; }
 .blog-card-link:hover svg { transform: translateX(4px); }
+
+/* ============================================================
+   HOME PAGE — FI CONTACT PANEL
+   Compact, FI-branded (navy + gold) panel that matches the
+   height of the 'Brand Promise' card in the About section.
+   Only used on the home page (index.html). Geo pages keep
+   their existing .farber-static-form-card.
+   ============================================================ */
+.fi-contact-panel {
+  background: var(--navy);
+  color: var(--cream);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 24px 28px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(184, 134, 11, 0.3);
+}
+
+.fi-contact-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #B8860B 0%, #DAA520 50%, #B8860B 100%);
+}
+
+.fi-contact-eyebrow {
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.fi-contact-title {
+  color: white;
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 18px 0;
+  line-height: 1.2;
+}
+
+.fi-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fi-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.fi-contact-form label {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.fi-contact-form input[type="text"],
+.fi-contact-form input[type="email"],
+.fi-contact-form textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: white;
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 9px 12px;
+  margin-top: 4px;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.fi-contact-form input::placeholder,
+.fi-contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.fi-contact-form input:focus,
+.fi-contact-form textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.18);
+}
+
+.fi-contact-form textarea {
+  min-height: 64px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.fi-form-full {
+  display: block;
+}
+
+.fi-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.fi-form-actions .cf-turnstile {
+  margin: 0;
+  flex-shrink: 0;
+  transform: scale(0.85);
+  transform-origin: 0 50%;
+}
+
+.fi-form-actions button[type="submit"] {
+  background: var(--gold);
+  color: var(--navy);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  margin-left: auto;
+  box-shadow: 0 2px 8px rgba(184, 134, 11, 0.35);
+}
+
+.fi-form-actions button[type="submit"]:hover {
+  background: #DAA520;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(184, 134, 11, 0.5);
+}
+
+.fi-form-actions button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(184, 134, 11, 0.4);
+}
+
+.fi-form-actions button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.fi-form-note {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.7rem;
+  text-align: right;
+  margin: 6px 0 0 0;
+}
+
+@media (max-width: 480px) {
+  .fi-form-row { grid-template-columns: 1fr; }
+  .fi-form-actions { flex-direction: column; align-items: stretch; }
+  .fi-form-actions button[type="submit"] { margin-left: 0; width: 100%; }
+  .fi-form-actions .cf-turnstile { align-self: center; }
+}
