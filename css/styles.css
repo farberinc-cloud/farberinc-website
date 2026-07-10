@@ -1959,7 +1959,7 @@ p {
   border: 1px solid rgba(196, 155, 99, 0.24);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  padding: clamp(32px, 5vw, 48px);
+  padding: clamp(18px, 3vw, 24px);
   position: relative;
   overflow: hidden;
 }
@@ -1978,7 +1978,7 @@ p {
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.14em;
-  margin-bottom: var(--space-xs);
+  margin-bottom: 4px;
   text-transform: uppercase;
 }
 
@@ -1986,7 +1986,7 @@ p {
   color: #0A1628;
   font-size: clamp(1.4rem, 3vw, 1.75rem);
   font-weight: 800;
-  margin-bottom: var(--space-sm);
+  margin-bottom: 6px;
 }
 
 .farber-thank-you-card h1 {
@@ -2011,7 +2011,7 @@ p {
 .farber-branded-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
 
 .farber-branded-form label {
@@ -2025,7 +2025,7 @@ p {
 .farber-branded-form label input,
 .farber-branded-form label textarea {
   display: block;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .farber-branded-form input[type="text"],
@@ -2037,7 +2037,7 @@ p {
   color: #1A1A1A;
   font-family: inherit;
   font-size: 1rem;
-  padding: 14px 16px;
+  padding: 10px 14px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
   box-sizing: border-box;
@@ -2046,7 +2046,7 @@ p {
 }
 
 .farber-branded-form textarea {
-  min-height: 132px;
+  min-height: 84px;
   resize: vertical;
 }
 
