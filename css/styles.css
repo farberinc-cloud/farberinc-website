@@ -9,13 +9,48 @@
   --navy: #0A1628;
   --gold: #B8860B;
   --cream: #FAF8F5;
-  
+
   /* Secondary Colors */
   --navy-light: #1A2A4A;
   --gold-light: #D4A437;
   --gold-dark: #8B6914;
   --cream-dark: #F0EDE8;
-  
+
+  /* Gradient Intermediates (for the brand blue + cream gradient) */
+  --blue-mid: #1a3a5e;
+  --blue-light: #4a6890;
+  --blue-pale: #6b85a8;
+  --cream-tinted: #e8dcc4;
+
+  /* Brand Gradients (Farber.Inc Brand Guidelines) */
+  /* Primary: deep navy through mid-blue to cream — used for premium cards
+     and overlays where both brand colors must be visible. Gold accents
+     remain readable across the full gradient. */
+  --gradient-blue-cream: linear-gradient(
+    135deg,
+    #0A1628 0%,
+    #1a3a5e 30%,
+    #4a6890 60%,
+    #e8dcc4 85%,
+    #faf8f5 100%
+  );
+
+  /* Deeper variant: stays in the blue family for dark-themed cards. */
+  --gradient-blue-deep: linear-gradient(
+    135deg,
+    #0A1628 0%,
+    #1a3a5e 50%,
+    #2c4d6b 100%
+  );
+
+  /* Subtle variant: for hero overlays, footer gradients, light accents. */
+  --gradient-blue-soft: linear-gradient(
+    180deg,
+    rgba(10, 22, 40, 0.92) 0%,
+    rgba(10, 22, 40, 0.78) 40%,
+    rgba(10, 22, 40, 0.88) 100%
+  );
+
   /* Text Colors */
   --text-primary: #1A1A1A;
   --text-secondary: #4A4A4A;
@@ -2811,17 +2846,24 @@ p {
 .content-link:hover { color: var(--navy); }
 
 .blog-article-crosslink {
-  background: linear-gradient(135deg, #faf8f3 0%, #f3eddf 100%);
+  /* Brand gradient: blue and cream — fixes the prior white-on-cream
+     readability bug while keeping both Farber.Inc brand colors visible. */
+  background: var(--gradient-blue-cream);
   border-left: 4px solid var(--gold);
   border-radius: 8px;
   padding: 28px 32px;
   margin: 40px 0;
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
 }
 .blog-article-crosslink h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.25rem;
-  color: var(--navy);
+  color: var(--cream);
   margin: 0 0 18px 0;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(10, 22, 40, 0.3);
 }
 .crosslink-grid {
   display: grid;
@@ -2833,12 +2875,26 @@ p {
   font-size: 0.78rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold-dark);
+  color: var(--gold);
   margin: 0 0 10px 0;
   font-weight: 700;
+  text-shadow: 0 1px 2px rgba(10, 22, 40, 0.4);
 }
 .crosslink-grid ul { list-style: none; padding: 0; margin: 0; }
 .crosslink-grid li { margin-bottom: 6px; }
+/* Links inside the crosslink use gold for visibility on both blue and
+   cream areas of the gradient (white was unreadable on cream). */
+.crosslink-grid a {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: var(--text-small);
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  text-shadow: 0 1px 2px rgba(10, 22, 40, 0.3);
+}
+.crosslink-grid a:hover {
+  color: var(--cream);
+  text-shadow: 0 1px 4px rgba(184, 134, 11, 0.4);
+}
 
 @media (max-width: 640px) {
   .crosslink-grid { grid-template-columns: 1fr; gap: 18px; }
