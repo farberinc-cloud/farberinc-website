@@ -67,12 +67,13 @@
     }
   }
 
-  // Add the empty-state element if not already present
+  // Add the empty-state element if not already present (hidden by default)
   if (!empty) {
     const grid = document.querySelector('.blog-grid');
     if (grid) {
       const div = document.createElement('div');
       div.className = 'blog-empty';
+      div.style.display = 'none';
       div.textContent = 'No articles in this category yet — check back soon.';
       grid.parentNode.insertBefore(div, grid.nextSibling);
     }
