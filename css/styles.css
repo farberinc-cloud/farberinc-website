@@ -1517,19 +1517,29 @@ p {
    GEO PAGES - LOCAL INSIGHT
    ======================================== */
 .local-insight {
-  padding: 80px 0;
+  padding: 56px 0;
   background: var(--cream);
 }
 
 .insight-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-xl);
   align-items: center;
 }
 
+.insight-content .text-label {
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+  display: inline-block;
+}
+
 .insight-content h2 {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
   color: var(--navy);
   margin-bottom: var(--space-md);
 }
@@ -1546,10 +1556,40 @@ p {
   line-height: 1.7;
 }
 
+.insight-differentiators {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.insight-differentiators li {
+  position: relative;
+  padding-left: 28px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.insight-differentiators li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B8860B' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .insight-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
+  display: block;
+  max-width: 480px;
+  margin-left: auto;
+  width: 100%;
 }
 
 .stat-card {
@@ -1576,7 +1616,7 @@ p {
     grid-template-columns: 1fr;
   }
   .insight-stats {
-    grid-template-columns: 1fr 1fr;
+    max-width: 100%;
   }
   .stat-card:first-child {
     grid-column: auto;
