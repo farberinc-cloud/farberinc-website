@@ -3408,3 +3408,28 @@ p {
   object-fit: cover;
   object-position: center;
 }
+
+/* ============================================================
+   CARD LINK WRAPPER (clickable cards)
+   ============================================================ */
+a.card-link-wrapper {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+a.card-link-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(10, 22, 40, 0.15);
+}
+a.card-link-wrapper .card {
+  height: 100%;
+  cursor: pointer;
+}
+/* When the whole card is a link, hide the "Learn More" arrow on hover
+   (since the whole card now has its own hover state) */
+a.card-link-wrapper .btn {
+  pointer-events: none;  /* let the parent <a> handle the click */
+}

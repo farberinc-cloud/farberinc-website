@@ -309,6 +309,26 @@
       .geo-hero-image img { max-height: 280px; }
     }
   </style>
+  <style>
+    /* Critical: card-link-wrapper styles (bypasses Hostinger CDN cache) */
+    a.card-link-wrapper {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      height: 100%;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    a.card-link-wrapper:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(10, 22, 40, 0.15);
+    }
+    a.card-link-wrapper .card,
+    a.card-link-wrapper .service-card {
+      height: 100%;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <!-- SVG Icons -->
@@ -496,7 +516,8 @@
         </div>
         
         <div class="services-grid">
-          <div class="service-card">
+          <a href="../services/google-platforms.html" class="card-link-wrapper" style="text-decoration: none; color: inherit; display: block; height: 100%;" aria-label="Learn more about Search Engine Optimization">
+            <div class="service-card">
             <div class="service-icon">
               <svg><use href="#icon-seo"></use></svg>
             </div>
@@ -509,8 +530,10 @@
               <li>Link Building & Citations</li>
             </ul>
           </div>
+          </a>
           
-          <div class="service-card">
+          <a href="../services/intelligent-ai.html" class="card-link-wrapper" style="text-decoration: none; color: inherit; display: block; height: 100%;" aria-label="Learn more about Answer Engine Optimization">
+            <div class="service-card">
             <div class="service-icon">
               <svg><use href="#icon-aeo"></use></svg>
             </div>
@@ -523,8 +546,10 @@
               <li>Knowledge Graph Optimization</li>
             </ul>
           </div>
+          </a>
           
-          <div class="service-card">
+          <a href="../services/intelligent-ai.html" class="card-link-wrapper" style="text-decoration: none; color: inherit; display: block; height: 100%;" aria-label="Learn more about Generative Engine Optimization">
+            <div class="service-card">
             <div class="service-icon">
               <svg><use href="#icon-geo"></use></svg>
             </div>
@@ -537,8 +562,10 @@
               <li>AI Training Data Strategy</li>
             </ul>
           </div>
+          </a>
           
-          <div class="service-card">
+          <a href="../services/ai-consulting.html" class="card-link-wrapper" style="text-decoration: none; color: inherit; display: block; height: 100%;" aria-label="Learn more about AI Business Consulting">
+            <div class="service-card">
             <div class="service-icon">
               <svg><use href="#icon-ai"></use></svg>
             </div>
@@ -551,6 +578,7 @@
               <li>Team Training & Support</li>
             </ul>
           </div>
+          </a>
         </div>
       </div>
     </section>

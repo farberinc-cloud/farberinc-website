@@ -225,6 +225,26 @@
       .geo-hero-image img { max-height: 280px; }
     }
   </style>
+  <style>
+    /* Critical: card-link-wrapper styles (bypasses Hostinger CDN cache) */
+    a.card-link-wrapper {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      height: 100%;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    a.card-link-wrapper:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(10, 22, 40, 0.15);
+    }
+    a.card-link-wrapper .card,
+    a.card-link-wrapper .service-card {
+      height: 100%;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <!-- SVG Icons -->
@@ -416,7 +436,8 @@
       </div>
       
       <div class="services-grid">
-        <div class="card service-card fade-in stagger-1">
+        <a href="../services/google-platforms.html" class="card-link-wrapper" style="text-decoration: none; color: inherit; display: block; height: 100%;" aria-label="Learn more about SEO Services NYC">
+          <div class="card service-card fade-in stagger-1">
           <svg class="card-icon" width="64" height="64">
             <use href="#icon-seo"></use>
           </svg>
@@ -425,8 +446,10 @@
             Dominate New York search results with our comprehensive SEO strategies. We optimize your digital presence for local NYC searches, industry-specific keywords, and competitive Manhattan markets.
           </p>
         </div>
+        </a>
         
-        <div class="card service-card fade-in stagger-2">
+        <a href="../services/intelligent-ai.html" class="card-link-wrapper" style="text-decoration: none; color: inherit; display: block; height: 100%;" aria-label="Learn more about AEO Services">
+          <div class="card service-card fade-in stagger-2">
           <svg class="card-icon" width="64" height="64">
             <use href="#icon-aeo"></use>
           </svg>
@@ -435,8 +458,10 @@
             Position your NYC business in AI-powered answer engines. Be the authoritative source when New Yorkers ask ChatGPT, Google AI Overviews, or voice assistants about your industry.
           </p>
         </div>
+        </a>
         
-        <div class="card service-card fade-in stagger-3">
+        <a href="../services/intelligent-ai.html" class="card-link-wrapper" style="text-decoration: none; color: inherit; display: block; height: 100%;" aria-label="Learn more about GEO Services">
+          <div class="card service-card fade-in stagger-3">
           <svg class="card-icon" width="64" height="64">
             <use href="#icon-geo"></use>
           </svg>
@@ -445,8 +470,10 @@
             Optimize for generative AI platforms that are reshaping how New York consumers discover businesses. Ensure your brand appears in AI-generated recommendations.
           </p>
         </div>
+        </a>
         
-        <div class="card service-card fade-in stagger-4">
+        <a href="../services/ai-consulting.html" class="card-link-wrapper" style="text-decoration: none; color: inherit; display: block; height: 100%;" aria-label="Learn more about AI Business Consulting">
+          <div class="card service-card fade-in stagger-4">
           <svg class="card-icon" width="64" height="64">
             <use href="#icon-ai"></use>
           </svg>
@@ -455,6 +482,7 @@
             Strategic AI implementation for New York's competitive landscape. From automation to predictive analytics, we help NYC businesses leverage AI for competitive advantage.
           </p>
         </div>
+        </a>
       </div>
       
       <div class="text-center mt-xl fade-in">
