@@ -470,10 +470,23 @@
 
   <!-- Hero Section -->
   <section class="hero">
+    <!-- Background video: Pexels "digital enterprise" reel, embedded under the branded color overlay -->
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+           poster="https://images.pexels.com/videos/9365268/pexels-photo-9365268.jpeg?auto=compress&amp;w=1920"
+           aria-hidden="true">
+      <source src="https://videos.pexels.com/video-files/9365268/9365268-hd_1920_1080_25fps.mp4" type="video/mp4">
+      <source src="https://videos.pexels.com/video-files/9365268/9365268-sd_640_360_25fps.mp4" type="video/mp4">
+    </video>
+
+    <!-- Branded color graphic overlay: navy + gold gradient sits on top of the video -->
+    <div class="hero-overlay" aria-hidden="true">
+      <div class="hero-overlay-grid"></div>
+    </div>
+
     <div class="hero-bg-element"></div>
     <div class="hero-bg-element"></div>
     <div class="hero-bg-element"></div>
-    
+
     <div class="container">
       <div class="hero-content fade-in">
         <span class="hero-label">AI Business Consulting</span>
@@ -487,7 +500,7 @@
           <a href="pages/services/ai-consulting.html" class="btn btn-gold btn-lg">Explore AI Consulting</a>
           <a href="#services" class="btn btn-outline">Our Services</a>
         </div>
-        
+
         <div class="hero-stats">
           <div class="stat">
             <span class="stat-number" data-count="150">0</span>
