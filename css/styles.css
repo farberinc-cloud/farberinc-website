@@ -1224,8 +1224,8 @@ p {
    ======================================== */
 .page-header {
   background: var(--navy);
-  /* Even more compact so cards start ~500px down on 900px viewport */
-  padding: calc(80px + 16px) 0 28px;
+  /* Compact: cards start ~500-550px down so first row is visible above the fold */
+  padding: calc(96px) 0 28px !important;
   position: relative;
   overflow: hidden;
 }
