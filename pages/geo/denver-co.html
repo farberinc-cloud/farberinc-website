@@ -309,26 +309,6 @@
       .geo-hero-image img { max-height: 280px; }
     }
   </style>
-  <style>
-    /* Critical: card-link-wrapper styles (bypasses Hostinger CDN cache) */
-    a.card-link-wrapper {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      height: 100%;
-      position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    a.card-link-wrapper:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(10, 22, 40, 0.15);
-    }
-    a.card-link-wrapper .card,
-    a.card-link-wrapper .service-card {
-      height: 100%;
-      cursor: pointer;
-    }
-  </style>
 </head>
 <body>
   <!-- SVG Icons -->
@@ -516,8 +496,7 @@
         </div>
         
         <div class="services-grid">
-          <a href="../services/google-platforms.html" class="card-link-wrapper" style="text-decoration: none; color: inherit; display: block; height: 100%;" aria-label="Learn more about Search Engine Optimization">
-            <div class="service-card">
+          <div class="service-card">
             <div class="service-icon">
               <svg><use href="#icon-seo"></use></svg>
             </div>
@@ -529,11 +508,10 @@
               <li>Content Strategy & Creation</li>
               <li>Link Building & Citations</li>
             </ul>
+            <a href="../services/google-platforms.html" class="btn btn-secondary btn-sm mt-md" aria-label="Learn more about Search Engine Optimization">Learn More <svg width="14" height="14"><use href="#icon-arrow-right"></use></svg></a>
           </div>
-          </a>
           
-          <a href="../services/intelligent-ai.html" class="card-link-wrapper" style="text-decoration: none; color: inherit; display: block; height: 100%;" aria-label="Learn more about Answer Engine Optimization">
-            <div class="service-card">
+          <div class="service-card">
             <div class="service-icon">
               <svg><use href="#icon-aeo"></use></svg>
             </div>
@@ -545,11 +523,10 @@
               <li>AI Citation Building</li>
               <li>Knowledge Graph Optimization</li>
             </ul>
+            <a href="../services/intelligent-ai.html" class="btn btn-secondary btn-sm mt-md" aria-label="Learn more about Answer Engine Optimization">Learn More <svg width="14" height="14"><use href="#icon-arrow-right"></use></svg></a>
           </div>
-          </a>
           
-          <a href="../services/intelligent-ai.html" class="card-link-wrapper" style="text-decoration: none; color: inherit; display: block; height: 100%;" aria-label="Learn more about Generative Engine Optimization">
-            <div class="service-card">
+          <div class="service-card">
             <div class="service-icon">
               <svg><use href="#icon-geo"></use></svg>
             </div>
@@ -561,11 +538,10 @@
               <li>Structured Data Implementation</li>
               <li>AI Training Data Strategy</li>
             </ul>
+            <a href="../services/intelligent-ai.html" class="btn btn-secondary btn-sm mt-md" aria-label="Learn more about Generative Engine Optimization">Learn More <svg width="14" height="14"><use href="#icon-arrow-right"></use></svg></a>
           </div>
-          </a>
           
-          <a href="../services/ai-consulting.html" class="card-link-wrapper" style="text-decoration: none; color: inherit; display: block; height: 100%;" aria-label="Learn more about AI Business Consulting">
-            <div class="service-card">
+          <div class="service-card">
             <div class="service-icon">
               <svg><use href="#icon-ai"></use></svg>
             </div>
@@ -577,8 +553,8 @@
               <li>Workflow Automation</li>
               <li>Team Training & Support</li>
             </ul>
+            <a href="../services/ai-consulting.html" class="btn btn-secondary btn-sm mt-md" aria-label="Learn more about AI Business Consulting">Learn More <svg width="14" height="14"><use href="#icon-arrow-right"></use></svg></a>
           </div>
-          </a>
         </div>
       </div>
     </section>
