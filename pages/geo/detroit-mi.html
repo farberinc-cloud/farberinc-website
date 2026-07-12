@@ -309,6 +309,35 @@
       .geo-hero-image img { max-height: 280px; }
     }
   </style>
+  <style>
+    /* Critical: insight-grid + insight-stats override (bypasses Hostinger CDN cache).
+       Original CSS still has old grid-template-columns for 3 stat cards;
+       these rules force the new layout for the contact form. */
+    .local-insight .insight-grid {
+      grid-template-columns: 1fr 1fr !important;
+      align-items: start !important;
+    }
+    .local-insight .insight-stats {
+      display: block !important;
+      grid-template-columns: none !important;
+      max-width: 420px !important;
+      width: 100% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .local-insight .insight-stats .fi-contact-panel {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    @media (max-width: 768px) {
+      .local-insight .insight-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .local-insight .insight-stats {
+        max-width: 100% !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- SVG Icons -->
