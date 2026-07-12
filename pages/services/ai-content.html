@@ -1,6 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    /* Hero with image */
+    .page-header-hero {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 80px 24px;
+    }
+    .page-header-hero picture,
+    .page-header-hero img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .page-header-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(10, 22, 40, 0.55) 0%, rgba(10, 22, 40, 0.75) 100%);
+      z-index: 1;
+    }
+    .page-header-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .page-header-hero .text-label,
+    .page-header-hero h1,
+    .page-header-hero .page-header-subtitle {
+      color: white;
+    }
+    .page-header-hero .text-label {
+      color: var(--gold) !important;
+    }
+    .page-header-hero .page-header-subtitle {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+  </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="AI Content Creation & Strategy for brands that need to ship content at the speed AI demands. Brand-voice-tuned production, E-E-A-T optimization, AI citation engineering, and editorial workflows that scale.">
@@ -219,7 +266,12 @@
   </header>
   
   <!-- Page Header -->
-  <section class="page-header">
+  <section class="page-header page-header-hero">
+        <picture>
+          <source srcset="../../images/services/ai-content.webp" type="image/webp">
+          <img src="../../images/services/ai-content.jpg" alt="Farber.Inc content team collaborating on AI-powered content strategy in a creative studio." width="1600" height="900" loading="eager">
+        </picture>
+        <div class="container">
     <div class="container">
       <div class="text-center fade-in">
         <span class="text-label">Service</span>
@@ -229,7 +281,8 @@
         </p>
       </div>
     </div>
-  </section>
+  </div>
+      </section>
   
   <!-- Why AI Content -->
   <section class="section section-cream">
