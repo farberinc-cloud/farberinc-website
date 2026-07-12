@@ -88,6 +88,54 @@
       });
     });
   </script>
+  <style>
+    /* Critical: geo hero image styles (bypasses Hostinger CDN cache) */
+    .geo-hero-image {
+      margin: 0 0 32px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(10, 22, 40, 0.18);
+      border: 1px solid rgba(184, 134, 11, 0.2);
+      max-height: 480px;
+      background: #0A1628;
+      position: relative;
+    }
+    .geo-hero-image picture,
+    .geo-hero-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: center;
+    }
+    .geo-hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10, 22, 40, 0) 60%, rgba(10, 22, 40, 0.08) 100%);
+      pointer-events: none;
+    }
+    .geo-card-image {
+      position: relative;
+      height: 140px;
+      background: #faf8f5;
+      overflow: hidden;
+      border-radius: 8px 8px 0 0;
+      margin: -1.5rem -1.5rem 1rem -1.5rem;
+    }
+    .geo-card-image picture, .geo-card-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    @media (max-width: 768px) {
+      .geo-hero-image { max-height: 280px; margin-bottom: 24px; }
+      .geo-hero-image img { max-height: 280px; }
+    }
+  </style>
 </head>
 <body>
   <!-- SVG Icons -->
@@ -222,34 +270,145 @@
         <div class="locations-region" style="margin-bottom: var(--space-xl);">
           <h3 style="font-size: 1.25rem; color: var(--gold); margin-bottom: var(--space-md); font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 0.1em;">Northeast</h3>
           <div class="locations-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-md);">
-            <a href="geo/new-york-ny.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: var(--space-lg); box-shadow: var(--shadow-sm); transition: var(--transition); ">
-              <h4 style="font-size: 1.25rem; margin-bottom: var(--space-xs); color: var(--navy);">New York, NY</h4>
-              <p style="color: var(--text-muted); font-size: 0.9rem;">Greater New York City Area</p>
-            </a>
-            <a href="geo/boston-ma.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: var(--space-lg); box-shadow: var(--shadow-sm); transition: var(--transition); ">
-              <h4 style="font-size: 1.25rem; margin-bottom: var(--space-xs); color: var(--navy);">Boston, MA</h4>
-              <p style="color: var(--text-muted); font-size: 0.9rem;">Greater Boston Area</p>
-            </a>
-            <a href="geo/philadelphia-pa.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: var(--space-lg); box-shadow: var(--shadow-sm); transition: var(--transition); ">
-              <h4 style="font-size: 1.25rem; margin-bottom: var(--space-xs); color: var(--navy);">Philadelphia, PA</h4>
-              <p style="color: var(--text-muted); font-size: 0.9rem;">Delaware Valley</p>
-            </a>
-            <a href="geo/washington-dc.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: var(--space-lg); box-shadow: var(--shadow-sm); transition: var(--transition); ">
-              <h4 style="font-size: 1.25rem; margin-bottom: var(--space-xs); color: var(--navy);">Washington, DC</h4>
+            <a href="geo/new-york-ny.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/new-york-ny.webp" type="image/webp">
+                  <img src="images/geo/new-york-ny.jpg" alt="Brooklyn Bridge i<a href="geo/boston-ma.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/boston-ma.webp" type="image/webp">
+                  <img src="images/geo/boston-ma.jpg" alt="Fenway Park <a href="geo/philadelphia-pa.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/philadelphia-pa.webp" type="image/webp">
+                  <img src="images/geo/philadelphia-pa.jpg" alt="In<a href="geo/washington-dc.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/washington-dc.webp" type="image/webp">
+                  <img src="images/geo/washington-dc.jpg" alt="Lincoln Memorial in Washington DC at dawn" width="600" height="340" loading="lazy">
+                </picture>
+              </div>
+              <div style="padding: var(--space-lg);">
+                <h4 style="font-size: 1.25rem; margin-bottom: var(--space-xs); color: var(--navy);">Washington, DC</h4>
               <p style="color: var(--text-muted); font-size: 0.9rem;">DMV Area</p>
-            </a>
-          </div>
-        </div>
-
-        <!-- Southeast -->
-        <div class="locations-region" style="margin-bottom: var(--space-xl);">
-          <h3 style="font-size: 1.25rem; color: var(--gold); margin-bottom: var(--space-md); font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 0.1em;">Southeast</h3>
-          <div class="locations-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-md);">
-            <a href="geo/miami-fl.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: var(--space-lg); box-shadow: var(--shadow-sm); transition: var(--transition); ">
-              <h4 style="font-size: 1.25rem; margin-bottom: var(--space-xs); color: var(--navy);">Miami, FL</h4>
-              <p style="color: var(--text-muted); font-size: 0.9rem;">South Florida</p>
-            </a>
-            <a href="geo/orlando-fl.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: var(--space-lg); box-shadow: var(--shadow-sm); transition: var(--transition); ">
+              </div>
+            </a>ay: block; background: white; border-radius: var<a href="geo/miami-fl.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/miami-fl.webp" type="image/webp">
+                  <img src="images/geo/miami-fl.jpg" alt="Ocean D<a href="geo/orlando-fl.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/orlando-fl.webp" type="image/webp">
+                  <img src="images/geo/orlando-fl.jpg" alt="Cinde<a href="geo/tampa-fl.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/tampa-fl.webp" type="image/webp">
+                  <img src="images/geo/tampa-fl.jpg" alt="Tampa Ri<a href="geo/atlanta-ga.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/atlanta-ga.webp" type="image/webp">
+                  <img src="images/geo/atlanta-ga.jpg" alt="Atlan<a href="geo/charlotte-nc.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/charlotte-nc.webp" type="image/webp">
+                  <img src="images/geo/charlotte-nc.jpg" alt="Charl<a href="geo/nashville-tn.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/nashville-tn.webp" type="image/webp">
+                  <img src="images/geo/nashville-tn.jpg" alt="Broadway in Nashville at night" width="600" height="340" loading="lazy">
+                </picture>
+              </div>
+              <div style="padding: var(--space-lg);">
+                <h4 style="font-size: 1.25rem; margin-bottom: var(--space-xs); color: var(--navy);">Nashville, TN</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Middle Tennessee</p>
+              </div>
+            </a>sition); ">
+              <h4 style="font-size: 1.25rem; <a href="geo/chicago-il.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/chicago-il.webp" type="image/webp">
+                  <img src="images/geo/chicago-il.jpg" alt="Clo<a href="geo/detroit-mi.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/detroit-mi.webp" type="image/webp">
+                  <img src="images/geo/detroit-mi.jpg" alt="Detro<a href="geo/minneapolis-mn.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/minneapolis-mn.webp" type="image/webp">
+                  <img src="images/geo/minneapolis-mn.jpg" alt="Stone Arch Bridge in Minneapolis" width="600" height="340" loading="lazy">
+                </picture>
+              </div>
+              <div style="padding: var(--space-lg);">
+                <h4 style="font-size: 1.25rem; margin-bottom: var(--space-xs); color: var(--navy);">Minneapolis, MN</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Twin Cities</p>
+              </div>
+            </a>; color: var(--navy);">Washington, DC</h4>
+            <a href="geo/houston-tx.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/houston-tx.webp" type="image/webp">
+                  <img src="images/geo/houston-tx.jpg" alt="Houston<a href="geo/dallas-tx.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/dallas-tx.webp" type="image/webp">
+                  <img src="images/geo/dallas-tx.jpg" alt="Dallas sky<a href="geo/austin-tx.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/austin-tx.webp" type="image/webp">
+                  <img src="images/geo/austin-tx.jpg" alt="Texas S<a href="geo/phoenix-az.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/phoenix-az.webp" type="image/webp">
+                  <img src="images/geo/phoenix-az.jpg" alt="Camelback<a href="geo/las-vegas-nv.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/las-vegas-nv.webp" type="image/webp">
+                  <img src="images/geo/las-vegas-nv.jpg" alt="Las Vegas Strip at night" width="600" height="340" loading="lazy">
+                </picture>
+              </div>
+              <div style="padding: var(--space-lg);">
+                <h4 style="font-size: 1.25rem; margin-bottom: var(--space-xs); color: var(--navy);">Las Vegas, NV</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Las Vegas Valley</p>
+              </div>
+            </a>)); gap: var(--space-md);">
+            <a href="geo/miam<a href="geo/los-angeles-ca.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/los-angeles-ca.webp" type="image/webp">
+                  <img src="images/geo/los-angeles-ca.jpg" alt="The Hol<a href="geo/san-francisco-ca.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/san-francisco-ca.webp" type="image/webp">
+                  <img src="images/geo/san-francisco-ca.jpg" alt="Golden G<a href="geo/san-diego-ca.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/san-diego-ca.webp" type="image/webp">
+                  <img src="images/geo/san-diego-ca.jpg" alt="Hotel <a href="geo/seattle-wa.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/seattle-wa.webp" type="image/webp">
+                  <img src="images/geo/seattle-wa.jpg" alt="Spa<a href="geo/portland-or.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/portland-or.webp" type="image/webp">
+                  <img src="images/geo/portland-or.jpg" alt="Downt<a href="geo/denver-co.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/denver-co.webp" type="image/webp">
+                  <img src="images/geo/denver-co.jpg" alt="Red R<a href="geo/salt-lake-city-ut.html" class="location-card" style="display: block; background: white; border-radius: var(--radius-lg); padding: 0; box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden;">
+                            <div class="geo-card-image">
+                <picture>
+                  <source srcset="images/geo/salt-lake-city-ut.webp" type="image/webp">
+                  <img src="images/geo/salt-lake-city-ut.jpg" alt="Temple Square in Salt Lake City" width="600" height="340" loading="lazy">
+                </picture>
+              </div>
+              <div style="padding: var(--space-lg);">
+                <h4 style="font-size: 1.25rem; margin-bottom: var(--space-xs); color: var(--navy);">Salt Lake City, UT</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Wasatch Front</p>
+              </div>
+            </a>pace-lg); box-shadow: var(--shadow-sm); transition: var(--transition); ">
               <h4 style="font-size: 1.25rem; margin-bottom: var(--space-xs); color: var(--navy);">Orlando, FL</h4>
               <p style="color: var(--text-muted); font-size: 0.9rem;">Metro Orlando</p>
             </a>

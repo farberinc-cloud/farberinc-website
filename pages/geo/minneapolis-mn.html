@@ -261,6 +261,54 @@
   "priceRange": "$$"
 }
   </script>
+  <style>
+    /* Critical: geo hero image styles (bypasses Hostinger CDN cache) */
+    .geo-hero-image {
+      margin: 0 0 32px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(10, 22, 40, 0.18);
+      border: 1px solid rgba(184, 134, 11, 0.2);
+      max-height: 480px;
+      background: #0A1628;
+      position: relative;
+    }
+    .geo-hero-image picture,
+    .geo-hero-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: center;
+    }
+    .geo-hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10, 22, 40, 0) 60%, rgba(10, 22, 40, 0.08) 100%);
+      pointer-events: none;
+    }
+    .geo-card-image {
+      position: relative;
+      height: 140px;
+      background: #faf8f5;
+      overflow: hidden;
+      border-radius: 8px 8px 0 0;
+      margin: -1.5rem -1.5rem 1rem -1.5rem;
+    }
+    .geo-card-image picture, .geo-card-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    @media (max-width: 768px) {
+      .geo-hero-image { max-height: 280px; margin-bottom: 24px; }
+      .geo-hero-image img { max-height: 280px; }
+    }
+  </style>
 </head>
 <body>
   <!-- SVG Icons -->
@@ -395,7 +443,12 @@
     <!-- Hero Section -->
     <section class="geo-hero">
       <div class="container">
-        <div class="geo-hero-content">
+                <div class="geo-hero-image fade-in">
+          <picture>
+            <source srcset="../../images/geo/minneapolis-mn.webp" type="image/webp">
+            <img src="../../images/geo/minneapolis-mn.jpg" alt="The Stone Arch Bridge in Minneapolis spanning the Mississippi River with the Guthrie Theater" width="1600" height="900" loading="eager" fetchpriority="high">
+          </picture>
+        </div><div class="geo-hero-content">
           <span class="label">Serving Twin Cities</span>
           <h1>AI Business Consulting & SEO Services in <span class="text-gold">Minneapolis, MN</span></h1>
           <p class="hero-description">The Twin Cities combine Fortune 500 headquarters with a thriving startup scene, requiring digital strategies that bridge corporate sophistication with entrepreneurial innovation.</p>
