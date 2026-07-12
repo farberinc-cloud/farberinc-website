@@ -165,7 +165,7 @@ p {
 }
 
 .section {
-  padding: var(--space-2xl) 0;
+  padding: var(--space-xl) 0;
 }
 
 .section-cream {
@@ -1224,8 +1224,8 @@ p {
    ======================================== */
 .page-header {
   background: var(--navy);
-  /* Compact by default — was 80px + 2xl which pushed content way down */
-  padding: calc(80px + 32px) 0 36px;
+  /* Even more compact so cards start ~500px down on 900px viewport */
+  padding: calc(80px + 16px) 0 28px;
   position: relative;
   overflow: hidden;
 }
@@ -1247,9 +1247,10 @@ p {
 }
 
 .page-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   color: var(--text-light);
-  margin-bottom: var(--space-sm);
+  margin-bottom: 12px;
+  line-height: 1.15;
 }
 
 .page-subtitle {
@@ -3018,8 +3019,8 @@ p {
    BLOG LANDING PAGE (latest-news.html)
    ============================================================ */
 .blog-landing-header {
-  /* Compact landing-page header: cards start ~700px down on a 900px viewport */
-  padding: calc(80px + 40px) 0 36px;
+  /* Compact: cards start ~500-550px down so first row is visible above the fold */
+  padding: calc(80px + 16px) 0 28px;
   background:
     linear-gradient(135deg, var(--navy) 0%, #0d1d35 100%);
 }
@@ -3033,9 +3034,9 @@ p {
 .blog-category-filter {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 36px;
-  padding-top: 32px;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 20px;
   border-top: 1px solid rgba(184, 134, 11, 0.18);
 }
 
