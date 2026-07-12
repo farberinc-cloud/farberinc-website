@@ -191,7 +191,7 @@
   <script>
     // Optional: enable submit button only after Turnstile passes
     function onTurnstileSuccess() {
-      document.querySelectorAll('.farber-branded-form button[type="submit"]').forEach(btn => {
+      document.querySelectorAll('.farber-branded-form button[type="submit"], .fi-contact-form button[type="submit"]').forEach(btn => {
         btn.disabled = false;
         btn.style.opacity = '1';
         btn.style.cursor = 'pointer';
@@ -199,7 +199,7 @@
     }
     // Initialize submit buttons as disabled until Turnstile passes
     document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.farber-branded-form button[type="submit"]').forEach(btn => {
+      document.querySelectorAll('.farber-branded-form button[type="submit"], .fi-contact-form button[type="submit"]').forEach(btn => {
         btn.disabled = true;
         btn.style.opacity = '0.5';
         btn.style.cursor = 'not-allowed';
@@ -253,6 +253,26 @@
       </symbol>
       <symbol id="icon-menu" viewBox="0 0 24 24">
         <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <!-- Location Icon -->
+      <symbol id="icon-location" viewBox="0 0 64 64">
+        <path d="M32 56 C32 56 12 38 12 26 C12 16 20 8 32 8 C44 8 52 16 52 26 C52 38 32 56 32 56 Z" fill="none" stroke="#B8860B" stroke-width="2"/>
+        <circle cx="32" cy="26" r="8" fill="none" stroke="#B8860B" stroke-width="2"/>
+        <circle cx="32" cy="26" r="3" fill="#B8860B"/>
+      </symbol>
+      <!-- Phone Icon -->
+      <symbol id="icon-phone" viewBox="0 0 64 64">
+        <path d="M20 8 C16 8 12 12 12 16 L12 20 C12 36 24 52 44 52 L48 52 C52 52 56 48 56 44 L56 38 L44 32 L38 40 C32 36 28 32 24 26 L32 20 L26 8 Z" fill="none" stroke="#B8860B" stroke-width="2" stroke-linejoin="round"/>
+      </symbol>
+      <!-- Email Icon -->
+      <symbol id="icon-email" viewBox="0 0 64 64">
+        <rect x="8" y="16" width="48" height="32" rx="4" fill="none" stroke="#B8860B" stroke-width="2"/>
+        <path d="M8 20 L32 36 L56 20" fill="none" stroke="#B8860B" stroke-width="2"/>
+      </symbol>
+      <!-- Clock Icon -->
+      <symbol id="icon-clock" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="24" fill="none" stroke="#B8860B" stroke-width="2"/>
+        <path d="M32 16 L32 32 L42 38" fill="none" stroke="#B8860B" stroke-width="2" stroke-linecap="round"/>
       </symbol>
       <!-- YouTube Icon -->
       <symbol id="icon-youtube" viewBox="0 0 24 24">
@@ -647,88 +667,87 @@
   </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+      <section id="contact" class="section section-cream">
       <div class="container">
+        <div class="text-center mb-xl">
+          <span class="text-label fade-in">Contact Us</span>
+          <h2 class="fade-in stagger-1">Ready to Grow Your Miami Business?</h2>
+          <p class="fade-in stagger-2" style="max-width: 600px; margin: 0 auto;">
+            Schedule a free consultation to discuss how Farber.Inc can help you achieve your digital marketing goals.
+          </p>
+        </div>
+
         <div class="contact-grid">
-          <div class="contact-info">
-            <h2>Ready to Grow Your Miami Business?</h2>
-            <p class="lead">Schedule your free consultation and discover how Farber.Inc can transform your digital presence.</p>
-            
-            <div class="contact-details">
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg><use href="#icon-geo"></use></svg>
-                </div>
-                <p>3100 SE Federal HWY #1003<br>Stuart, FL 34994</p>
-              </div>
-              
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg><use href="#icon-aeo"></use></svg>
-                </div>
-                <p><a href="tel:+17723108202">772-310-8202</a></p>
-              </div>
-              
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <svg><use href="#icon-seo"></use></svg>
-                </div>
-                <p><a href="mailto:farber.inc@gmail.com">farber.inc@gmail.com</a></p>
-              </div>
+          <div class="fade-in">
+            <h3 style="margin-bottom: 24px;">Get In Touch</h3>
+
+            <div class="contact-item">
+              <svg class="contact-icon" width="48" height="48"><use href="#icon-location"></use></svg>
+              <span class="contact-value">3100 SE Federal HWY #1003<br>Stuart, FL 34994</span>
             </div>
-            
-            <h4 style="margin-bottom: 16px; font-size: 1rem;">Connect With Us</h4>
-            <div class="social-links">
-              <a href="https://www.facebook.com/profile.php?id=61577813849193" target="_blank" rel="noopener" aria-label="Facebook">
-                <svg width="20" height="20" style="color: white;"><use href="#icon-facebook"></use></svg>
-              </a>
-              <a href="https://www.linkedin.com/company/112545129" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <svg width="20" height="20" style="color: white;"><use href="#icon-linkedin"></use></svg>
-              </a>
-              <a href="https://www.youtube.com/@Farberinc" target="_blank" rel="noopener" aria-label="YouTube">
-                <svg width="20" height="20" style="color: white;"><use href="#icon-youtube"></use></svg>
-              </a>
+
+            <div class="contact-item">
+              <svg class="contact-icon" width="48" height="48"><use href="#icon-phone"></use></svg>
+              <a href="tel:772-310-8202" class="contact-value">772-310-8202</a>
             </div>
-             target="_blank" rel="noopener" aria-label="Facebook">
-                <svg width="20" height="20" style="color: white;"><use href="#icon-facebook"></use></svg>
-              </a>
-              <a href="https://www.linkedin.com/company/112545129" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <svg width="20" height="20" style="color: white;"><use href="#icon-linkedin"></use></svg>
-              </a>
-              <a href="https://www.youtube.com/@Farberinc" target="_blank" rel="noopener" aria-label="YouTube">
-                <svg width="20" height="20" style="color: white;"><use href="#icon-youtube"></use></svg>
-              </a>
+
+            <div class="contact-item">
+              <svg class="contact-icon" width="48" height="48"><use href="#icon-email"></use></svg>
+              <a href="mailto:farber.inc@gmail.com" class="contact-value">farber.inc@gmail.com</a>
+            </div>
+
+            <div class="contact-item">
+              <svg class="contact-icon" width="48" height="48"><use href="#icon-clock"></use></svg>
+              <span class="contact-value">Mon–Fri 9AM–5PM EST</span>
+            </div>
+
+            <div style="margin-top: 32px;">
+              <h4 style="margin-bottom: 16px; font-size: 1rem;">Connect With Us</h4>
+              <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61577813849193" target="_blank" rel="noopener" aria-label="Facebook">
+                  <svg width="20" height="20" style="color: white;"><use href="#icon-facebook"></use></svg>
+                </a>
+                <a href="https://www.linkedin.com/company/112545129" target="_blank" rel="noopener" aria-label="LinkedIn">
+                  <svg width="20" height="20" style="color: white;"><use href="#icon-linkedin"></use></svg>
+                </a>
+                <a href="https://www.youtube.com/@Farberinc" target="_blank" rel="noopener" aria-label="YouTube">
+                  <svg width="20" height="20" style="color: white;"><use href="#icon-youtube"></use></svg>
+                </a>
+              </div>
             </div>
           </div>
-          
-          <div class="farber-static-form-card">
-                          <div class="farber-form-eyebrow">Start the Conversation</div>
-                          <h3>Request a Consultation</h3>
-                          <p class="farber-form-intro">Tell us what you are working on and a Farber.Inc strategist will follow up with next steps.</p>
-                          <form class="farber-branded-form" action="https://api.staticforms.dev/submit" method="POST">
-                            <input type="hidden" name="apiKey" value="sf_c49289756d9e68bedab13963" />
-                            <input type="hidden" name="subject" value="Farber.Inc submission" />
-                            <input type="hidden" name="redirectTo" value="https://www.farberinc.media/pages/services/thank-you.html" />
 
-                            <label>Name
-                              <input type="text" name="name" autocomplete="name" required />
-                            </label>
+          <div class="fade-in stagger-2">
+            <div class="fi-contact-panel">
+              <div class="fi-contact-eyebrow">Start the Conversation</div>
+              <h3 class="fi-contact-title">Request a Consultation</h3>
 
-                            <label>Email
-                              <input type="email" name="email" autocomplete="email" required />
-                            </label>
+              <form class="fi-contact-form" action="https://api.staticforms.dev/submit" method="POST">
+                <input type="hidden" name="apiKey" value="sf_c49289756d9e68bedab13963" />
+                <input type="hidden" name="subject" value="Farber.Inc submission" />
+                <input type="hidden" name="redirectTo" value="https://www.farberinc.media/pages/services/thank-you.html" />
 
-                            <label>Message
-                              <textarea name="message" required></textarea>
-                            </label>
-                        <!-- Cloudflare Turnstile (bot protection) -->
-                        <div class="cf-turnstile" data-sitekey="0x4AAAAAADyw2708KLnsLjYa" data-callback="onTurnstileSuccess" data-theme="light"></div>
+                <div class="fi-form-row">
+                  <label>
+                    <input type="text" name="name" autocomplete="name" placeholder="Name" required />
+                  </label>
+                  <label>
+                    <input type="email" name="email" autocomplete="email" placeholder="Email" required />
+                  </label>
+                </div>
 
+                <label class="fi-form-full">
+                  <textarea name="message" placeholder="Tell us about your project or goals..." required></textarea>
+                </label>
 
-                            <button type="submit">Send Message</button>
-                          </form>
-                          <p class="farber-form-note">Your message is sent securely through StaticForms and routed to Farber.Inc.</p>
-                        </div>
+                <div class="fi-form-actions">
+                  <div class="cf-turnstile" data-sitekey="0x4AAAAAADyw2708KLnsLjYa" data-callback="onTurnstileSuccess" data-theme="dark"></div>
+                  <button type="submit">Send Message</button>
+                </div>
+
+                <p class="fi-form-note">Your message is sent securely through StaticForms and routed to Farber.Inc.</p>
+              </form>
+            </div>
           </div>
         </div>
       </div>
