@@ -3118,3 +3118,76 @@ p {
     font-size: 0.82rem;
   }
 }
+
+/* ============================================================
+   BLOG HERO IMAGE (article header)
+   ============================================================ */
+.blog-hero-image {
+  margin: 0 0 32px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(10, 22, 40, 0.15);
+  border: 1px solid rgba(184, 134, 11, 0.2);
+  max-height: 420px;
+  background: var(--cream);
+}
+.blog-hero-image picture,
+.blog-hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 768px) {
+  .blog-hero-image { max-height: 260px; margin-bottom: 24px; }
+  .blog-hero-image img { max-height: 260px; }
+}
+
+/* ============================================================
+   BLOG CARD THUMBNAIL (latest-news.html)
+   ============================================================ */
+.blog-card {
+  overflow: hidden;
+}
+
+.blog-card-thumb {
+  margin: -28px -28px 0 -28px;  /* bleed to card edges */
+  overflow: hidden;
+  height: 180px;
+  background: var(--cream);
+  position: relative;
+}
+
+.blog-card-thumb picture,
+.blog-card-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-card-thumb img {
+  transform: scale(1.06);
+}
+
+/* When the card has a thumbnail, give it a subtle gradient overlay
+   so the gold date/icon area reads well over the photo */
+.blog-card-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(10, 22, 40, 0.10) 0%,
+    rgba(10, 22, 40, 0.02) 40%,
+    rgba(10, 22, 40, 0) 100%);
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .blog-card-thumb { height: 150px; margin: -28px -28px 0 -28px; }
+}
