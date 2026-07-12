@@ -149,6 +149,18 @@
 }
   </script>
   <link rel="preload" as="image" href="../../images/blog/rise-of-zero-click-search-how-to-win.jpg" fetchpriority="high">
+  <style>
+    /* Critical: override .blog-article-crosslink with brand gradient
+       (fixes the white-on-cream readability bug while Hostinger CDN catches up) */
+    .blog-article-crosslink {
+      background: linear-gradient(135deg, #0A1628 0%, #1a3a5e 30%, #4a6890 60%, #e8dcc4 85%, #faf8f5 100%) !important;
+      color: #faf8f5 !important;
+    }
+    .blog-article-crosslink h3 { color: #faf8f5 !important; text-shadow: 0 1px 2px rgba(10,22,40,0.3); }
+    .crosslink-grid h4 { color: #B8860B !important; text-shadow: 0 1px 2px rgba(10,22,40,0.4); }
+    .crosslink-grid a { color: #B8860B !important; text-shadow: 0 1px 2px rgba(10,22,40,0.3); }
+    .crosslink-grid a:hover { color: #faf8f5 !important; }
+  </style>
 </head>
 <body>
   <!-- SVG Icons Sprite -->
