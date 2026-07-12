@@ -2606,6 +2606,11 @@ p {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(184, 134, 11, 0.3);
+  /* Standard form size - consistent across the site.
+     Parent containers can override max-width if needed for special layouts. */
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .fi-contact-panel::before {

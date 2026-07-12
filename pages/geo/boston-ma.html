@@ -311,10 +311,12 @@
   </style>
   <style>
     /* Critical: insight-grid + insight-stats override (bypasses Hostinger CDN cache).
-       Original CSS still has old grid-template-columns for 3 stat cards;
-       these rules force the new layout for the contact form. */
+       The CDN serves an older cached styles.css with the old 3-stat-card grid;
+       these rules force the new layout for the standard-size contact form. */
+    .local-insight { padding: 56px 0 !important; }
     .local-insight .insight-grid {
-      grid-template-columns: 1fr 1fr !important;
+      grid-template-columns: minmax(0, 1fr) 420px !important;
+      gap: var(--space-2xl, 64px) !important;
       align-items: start !important;
     }
     .local-insight .insight-stats {
@@ -322,20 +324,19 @@
       grid-template-columns: none !important;
       max-width: 420px !important;
       width: 100% !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
+      margin: 0 !important;
     }
     .local-insight .insight-stats .fi-contact-panel {
+      max-width: 420px !important;
       width: 100% !important;
-      max-width: 100% !important;
+      margin: 0 !important;
     }
-    @media (max-width: 768px) {
+    .local-insight .insight-content { padding-right: 16px !important; }
+    @media (max-width: 900px) {
       .local-insight .insight-grid {
         grid-template-columns: 1fr !important;
       }
-      .local-insight .insight-stats {
-        max-width: 100% !important;
-      }
+      .local-insight .insight-content { padding-right: 0 !important; }
     }
   </style>
 </head>
