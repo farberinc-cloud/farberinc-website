@@ -3012,3 +3012,107 @@ p {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(184, 134, 11, 0.25);
 }
+
+/* ============================================================
+   BLOG LANDING PAGE (latest-news.html)
+   ============================================================ */
+.blog-landing-header {
+  /* Stronger visual treatment so the page feels like a real landing */
+  padding: calc(80px + 80px) 0 60px;
+  background:
+    linear-gradient(135deg, var(--navy) 0%, #0d1d35 100%);
+}
+
+.blog-landing-header .text-label {
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+/* Category filter pills row */
+.blog-category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(184, 134, 11, 0.18);
+}
+
+.blog-category-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--cream);
+  text-decoration: none;
+  border: 1px solid rgba(184, 134, 11, 0.25);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.blog-category-pill:hover {
+  background: rgba(184, 134, 11, 0.15);
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.blog-category-pill.is-active {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+
+.blog-category-pill.is-active .blog-category-count {
+  background: rgba(10, 22, 40, 0.18);
+  color: var(--navy);
+}
+
+.blog-category-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  background: rgba(184, 134, 11, 0.18);
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+/* When a card is hidden by the filter */
+.blog-card.is-hidden {
+  display: none;
+}
+
+/* Empty state when no posts match the filter */
+.blog-empty {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.blog-empty.is-visible {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .blog-category-filter {
+    margin-top: 24px;
+    padding-top: 24px;
+  }
+  .blog-category-pill {
+    padding: 6px 12px;
+    font-size: 0.82rem;
+  }
+}

@@ -236,15 +236,27 @@
 
   <main>
     <!-- Page Header -->
-    <section class="page-header">
+    <section class="page-header blog-landing-header">
       <div class="container">
         <nav class="breadcrumb fade-in" aria-label="Breadcrumb">
           <a href="../index.html">Home</a>
           <span>/</span>
           <span>Latest News</span>
         </nav>
-        <h1 class="page-title fade-in stagger-1">Latest News</h1>
-        <p class="page-subtitle fade-in stagger-2">Insights from the Farber.Inc team on AI Business Consulting, SEO, AEO, GEO, and the evolving search landscape.</p>
+        <span class="text-label fade-in" style="color: var(--gold);">The Farber.Inc Blog</span>
+        <h1 class="page-title fade-in stagger-1">Latest Insights &amp; Strategy</h1>
+        <p class="page-subtitle fade-in stagger-2">Applied frameworks, case studies, and step-by-step playbooks from the Farber.Inc team on AI Business Consulting, SEO, AEO, and GEO — the disciplines that decide which businesses get discovered in 2026 and beyond.</p>
+
+        <!-- Quick-jump category filter -->
+        <div class="blog-category-filter fade-in stagger-3" role="navigation" aria-label="Filter posts by category">
+          <a href="#all" class="blog-category-pill is-active" data-filter="all">All Articles <span class="blog-category-count">12</span></a>
+          <a href="#aeo" class="blog-category-pill" data-filter="aeo">AEO <span class="blog-category-count">3</span></a>
+          <a href="#geo" class="blog-category-pill" data-filter="geo">GEO <span class="blog-category-count">1</span></a>
+          <a href="#seo" class="blog-category-pill" data-filter="seo">SEO <span class="blog-category-count">4</span></a>
+          <a href="#local" class="blog-category-pill" data-filter="local">Local SEO <span class="blog-category-count">1</span></a>
+          <a href="#ai" class="blog-category-pill" data-filter="ai">AI Consulting <span class="blog-category-count">1</span></a>
+          <a href="#strategy" class="blog-category-pill" data-filter="strategy">Strategy <span class="blog-category-count">1</span></a>
+        </div>
       </div>
     </section>
 
@@ -252,16 +264,15 @@
     <section class="section section-cream">
       <div class="container">
         <div class="text-center mb-xl">
-          <span class="text-label fade-in">Insights &amp; Updates</span>
-          <h2 class="fade-in stagger-1">From the Farber.Inc Blog</h2>
-          <p class="fade-in stagger-2" style="max-width: 640px; margin: 0 auto;">
-            New articles every month on the strategies and tactics that drive measurable growth for businesses nationwide.
+          <h2 class="fade-in stagger-1" style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--navy);">12 Articles, Updated Monthly</h2>
+          <p class="fade-in stagger-2" style="max-width: 640px; margin: 12px auto 0; color: var(--text-muted);">
+            Pick a topic that matches what you are working on. Each article links out to the full breakdown.
           </p>
         </div>
 
         <div class="blog-grid">
           <!-- Post 1: July 2026 -->
-          <article class="card blog-card fade-in stagger-1" id="post-2026-07">
+          <article class="card blog-card fade-in stagger-1" id="post-2026-07" data-category="aeo">
             <div class="blog-card-meta">
               <svg width="16" height="16"><use href="#icon-calendar"></use></svg>
               <span>July 2026</span>
@@ -276,7 +287,7 @@
           </article>
 
           <!-- Post 2: June 2026 -->
-          <article class="card blog-card fade-in stagger-2" id="post-2026-06">
+          <article class="card blog-card fade-in stagger-2" id="post-2026-06" data-category="geo">
             <div class="blog-card-meta">
               <svg width="16" height="16"><use href="#icon-calendar"></use></svg>
               <span>June 2026</span>
@@ -291,7 +302,7 @@
           </article>
 
           <!-- Post 3: May 2026 -->
-          <article class="card blog-card fade-in stagger-3" id="post-2026-05">
+          <article class="card blog-card fade-in stagger-3" id="post-2026-05" data-category="aeo">
             <div class="blog-card-meta">
               <svg width="16" height="16"><use href="#icon-calendar"></use></svg>
               <span>May 2026</span>
@@ -306,7 +317,7 @@
           </article>
 
           <!-- Post 4: April 2026 -->
-          <article class="card blog-card fade-in stagger-4" id="post-2026-04">
+          <article class="card blog-card fade-in stagger-4" id="post-2026-04" data-category="local">
             <div class="blog-card-meta">
               <svg width="16" height="16"><use href="#icon-calendar"></use></svg>
               <span>April 2026</span>
@@ -321,7 +332,7 @@
           </article>
 
           <!-- Post 5: March 2026 -->
-          <article class="card blog-card fade-in stagger-5" id="post-2026-03">
+          <article class="card blog-card fade-in stagger-5" id="post-2026-03" data-category="seo">
             <div class="blog-card-meta">
               <svg width="16" height="16"><use href="#icon-calendar"></use></svg>
               <span>March 2026</span>
@@ -336,7 +347,7 @@
           </article>
 
           <!-- Post 6: February 2026 -->
-          <article class="card blog-card fade-in stagger-6" id="post-2026-02">
+          <article class="card blog-card fade-in stagger-6" id="post-2026-02" data-category="aeo">
             <div class="blog-card-meta">
               <svg width="16" height="16"><use href="#icon-calendar"></use></svg>
               <span>February 2026</span>
@@ -351,7 +362,7 @@
           </article>
 
           <!-- Post 7: January 2026 -->
-          <article class="card blog-card fade-in stagger-1" id="post-2026-01">
+          <article class="card blog-card fade-in stagger-1" id="post-2026-01" data-category="seo">
             <div class="blog-card-meta">
               <svg width="16" height="16"><use href="#icon-calendar"></use></svg>
               <span>January 2026</span>
@@ -366,7 +377,7 @@
           </article>
 
           <!-- Post 8: December 2025 -->
-          <article class="card blog-card fade-in stagger-2" id="post-2025-12">
+          <article class="card blog-card fade-in stagger-2" id="post-2025-12" data-category="seo">
             <div class="blog-card-meta">
               <svg width="16" height="16"><use href="#icon-calendar"></use></svg>
               <span>December 2025</span>
@@ -381,7 +392,7 @@
           </article>
 
           <!-- Post 9: November 2025 -->
-          <article class="card blog-card fade-in stagger-3" id="post-2025-11">
+          <article class="card blog-card fade-in stagger-3" id="post-2025-11" data-category="aeo">
             <div class="blog-card-meta">
               <svg width="16" height="16"><use href="#icon-calendar"></use></svg>
               <span>November 2025</span>
@@ -396,7 +407,7 @@
           </article>
 
           <!-- Post 10: October 2025 -->
-          <article class="card blog-card fade-in stagger-4" id="post-2025-10">
+          <article class="card blog-card fade-in stagger-4" id="post-2025-10" data-category="ai">
             <div class="blog-card-meta">
               <svg width="16" height="16"><use href="#icon-calendar"></use></svg>
               <span>October 2025</span>
@@ -411,7 +422,7 @@
           </article>
 
           <!-- Post 11: September 2025 -->
-          <article class="card blog-card fade-in stagger-5" id="post-2025-09">
+          <article class="card blog-card fade-in stagger-5" id="post-2025-09" data-category="seo">
             <div class="blog-card-meta">
               <svg width="16" height="16"><use href="#icon-calendar"></use></svg>
               <span>September 2025</span>
@@ -426,7 +437,7 @@
           </article>
 
           <!-- Post 12: August 2025 -->
-          <article class="card blog-card fade-in stagger-6" id="post-2025-08">
+          <article class="card blog-card fade-in stagger-6" id="post-2025-08" data-category="strategy">
             <div class="blog-card-meta">
               <svg width="16" height="16"><use href="#icon-calendar"></use></svg>
               <span>August 2025</span>
@@ -520,9 +531,10 @@
     </div>
   </footer>
 
-  <script src="js/main.js" defer></script>
-  <script src="js/cookie-consent.js" defer></script>
-  <script src="js/analytics-events.js" defer></script>
-  <script src="js/logo-confetti.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/cookie-consent.js" defer></script>
+  <script src="../js/analytics-events.js" defer></script>
+  <script src="../js/logo-confetti.js" defer></script>
+  <script src="../js/blog-filter.js" defer></script>
 </body>
 </html>
