@@ -42,6 +42,14 @@ RewriteRule ^index\.html$ https://%{HTTP_HOST}/ [R=301,L]
 # ---- Security headers ----
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
   Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+  # Content-Security-Policy - allow all current scripts and styles
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://challenges.cloudflare.com https://www.google-analytics.com; frame-src https://challenges.cloudflare.com; form-action 'self' https://api.staticforms.dev"
+  # Caching for HTML
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+  </FilesMatch>
 </IfModule>
