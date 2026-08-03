@@ -1,0 +1,8 @@
+# Runtime data files (auto-created by api.php on the server)
+leads.json
+conversations.log
+rate-limit.json
+php-error.log
+*.log
+*.tmp
+.DS_Store

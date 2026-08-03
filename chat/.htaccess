@@ -1,0 +1,25 @@
+# Farber.Inc Chat — directory hardening
+# Block direct web access to the data files (leads, logs, rate-limit).
+# Only api.php and the static assets (CSS/JS) should be reachable from the web.
+
+<FilesMatch "\.(json|log)$">
+    Require all denied
+</FilesMatch>
+
+# Also deny access to .md (this README) — docs live in git, not on prod
+<FilesMatch "\.md$">
+    Require all denied
+</FilesMatch>
+
+# Don't let anyone list the directory if DirectoryListing is somehow enabled
+Options -Indexes
+
+# Cache static assets for 1 hour, revalidate after
+<FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+</FilesMatch>
+
+# Don't cache API responses
+<FilesMatch "api\.php$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate"
+</FilesMatch>
