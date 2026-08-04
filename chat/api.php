@@ -325,7 +325,11 @@ function fi_env_read(string $path, string $key): string {
     if ($fiEnvCache === null) {
         $fiEnvCache = [];
         if (is_readable($path)) {
-            $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            $raw = file_get_contents($path);
+            if ($raw === false) return '';
+            // Strip UTF-8 BOM if present
+            if (substr($raw, 0, 3) === "\xEF\xBB\xBF") $raw = substr($raw, 3);
+            $lines = preg_split('/\r\n|\r|\n/', $raw);
             foreach ($lines as $line) {
                 $line = trim($line);
                 if ($line === '' || $line[0] === '#') continue;
@@ -333,7 +337,7 @@ function fi_env_read(string $path, string $key): string {
                 if ($eq === false) continue;
                 $k = trim(substr($line, 0, $eq));
                 $v = trim(substr($line, $eq + 1));
-                // strip surrounding quotes
+                // strip surrounding quotes (handles "value" or 'value')
                 if (strlen($v) >= 2 && (($v[0] === '"' && substr($v, -1) === '"') || ($v[0] === "'" && substr($v, -1) === "'"))) {
                     $v = substr($v, 1, -1);
                 }
