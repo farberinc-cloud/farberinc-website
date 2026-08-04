@@ -58,17 +58,23 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 
 // --- Load config + system prompt -------------------------------------------
 $SYSTEM_PROMPT = require __DIR__ . '/system-prompt.php';   // returns the prompt string
-$apiKey = getenv('MINIMAX_API_KEY');
+
+// Resolve MINIMAX_API_KEY from any of these sources, in order:
+//   1. Real process env (set by hPanel, by Apache SetEnv, or by .user.ini)
+//   2. chat/.env file (recommended for Hostinger shared PHP hosting)
+//   3. A constant defined in chat/config.php (escape hatch for the adventurous)
+$apiKey = getenv('MINIMAX_API_KEY') ?: ($_SERVER['MINIMAX_API_KEY'] ?? '');
+if (!$apiKey) $apiKey = fi_env_read(__DIR__ . '/.env', 'MINIMAX_API_KEY');
 if (!$apiKey && defined('MINIMAX_API_KEY_FALLBACK')) $apiKey = MINIMAX_API_KEY_FALLBACK;
 if (!$apiKey) {
     http_response_code(500);
-    echo json_encode(['error' => 'Server misconfigured: MINIMAX_API_KEY not set.']);
-    error_log('[fi-chat] MINIMAX_API_KEY not set');
+    echo json_encode(['error' => 'Server misconfigured: MINIMAX_API_KEY not set. Create chat/.env with MINIMAX_API_KEY=sk-cp-… and reload.']);
+    error_log('[fi-chat] MINIMAX_API_KEY not set in env, _SERVER, or .env');
     exit;
 }
-$baseUrl = rtrim(getenv('MINIMAX_BASE_URL') ?: 'https://api.minimax.io/v1', '/');
-$model   = getenv('MINIMAX_MODEL') ?: 'MiniMax-M3';
-$debug   = getenv('CHAT_DEBUG') === '1';
+$baseUrl = rtrim(fi_env('MINIMAX_BASE_URL') ?: 'https://api.minimax.io/v1', '/');
+$model   = fi_env('MINIMAX_MODEL') ?: 'MiniMax-M3';
+$debug   = fi_env('CHAT_DEBUG') === '1';
 
 // --- Parse + validate input ------------------------------------------------
 $raw = file_get_contents('php://input') ?: '';
@@ -292,6 +298,51 @@ function handle_lead(string $sessionId, string $page, ?array $lead, bool $debug)
 // =============================================================================
 // Helpers
 // =============================================================================
+
+/**
+ * Cache for .env values, loaded lazily on first call.
+ * @var array<string,string>
+ */
+$fiEnvCache = null;
+
+/**
+ * Look up a value: env var first, then .env file fallback.
+ */
+function fi_env(string $name): string {
+    $v = getenv($name);
+    if ($v !== false && $v !== '') return $v;
+    if (isset($_SERVER[$name]) && $_SERVER[$name] !== '') return (string)$_SERVER[$name];
+    return fi_env_read(__DIR__ . '/.env', $name);
+}
+
+/**
+ * Parse a simple .env file and return the value for $key.
+ * Supports KEY=value, "quoted values", and # comments.
+ * Returns '' if not found or file is missing.
+ */
+function fi_env_read(string $path, string $key): string {
+    global $fiEnvCache;
+    if ($fiEnvCache === null) {
+        $fiEnvCache = [];
+        if (is_readable($path)) {
+            $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            foreach ($lines as $line) {
+                $line = trim($line);
+                if ($line === '' || $line[0] === '#') continue;
+                $eq = strpos($line, '=');
+                if ($eq === false) continue;
+                $k = trim(substr($line, 0, $eq));
+                $v = trim(substr($line, $eq + 1));
+                // strip surrounding quotes
+                if (strlen($v) >= 2 && (($v[0] === '"' && substr($v, -1) === '"') || ($v[0] === "'" && substr($v, -1) === "'"))) {
+                    $v = substr($v, 1, -1);
+                }
+                $fiEnvCache[$k] = $v;
+            }
+        }
+    }
+    return $fiEnvCache[$key] ?? '';
+}
 
 function client_ip(): string {
     foreach (['HTTP_CF_CONNECTING_IP', 'HTTP_X_FORWARDED_FOR', 'REMOTE_ADDR'] as $k) {

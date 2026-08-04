@@ -6,3 +6,6 @@ php-error.log
 *.log
 *.tmp
 .DS_Store
+
+# Real .env with secrets — copy .env.example to .env on the server (via SFTP)
+.env

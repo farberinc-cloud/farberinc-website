@@ -32,88 +32,93 @@ and offers to capture lead details when the prospect is ready.
 
 ## 1. Install on Hostinger
 
-### A. Set the environment variable
+> **Heads up:** Hostinger's hPanel "Environment Variables" menu is **only for
+> Node.js / Docker** apps, not PHP shared hosting. For PHP, use a `.env` file
+> (recommended) or a `.htaccess` `SetEnv` directive. Both are wired up in
+> `api.php` automatically.
 
-The `MINIMAX_API_KEY` must be set in the server environment. Two options:
+### A. Create `chat/.env` with your API key
 
-**Option 1 — hPanel (recommended for Hostinger)**:
-
-1. Log in to **hPanel** → **Advanced** → **Cron Jobs** (or **Environment Variables**,
-   depending on your Hostinger version — the wording changed in 2025).
-2. Add a variable: `MINIMAX_API_KEY = sk-cp-…` (your Subscription Key).
-3. **Restart PHP** (hPanel → Hosting → Manage → Restart PHP / Clear cache).
-
-**Option 2 — `.user.ini` at the site root** (fallback if env vars aren't
-available in your Hostinger plan):
-
-Create or edit `public_html/.user.ini`:
+In the `chat/` folder, create a file called **`.env`** (note the leading dot)
+containing:
 
 ```ini
-MINIMAX_API_KEY=sk-cp-your-key-here
+MINIMAX_API_KEY=sk-cp--xI4K_bB0LzzdPbChxcUg3rBybjJ7VfY3KhB4aUXQbVFN1afE5QrEDIgWHxR_rwNEOk8a3juGQwyIrETakPOTsAzcj9gAD851Ig-D72lvpeVeBsZuI8d8j8
 ```
 
-`.user.ini` is read by PHP-FPM on every request; no restart needed.
+That's the only line required to get the bot working. A full template lives
+in `chat/.env.example` (the real `.env` is excluded from git and blocked from
+web access by `.htaccess`).
 
-### B. (Optional) Webhook + email notifications for leads
+**How to create it on Hostinger:**
 
-In the same env-var location, add any of:
+- **File Manager**: hPanel → Files → File Manager → navigate to
+  `public_html/chat/` → **+ File** → name it `.env` → paste the line above.
+- **SFTP**: connect, `cd public_html/chat`, `nano .env`, paste, save.
+- **SSH**: same as SFTP, just use the terminal directly.
 
-```
+### B. (Optional) Add more env vars to `.env`
+
+```ini
+# Lead notifications (optional)
 LEAD_WEBHOOK_URL=https://hooks.slack.com/services/T.../B.../...
 LEAD_EMAIL_TO=you@youremail.com
 LEAD_EMAIL_FROM=wordpress@yourdomain.com
+
+# Override defaults (only if you know what you're doing)
+# MINIMAX_BASE_URL=https://api.minimax.io/v1
+# MINIMAX_MODEL=MiniMax-M3
+# CHAT_DEBUG=0
 ```
 
-- `LEAD_WEBHOOK_URL` — POSTed JSON to this URL whenever a lead is captured.
-  Works with Slack incoming webhooks, Discord, Zapier, Make, HubSpot, etc.
-- `LEAD_EMAIL_TO` — sends a plain-text email via PHP `mail()`.
-- `LEAD_EMAIL_FROM` — required by some mail servers; defaults to
-  `wordpress@<your-host>`.
+### C. (Alternative) `.htaccess` `SetEnv` directive
 
-### C. Upload the `chat/` folder
+If you'd rather not keep a `.env` file, you can put the key in
+`public_html/.htaccess` instead. **Edit, don't replace, your existing
+`.htaccess` — add this line near the top:**
 
-Upload the entire `chat/` directory into your site's document root (typically
-`public_html/chat/`) so the final layout is:
+```apache
+SetEnv MINIMAX_API_KEY "sk-cp--xI4K_bB0LzzdPbChxcUg3rBybjJ7VfY3KhB4aUXQbVFN1afE5QrEDIgWHxR_rwNEOk8a3juGQwyIrETakPOTsAzcj9gAD851Ig-D72lvpeVeBsZuI8d8j8"
+```
+
+`.htaccess` `SetEnv` is read by Apache on every request, so PHP picks it up
+via `getenv()` / `$_SERVER`. Works on every Hostinger PHP plan.
+
+### D. Upload the `chat/` folder
+
+The repo already has the `chat/` directory committed. If you're deploying via
+SFTP/File Manager, just upload it to `public_html/chat/`. If you're using
+Hostinger's Git integration, the latest commit already includes everything.
+
+Final layout should be:
 
 ```
 public_html/
 ├── index.html
 ├── chat/
+│   ├── .env              ← CREATE THIS with your key
 │   ├── api.php
 │   ├── chat-widget.css
 │   ├── chat-widget.js
 │   ├── embed.js
 │   ├── system-prompt.php
-│   └── .htaccess
+│   ├── .htaccess         (blocks web access to .env, .json, .log, .md)
+│   └── .env.example
 ├── pages/
 └── …
 ```
 
-### D. Inject the embed snippet
-
-Add this single line **before `</body>` on every page that should have the
-widget** (index.html, all service pages, all blog pages, all city/geo pages).
-Do NOT add to `pages/legal/*.html` (noindex pages).
-
-```html
-<script src="/chat/embed.js" defer></script>
-```
-
-If your site is served from a subdirectory, change the path accordingly
-(e.g. `/subdir/chat/embed.js`).
-
 ### E. Permissions
 
 The PHP backend writes to `leads.json`, `conversations.log`, `php-error.log`,
-and `rate-limit.json`. Make sure the PHP user can write to the `chat/`
-directory:
+and `rate-limit.json`. Files are created on first use with mode 0640. Make
+sure the `chat/` directory is writable by the PHP user:
 
 ```bash
 chmod 755 chat/
-# Files inside are created with mode 0640 by api.php — that's fine.
 ```
 
-If your Hostinger plan uses suPHP / different PHP user, the file is created
+If your Hostinger plan uses suPHP / a different PHP user, files are created
 automatically on the first chat / lead / ping.
 
 ---

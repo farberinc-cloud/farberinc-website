@@ -2,7 +2,7 @@
 # Block direct web access to the data files (leads, logs, rate-limit).
 # Only api.php and the static assets (CSS/JS) should be reachable from the web.
 
-<FilesMatch "\.(json|log)$">
+<FilesMatch "\.(json|log|env|example)$">
     Require all denied
 </FilesMatch>
 
