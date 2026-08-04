@@ -286,7 +286,18 @@
       var lead = { name: name, email: email, captured_at: new Date().toISOString() };
       state.lead = lead;
       saveState();
-      // Fire-and-forget to backend
+
+      // 1) PRIMARY: hand off to the same StaticForms endpoint the site's
+      //    contact form uses. We auto-detect the form's config (action,
+      //    apiKey, subject) from the page so the chat stays in sync if
+      //    the form is ever updated. If the form isn't on the current
+      //    page, we fall back to the defaults captured at build time.
+      //    This is what makes the email actually arrive.
+      submitLeadToStaticForms(lead);
+
+      // 2) BACKUP: also append to chat/leads.json via the local PHP backend
+      //    so you have a downloadable record via SFTP, even if StaticForms
+      //    ever hiccups. Fire-and-forget.
       fetch(CFG.apiEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -296,7 +307,7 @@
           lead: lead,
           page: location.pathname,
         }),
-      }).catch(function () { /* lead save is best-effort */ });
+      }).catch(function () { /* backup is best-effort */ });
 
       // Show success state
       card.classList.add('is-saved');
@@ -613,6 +624,70 @@
     fetch(CFG.apiEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ type: 'ping', session_id: sessionId }) })
       .catch(function () { /* ignore */ });
+  }
+
+  // --- StaticForms handoff -------------------------------------------------
+  // The site's contact form posts to api.staticforms.dev using the same
+  // apiKey/subject/redirectTo as the page-level form. We mirror that here
+  // so the same email pipeline that delivers contact-form submissions
+  // also delivers chat leads.
+
+  // Defaults match the values in index.html (and all other pages that
+  // embed the .fi-contact-form). If you ever rotate the apiKey, update
+  // BOTH the form and this constant — or, better, always rely on the
+  // page-detected values below.
+  var STATICFORMS_DEFAULTS = {
+    action:   'https://api.staticforms.dev/submit',
+    apiKey:   'sf_c49289756d9e68bedab13963',
+    subject:  'Farber.Inc chat lead',
+    replyTo:  '', // optional, set if you want replies routed somewhere specific
+  };
+
+  // Pulls action / apiKey / subject from the page's contact form so the
+  // chat always stays in sync with the static form. Cached after first call.
+  var _sfConfig = null;
+  function getStaticFormsConfig() {
+    if (_sfConfig) return _sfConfig;
+    var cfg = Object.assign({}, STATICFORMS_DEFAULTS);
+    try {
+      var f = document.querySelector('.fi-contact-form, .farber-branded-form');
+      if (f) {
+        if (f.action) cfg.action = f.action;
+        var apiKeyEl = f.querySelector('input[name="apiKey"]');
+        if (apiKeyEl && apiKeyEl.value) cfg.apiKey = apiKeyEl.value;
+        var subjectEl = f.querySelector('input[name="subject"]');
+        if (subjectEl && subjectEl.value) cfg.subject = subjectEl.value;
+      }
+    } catch (e) { /* fall back to defaults */ }
+    _sfConfig = cfg;
+    return cfg;
+  }
+
+  function submitLeadToStaticForms(lead) {
+    var cfg = getStaticFormsConfig();
+    var firstUser = (state.messages.find(function (m) { return m.role === 'user'; }) || {}).content || '';
+    var convo = state.messages
+      .map(function (m) { return (m.role === 'user' ? 'Visitor' : 'Concierge') + ': ' + m.content; })
+      .join('\n\n');
+
+    var body = '[Farber.Inc Chat Lead]'
+             + '\nName:  ' + lead.name
+             + '\nEmail: ' + lead.email
+             + '\nPage:  ' + location.pathname
+             + '\nWhen:  ' + lead.captured_at
+             + (firstUser ? '\n\nFirst question:\n' + firstUser : '')
+             + '\n\n--- Full conversation ---\n' + convo;
+
+    var fd = new FormData();
+    fd.append('apiKey',   cfg.apiKey);
+    fd.append('subject',  cfg.subject);
+    fd.append('name',     lead.name);
+    fd.append('email',    lead.email);
+    fd.append('message',  body);
+    if (cfg.replyTo) fd.append('replyTo', cfg.replyTo);
+
+    return fetch(cfg.action, { method: 'POST', body: fd, mode: 'no-cors' })
+      .catch(function (e) { /* email is best-effort, lead still saved locally */ });
   }
 
   if (document.readyState === 'loading') {
