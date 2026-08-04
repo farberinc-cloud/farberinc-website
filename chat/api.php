@@ -59,17 +59,24 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 // --- Load config + system prompt -------------------------------------------
 $SYSTEM_PROMPT = require __DIR__ . '/system-prompt.php';   // returns the prompt string
 
+// Optional local server config (defines MINIMAX_API_KEY_FALLBACK as a
+// last-resort escape hatch). On LiteSpeed shared hosting, .htaccess SetEnv
+// is NOT passed to PHP-FPM, so a require()'d file is the only reliable path.
+if (file_exists(__DIR__ . '/config.local.php')) {
+    require_once __DIR__ . '/config.local.php';
+}
+
 // Resolve MINIMAX_API_KEY from any of these sources, in order:
 //   1. Real process env (set by hPanel, by Apache SetEnv, or by .user.ini)
-//   2. chat/.env file (recommended for Hostinger shared PHP hosting)
-//   3. A constant defined in chat/config.php (escape hatch for the adventurous)
+//   2. chat/.env file (recommended for non-LiteSpeed hosts)
+//   3. MINIMAX_API_KEY_FALLBACK constant from chat/config.local.php
 $apiKey = getenv('MINIMAX_API_KEY') ?: ($_SERVER['MINIMAX_API_KEY'] ?? '');
 if (!$apiKey) $apiKey = fi_env_read(__DIR__ . '/.env', 'MINIMAX_API_KEY');
 if (!$apiKey && defined('MINIMAX_API_KEY_FALLBACK')) $apiKey = MINIMAX_API_KEY_FALLBACK;
 if (!$apiKey) {
     http_response_code(500);
     echo json_encode(['error' => 'Server misconfigured: MINIMAX_API_KEY not set. Create chat/.env with MINIMAX_API_KEY=sk-cp-… and reload.']);
-    error_log('[fi-chat] MINIMAX_API_KEY not set in env, _SERVER, or .env');
+    error_log('[fi-chat] MINIMAX_API_KEY not set in env, _SERVER, .env, or config.local.php');
     exit;
 }
 $baseUrl = rtrim(fi_env('MINIMAX_BASE_URL') ?: 'https://api.minimax.io/v1', '/');
