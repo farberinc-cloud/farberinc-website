@@ -410,14 +410,17 @@
     var msgEl = renderUserMessage(text);
     messagesEl.appendChild(msgEl);
     pushMessage('user', text);
-    scrollToBottom();
+    scrollToBottom(msgEl);
   }
 
   function pushBotMessage(text, persist) {
+    // Remove the typing indicator BEFORE appending the real message so the
+    // scroll anchors to the new reply (not to a soon-to-be-removed bubble).
+    hideTyping();
     var msgEl = renderBotMessage(text);
     messagesEl.appendChild(msgEl);
     if (persist !== false) pushMessage('assistant', text);
-    scrollToBottom();
+    scrollToBottom(msgEl);
   }
 
   function renderUserMessage(text) {
@@ -455,10 +458,35 @@
     });
     wrap.appendChild(chips);
     messagesEl.appendChild(wrap);
+    scrollToBottom(wrap);
   }
 
-  function scrollToBottom() {
-    setTimeout(function () { messagesEl.scrollTop = messagesEl.scrollHeight; }, 0);
+  /**
+   * Scroll the messages area to show the latest message in full.
+   *
+   * Why three attempts:
+   *  - rAF (frame 1)   → after the browser has laid out the new DOM
+   *  - setTimeout 120  → after web fonts (Inter, Playfair) have swapped in
+   *                      and may have shifted the layout
+   *  - setTimeout 400  → covers any late async content (links being styled,
+   *                      bold/paragraph re-wrap, typing indicator removal
+   *                      followed by the real message)
+   *
+   * Uses scrollIntoView({block:'end'}) on the newest message so we anchor
+   * to the actual reply, not just the bottom of the container.
+   */
+  function scrollToBottom(target) {
+    var el = target || messagesEl.lastElementChild;
+    var doScroll = function () {
+      if (el && el.scrollIntoView) {
+        try { el.scrollIntoView({ behavior: 'smooth', block: 'end' }); return; }
+        catch (e) { /* fall through */ }
+      }
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    };
+    requestAnimationFrame(doScroll);
+    setTimeout(doScroll, 120);
+    setTimeout(doScroll, 400);
   }
 
   function showTyping() {
@@ -564,6 +592,23 @@
     buildLauncher();
     buildPanel();
     if (state.messages.length) renderHistory();
+
+    // Keep the latest message in view if the panel resizes (mobile keyboard
+    // opening, window resize, font load, etc.). Only auto-scroll if the user
+    // is already near the bottom — don't yank them away from older messages
+    // they might be reading.
+    var resizeHandler = function () {
+      if (!panel.classList.contains('is-open')) return;
+      var slack = messagesEl.scrollHeight - messagesEl.scrollTop - messagesEl.clientHeight;
+      if (slack < 120) scrollToBottom();
+    };
+    window.addEventListener('resize', resizeHandler);
+    if (window.ResizeObserver) {
+      try {
+        new ResizeObserver(resizeHandler).observe(messagesEl);
+      } catch (e) { /* ResizeObserver not available, window resize is enough */ }
+    }
+
     // Pre-warm: ping the API so we surface config errors early
     fetch(CFG.apiEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ type: 'ping', session_id: sessionId }) })
