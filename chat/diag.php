@@ -35,7 +35,7 @@ if ($rawContent !== '') {
         if ($eq === false) continue;
         $k = trim(substr($line, 0, $eq));
         $v = trim(substr($line, $eq + 1));
-        if (strlen($v) >= 2 && (($v[0] === '"' && substr($v, -1] === '"') || ($v[0] === "'" && substr($v, -1) === "'"))) {
+        if (strlen($v) >= 2 && (($v[0] === '"' && substr($v, -1) === '"') || ($v[0] === "'" && substr($v, -1) === "'"))) {
             $v = substr($v, 1, -1);
         }
         $allKeys[$k] = $v;
