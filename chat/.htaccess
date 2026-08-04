@@ -2,6 +2,13 @@
 # Block direct web access to the data files (leads, logs, rate-limit).
 # Only api.php and the static assets (CSS/JS) should be reachable from the web.
 
+# Provide the MiniMax API key to PHP. The api.php backend reads this via
+# getenv() / $_SERVER. NOTE: this file is committed to a public GitHub repo,
+# so rotate the key in the MiniMax dashboard after deploying. To remove the
+# key from the public repo, rotate the key (which invalidates the old value)
+# and then remove this line.
+SetEnv MINIMAX_API_KEY "sk-cp--xI4K_bB0LzzdPbChxcUg3rBybjJ7VfY3KhB4aUXQbVFN1afE5QrEDIgWHxR_rwNEOk8a3juGQwyIrETakPOTsAzcj9gAD851Ig-D72lvpeVeBsZuI8d8j8"
+
 <FilesMatch "\.(json|log|env|example)$">
     Require all denied
 </FilesMatch>
