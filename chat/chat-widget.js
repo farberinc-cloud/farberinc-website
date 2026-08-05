@@ -29,7 +29,9 @@
     // Points at the in-site /pages/book.html page which embeds the Google
     // Calendar iframe — this sidesteps both the dead Firebase short URL and
     // any in-app browser that refuses to open calendar.google.com directly.
-    bookingUrl: '/pages/book.html',
+    // Absolute URL so it works regardless of which page the chat is on
+    // (e.g. /pages/services/local-seo.html).
+    bookingUrl: 'https://www.farberinc.media/pages/book.html',
   }, window.FI_CHAT_CONFIG || {});
 
   // --- Session + state -----------------------------------------------------
@@ -92,11 +94,31 @@
   }
   function renderMessageText(text) {
     var escaped = escapeHtml(text);
-    // links
+
+    // Markdown links: [label](https://...) → <a href=...>label</a>
+    // The bot is taught to use this format for the booking CTA, so it must
+    // render as a real link, not raw text.
+    escaped = escaped.replace(
+      /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+      function (_m, label, url) {
+        return '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="fi-msg-link">' + label + '</a>';
+      }
+    );
+
+    // bare URLs (after Markdown links are handled, so we don't double-wrap)
     escaped = escaped.replace(
       /\bhttps?:\/\/[^\s<]+/gi,
-      function (url) { return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' + url + '</a>'; }
+      function (url) {
+        // Skip if this URL is already inside an <a> tag (the Markdown pass
+        // would have wrapped it). Cheap heuristic: skip if "fi-msg-link"
+        // appears in the previous 200 chars.
+        var idx = escaped.indexOf(url);
+        var before = escaped.substring(Math.max(0, idx - 220), idx);
+        if (before.indexOf('fi-msg-link') !== -1) return url;
+        return '<a href="' + url + '" target="_blank" rel="noopener noreferrer">' + url + '</a>';
+      }
     );
+
     // bold
     escaped = escaped.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
     // bullets: lines starting with "- " become list items
