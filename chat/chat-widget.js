@@ -26,46 +26,35 @@
   }, window.FI_CHAT_CONFIG || {});
 
   // --- Session + state -----------------------------------------------------
-  var sessionId = getOrCreateSession();
-  var state = loadState() || {
+  // Per-request policy: every page load is a fresh chat. The chat does NOT
+  // persist messages, lead, or close-prompt state across page loads — that
+  // way every user (and every URL) gets a clean conversation with the welcome
+  // message and a fresh session id. State is held only in memory for the
+  // lifetime of the page so a user can close + reopen the panel without
+  // losing context, but the moment they navigate or refresh, it's a new chat.
+  var sessionId = makeNewSessionId();
+  var state = {
     messages: [],
     lead: null,
     closePromptShown: false,
     welcomed: false,
   };
 
-  function getOrCreateSession() {
-    var key = 'fi_chat_sid';
-    var sid = localStorage.getItem(key);
-    if (!sid) {
-      sid = 'sid_' + Date.now().toString(36) + '_' +
-            Math.random().toString(36).slice(2, 10);
-      localStorage.setItem(key, sid);
-    }
-    return sid;
+  function makeNewSessionId() {
+    return 'sid_' + Date.now().toString(36) + '_' +
+           Math.random().toString(36).slice(2, 10);
   }
 
   function saveState() {
-    try {
-      // Trim to the most recent N messages to keep storage small
-      var msgs = state.messages.slice(-CFG.maxStoredMessages);
-      localStorage.setItem(CFG.storageKey, JSON.stringify({
-        messages: msgs,
-        lead: state.lead,
-        closePromptShown: state.closePromptShown,
-        welcomed: state.welcomed,
-      }));
-    } catch (e) { /* quota / private mode — non-fatal */ }
+    // Intentionally a no-op — see "Per-request policy" above.
+    // The signature is kept so the rest of the code can call it freely.
   }
   function loadState() {
-    try {
-      var raw = localStorage.getItem(CFG.storageKey);
-      return raw ? JSON.parse(raw) : null;
-    } catch (e) { return null; }
+    // Intentionally a no-op — see "Per-request policy" above.
+    return null;
   }
   function clearChat() {
     state = { messages: [], lead: null, closePromptShown: false, welcomed: false };
-    saveState();
   }
 
   // --- Tiny DOM helpers ----------------------------------------------------
@@ -590,19 +579,17 @@
     }, 1200);
   }
 
-  // --- Replay history on load (so refreshing the page keeps the chat) -------
-  function renderHistory() {
-    state.messages.forEach(function (m) {
-      var node = m.role === 'user' ? renderUserMessage(m.content) : renderBotMessage(m.content);
-      messagesEl.appendChild(node);
-    });
-  }
+  // --- Replay history on load ------------------------------------------------
+  // Currently a no-op: per the "Per-request policy" above, every page load
+  // starts with an empty state and a new sessionId, so there's nothing to
+  // replay. Kept as a function so the rest of the code can stay symmetric.
+  function renderHistory() { /* no-op */ }
 
   // --- Init -----------------------------------------------------------------
   function init() {
     buildLauncher();
     buildPanel();
-    if (state.messages.length) renderHistory();
+    // No history restoration — every page load is a fresh chat.
 
     // Keep the latest message in view if the panel resizes (mobile keyboard
     // opening, window resize, font load, etc.). Only auto-scroll if the user
