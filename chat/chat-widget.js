@@ -23,6 +23,10 @@
     ],
     siteName: 'Farber.Inc',
     siteUrl: 'https://www.farberinc.media',
+    // Booking page URL — surfaced as a "📅 Book a 30-min call" button after
+    // a lead submits, and referenced by the bot in conversation. Override
+    // per-page by setting window.FI_CHAT_CONFIG.bookingUrl before embed.js runs.
+    bookingUrl: 'https://calendar.app.google/sKXcDYquuoKHNdZz8',
   }, window.FI_CHAT_CONFIG || {});
 
   // --- Session + state -----------------------------------------------------
@@ -306,8 +310,25 @@
       card.appendChild(el('p', {
         text: 'A Farber.Inc strategist will follow up within one business day. In the meantime, feel free to keep asking questions.',
       }));
-      var ok = el('button', { type: 'button', class: 'fi-btn-primary', text: 'Keep chatting' });
-      ok.style.marginTop = '14px';
+
+      // Primary CTA: book a 30-min call (if a booking URL is configured)
+      if (CFG.bookingUrl) {
+        var book = el('a', {
+          href: CFG.bookingUrl,
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          class: 'fi-btn-primary fi-btn-book',
+          text: '📅  Book a 30-min strategy call',
+        });
+        book.style.display = 'block';
+        book.style.textAlign = 'center';
+        book.style.textDecoration = 'none';
+        book.style.marginTop = '14px';
+        card.appendChild(book);
+      }
+
+      var ok = el('button', { type: 'button', class: 'fi-btn-ghost', text: 'Keep chatting' });
+      ok.style.marginTop = '10px';
       ok.style.width = '100%';
       ok.addEventListener('click', function () {
         hideLeadOverlay();
