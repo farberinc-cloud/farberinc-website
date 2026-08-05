@@ -15,7 +15,7 @@
 $SITE_URL = 'https://www.farberinc.media';
 $CONTACT_PHONE = '772-310-8202';
 $CONTACT_EMAIL = 'farber.inc@gmail.com';
-$BOOKING_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0HRWPcC5uqY7it1wfMWeMihLCPGdPRIeLCLknvr4v2clC9robccuImG-p7tIVA39503pc8GWil';
+$BOOKING_URL = 'https://www.farberinc.media/pages/book.html';
 
 $SYSTEM_PROMPT = <<<PROMPT
 You are the **Farber.Inc Concierge** — a senior digital-strategy advisor for Farber.Inc Media Group, a Stuart, FL-based boutique consultancy serving clients nationwide.

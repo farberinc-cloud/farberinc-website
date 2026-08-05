@@ -26,10 +26,10 @@
     // Booking page URL — surfaced as a "📅 Book a 30-min call" button after
     // a lead submits, and referenced by the bot in conversation. Override
     // per-page by setting window.FI_CHAT_CONFIG.bookingUrl before embed.js runs.
-    // NOTE: avoid the calendar.app.google short URL — Firebase Dynamic Links
-    // was shut down in 2025 and any app that resolves it via the Firebase SDK
-    // will return 'Invalid Dynamic Link'. Use the full long URL instead.
-    bookingUrl: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0HRWPcC5uqY7it1wfMWeMihLCPGdPRIeLCLknvr4v2clC9robccuImG-p7tIVA39503pc8GWil',
+    // Points at the in-site /pages/book.html page which embeds the Google
+    // Calendar iframe — this sidesteps both the dead Firebase short URL and
+    // any in-app browser that refuses to open calendar.google.com directly.
+    bookingUrl: '/pages/book.html',
   }, window.FI_CHAT_CONFIG || {});
 
   // --- Session + state -----------------------------------------------------
