@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Farber.Inc Client Portal - Private, secure access to your custom SEO, AEO, and GEO visibility audits. Built for clients who want to see what we've found and what we recommend.">
+  <meta name="description" content="Farber.Inc Client Portal - Private, branded access to your custom SEO, AEO, and GEO visibility audits. Built for clients who want to see what we've found and what we recommend.">
   <meta name="keywords" content="Farber Inc Client Portal, SEO Audit, AEO Audit, GEO Audit, Visibility Audit, Farber Inc">
   <meta name="author" content="Farber.Inc">
   <meta name="robots" content="index, follow">
@@ -12,12 +12,18 @@
   <meta property="og:description" content="Private access to your custom SEO, AEO, and GEO visibility audit.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://www.farberinc.media/icons/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Farber.Inc Client Portal">
   <meta property="og:url" content="https://www.farberinc.media/pages/portal/">
   <meta property="og:site_name" content="Farber.Inc">
   <meta property="og:locale" content="en_US">
 
   <meta name="twitter:image" content="https://www.farberinc.media/icons/og-image.png">
   <meta name="twitter:image:alt" content="Farber.Inc Client Portal">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Client Portal | Farber.Inc">
+  <meta name="twitter:description" content="Private access to your custom SEO, AEO, and GEO visibility audit.">
 
   <link rel="canonical" href="https://www.farberinc.media/pages/portal/">
 
@@ -60,289 +66,303 @@
   </script>
 
   <style>
-    /* Portal-specific styles - reuses site CSS variables */
-    .portal-hero {
-      background: var(--gradient-blue-deep, linear-gradient(135deg, #0A1628 0%, #1a3a5e 50%, #2c4d6b 100%));
-      color: var(--cream, #FAF8F5);
-      padding: 100px 24px 80px;
-      text-align: center;
+    /* Portal-specific page-header-hero styling - matches local-seo.html */
+    .page-header-hero {
       position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
+      padding: 100px 24px;
     }
-    .portal-hero::before {
+    .page-header-hero::before {
       content: '';
       position: absolute;
-      inset: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background:
         radial-gradient(circle at 20% 20%, rgba(184, 134, 11, 0.18) 0, transparent 45%),
-        radial-gradient(circle at 80% 80%, rgba(184, 134, 11, 0.12) 0, transparent 45%);
-      pointer-events: none;
+        radial-gradient(circle at 80% 80%, rgba(184, 134, 11, 0.12) 0, transparent 45%),
+        linear-gradient(180deg, rgba(10, 22, 40, 0.65) 0%, rgba(10, 22, 40, 0.85) 100%);
+      z-index: 1;
     }
-    .portal-hero .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; }
-    .portal-hero .text-label {
-      display: inline-block;
-      color: var(--gold, #B8860B);
+    .page-header-hero .container {
+      position: relative;
+      z-index: 2;
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .page-header-hero .text-label {
+      color: var(--gold) !important;
       font-size: 12px; font-weight: 700;
       letter-spacing: 0.22em; text-transform: uppercase;
-      border: 1px solid var(--gold, #B8860B);
+      display: inline-block;
+      border: 1px solid var(--gold);
       padding: 6px 16px; border-radius: 2px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
-    .portal-hero h1 {
+    .page-header-hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 56px; font-weight: 500;
       line-height: 1.1; letter-spacing: -0.02em;
-      color: var(--cream, #FAF8F5);
+      color: var(--cream) !important;
       margin-bottom: 24px;
     }
-    .portal-hero h1 em { font-style: italic; color: var(--gold, #B8860B); }
-    .portal-hero .subtitle {
+    .page-header-hero h1 em { font-style: italic; color: var(--gold); }
+    .page-header-hero .page-header-subtitle {
+      color: rgba(255, 255, 255, 0.9) !important;
       font-size: 18px; line-height: 1.6;
-      color: rgba(250, 248, 245, 0.85);
       max-width: 680px; margin: 0 auto;
     }
 
-    .audit-list-section {
-      padding: 80px 24px;
-      background: var(--cream, #FAF8F5);
-    }
-    .audit-list-section .container {
-      max-width: 1100px; margin: 0 auto;
-    }
-    .section-label {
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--gold, #B8860B);
-      margin-bottom: 16px;
-    }
-    .section-h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px; font-weight: 500;
-      color: var(--navy, #0A1628);
-      margin-bottom: 12px;
-      letter-spacing: -0.01em;
-    }
-    .section-sub {
-      font-size: 16px; color: #4a5170;
-      max-width: 720px; margin-bottom: 48px;
-      line-height: 1.6;
-    }
-
+    /* Audit grid - elegant executive style */
     .audit-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       gap: 24px;
+      margin-top: 8px;
     }
-
     .audit-card {
       background: white;
       border: 1px solid #e6e2d6;
-      border-top: 3px solid var(--gold, #B8860B);
+      border-top: 3px solid var(--gold);
       border-radius: 6px;
-      padding: 32px;
-      transition: all 0.2s ease;
+      padding: 36px 32px 32px;
+      transition: all 0.25s ease;
       text-decoration: none;
       color: inherit;
       display: flex;
       flex-direction: column;
       gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .audit-card::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--gold);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.25s ease;
     }
     .audit-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px -12px rgba(10, 22, 40, 0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px -16px rgba(10, 22, 40, 0.18);
     }
+    .audit-card:hover::after { transform: scaleY(1); }
     .audit-card .card-type {
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--gold, #B8860B);
+      color: var(--gold);
     }
     .audit-card .card-name {
       font-family: 'Playfair Display', serif;
-      font-size: 24px; font-weight: 500;
-      color: var(--navy, #0A1628);
+      font-size: 26px; font-weight: 500;
+      color: var(--navy);
       line-height: 1.2;
+      margin-top: 2px;
     }
     .audit-card .card-meta {
       font-size: 13px; color: #4a5170;
-      display: flex; gap: 16px;
+      display: flex; gap: 18px; flex-wrap: wrap;
       margin-top: 4px;
+      padding-top: 12px;
+      border-top: 1px solid #f0ece0;
     }
     .audit-card .card-meta span { display: inline-flex; gap: 6px; align-items: center; }
-    .audit-card .card-meta strong { color: var(--navy, #0A1628); font-weight: 600; }
+    .audit-card .card-meta strong { color: var(--navy); font-weight: 600; }
     .audit-card .card-desc {
       font-size: 14px; color: #4a5170;
-      line-height: 1.55;
-      margin-top: 4px;
+      line-height: 1.6;
+      margin-top: 6px;
     }
     .audit-card .card-cta {
       margin-top: auto;
-      padding-top: 16px;
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold, #B8860B);
+      padding-top: 18px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold);
       display: inline-flex; align-items: center; gap: 8px;
     }
     .audit-card .card-cta::after {
       content: '\2192';
       transition: transform 0.2s;
+      font-size: 14px;
     }
-    .audit-card:hover .card-cta::after { transform: translateX(4px); }
+    .audit-card:hover .card-cta::after { transform: translateX(6px); }
 
-    .how-section {
-      padding: 80px 24px;
-      background: white;
-      border-top: 1px solid #e6e2d6;
-    }
-    .how-section .container {
-      max-width: 1100px; margin: 0 auto;
-    }
+    /* How-it-works grid */
     .how-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
-      margin-top: 32px;
+      margin-top: 40px;
     }
     .how-step {
-      padding: 28px;
-      background: var(--cream, #FAF8F5);
+      padding: 32px 28px;
+      background: white;
       border-radius: 6px;
-      border-left: 3px solid var(--gold, #B8860B);
+      border: 1px solid #e6e2d6;
+      border-top: 3px solid var(--gold);
+      position: relative;
     }
     .how-step .num {
       font-family: 'Playfair Display', serif;
-      font-size: 32px; font-weight: 500;
-      color: var(--gold, #B8860B);
-      margin-bottom: 8px;
+      font-size: 36px; font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 12px;
+      line-height: 1;
     }
     .how-step h4 {
       font-family: 'Playfair Display', serif;
-      font-size: 20px; font-weight: 500;
-      color: var(--navy, #0A1628);
-      margin-bottom: 10px;
+      font-size: 22px; font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 12px;
     }
     .how-step p {
-      font-size: 14px; line-height: 1.6;
+      font-size: 14px; line-height: 1.65;
       color: #4a5170;
     }
 
-    .cta-section {
-      padding: 80px 24px;
-      background: var(--gradient-blue-cream, linear-gradient(135deg, #0A1628 0%, #1a3a5e 30%, #4a6890 60%, #e8dcc4 85%, #faf8f5 100%));
-      text-align: center;
+    /* Section title pattern - matches other pages */
+    .text-label {
+      color: var(--gold);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 14px;
+      display: block;
     }
-    .cta-section .container {
-      max-width: 720px; margin: 0 auto; position: relative; z-index: 1;
-    }
-    .cta-section h2 {
+    .section-h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 42px; font-weight: 500;
-      color: var(--cream, #FAF8F5);
-      margin-bottom: 20px;
+      font-size: 40px; font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 14px;
       letter-spacing: -0.01em;
+      line-height: 1.15;
     }
-    .cta-section h2 em { font-style: italic; color: var(--gold, #B8860B); }
-    .cta-section p {
-      font-size: 17px; color: rgba(250, 248, 245, 0.9);
-      margin-bottom: 32px;
+    .section-h2 em { font-style: italic; color: var(--gold); }
+    .section-lede {
+      font-size: 16px; color: #4a5170;
+      max-width: 720px;
       line-height: 1.6;
     }
-    .btn-row {
-      display: inline-flex; gap: 16px; flex-wrap: wrap;
-      justify-content: center;
-    }
-    .btn-gold {
-      background: var(--gold, #B8860B);
-      color: white;
-      padding: 14px 32px;
-      border-radius: 4px;
-      font-size: 13px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .btn-gold:hover { background: var(--gold-light, #D4A437); }
-    .btn-outline {
-      background: transparent;
-      color: var(--cream, #FAF8F5);
-      border: 1px solid var(--cream, #FAF8F5);
-      padding: 13px 32px;
-      border-radius: 4px;
-      font-size: 13px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-outline:hover {
-      background: var(--cream, #FAF8F5);
-      color: var(--navy, #0A1628);
-    }
+    .section-cream { background: var(--cream); }
+    .section-cream-dark { background: #f0ede8; }
 
-    @media (max-width: 768px) {
-      .portal-hero h1 { font-size: 36px; }
-      .audit-grid { grid-template-columns: 1fr; }
+    .center-block {
+      max-width: 720px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+    .center-block .section-lede { margin: 0 auto; }
+
+    @media (max-width: 900px) {
+      .page-header-hero h1 { font-size: 38px; }
       .how-grid { grid-template-columns: 1fr; }
-      .section-h2 { font-size: 28px; }
-      .cta-section h2 { font-size: 30px; }
+      .section-h2 { font-size: 30px; }
+      .audit-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Reuse the standard site header -->
+  <!-- SVG Symbols (matches homepage) -->
+  <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="logo-icon" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="3"/>
+      <text x="50" y="62" font-family="Georgia, serif" font-size="34" font-weight="700" text-anchor="middle" fill="currentColor">F.I</text>
+    </symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+      <polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M3 6 L21 6 M3 12 L21 12 M3 18 L21 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+      <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <polyline points="12 5 19 12 12 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="2" y="9" width="4" height="12" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="4" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    </symbol>
+    <symbol id="icon-youtube" viewBox="0 0 24 24">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <!-- Header (matches homepage) -->
   <header class="header">
-    <nav class="nav">
-      <a href="../../index.html" class="nav-brand">
-        <img src="../../icons/farber-inc-icon.svg" alt="Farber.Inc" class="brand-icon">
-        <span>Farber.Inc</span>
+    <div class="header-inner">
+      <a href="../../index.html" class="logo" aria-label="Farber.Inc Home">
+        <svg class="logo-icon" width="48" height="48">
+          <use href="#logo-icon"></use>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-name">Farber.Inc</span>
+          <span class="logo-tagline">SEO | AEO | GEO</span>
+        </div>
       </a>
 
-      <div class="nav-dropdown">
-        <a href="#" class="nav-link">Services <svg width="12" height="12"><use href="#icon-chevron-down"></use></svg></a>
-        <div class="dropdown-menu">
-          <a href="../services/google-platforms.html" class="dropdown-item">Google Platform Expertise</a>
-          <a href="../services/intelligent-ai.html" class="dropdown-item">Intelligent AI Solutions</a>
-          <a href="../services/local-seo.html" class="dropdown-item">Local SEO &amp; Google Business Profile</a>
-          <a href="../services/social-media.html" class="dropdown-item">Social Media Management</a>
+      <nav class="nav">
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link">Services <svg width="12" height="12"><use href="#icon-chevron-down"></use></svg></a>
+          <div class="dropdown-menu">
+            <a href="../services/google-platforms.html" class="dropdown-item">Google Platform Expertise</a>
+            <a href="../services/intelligent-ai.html" class="dropdown-item">Intelligent AI Solutions</a>
+            <a href="../services/local-seo.html" class="dropdown-item">Local SEO &amp; Google Business Profile</a>
+            <a href="../services/social-media.html" class="dropdown-item">Social Media Management</a>
+          </div>
         </div>
-      </div>
 
-      <div class="nav-dropdown">
-        <a href="#" class="nav-link">AI Consulting <svg width="12" height="12"><use href="#icon-chevron-down"></use></svg></a>
-        <div class="dropdown-menu">
-          <a href="../services/ai-consulting.html" class="dropdown-item">AI Business Consulting</a>
-          <a href="../services/ai-content.html" class="dropdown-item">AI Content Creation</a>
-          <a href="../services/cro.html" class="dropdown-item">Conversion Rate Optimization</a>
-          <a href="../services/ai-consulting.html#pricing" class="dropdown-item">Pricing &amp; Packages</a>
-          <a href="../services/ai-consulting.html#services" class="dropdown-item">Growth-Focused Services</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link">AI Consulting <svg width="12" height="12"><use href="#icon-chevron-down"></use></svg></a>
+          <div class="dropdown-menu">
+            <a href="../services/ai-consulting.html" class="dropdown-item">AI Business Consulting</a>
+            <a href="../services/ai-content.html" class="dropdown-item">AI Content Creation</a>
+            <a href="../services/cro.html" class="dropdown-item">Conversion Rate Optimization</a>
+            <a href="../services/ai-consulting.html#pricing" class="dropdown-item">Pricing &amp; Packages</a>
+            <a href="../services/ai-consulting.html#services" class="dropdown-item">Growth-Focused Services</a>
+          </div>
         </div>
+
+        <a href="../latest-news.html" class="nav-link">Latest News</a>
+        <a href="index.html" class="nav-link nav-link-active">Client Portal</a>
+        <a href="../../index.html#contact" class="nav-link">Contact</a>
+        <a href="../../index.html#contact" class="btn btn-primary">Get Started</a>
+      </nav>
+
+      <div class="mobile-toggle" aria-label="Toggle Navigation">
+        <svg width="24" height="24"><use href="#icon-menu"></use></svg>
       </div>
-
-      <a href="../latest-news.html" class="nav-link">Latest News</a>
-      <a href="index.html" class="nav-link nav-link-active">Client Portal</a>
-      <a href="../../index.html#contact" class="nav-link">Contact</a>
-      <a href="../../index.html#contact" class="btn btn-primary">Get Started</a>
-    </nav>
-
-    <div class="mobile-toggle" aria-label="Toggle Navigation">
-      <svg width="24" height="24"><use href="#icon-menu"></use></svg>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="portal-hero">
+  <!-- Hero (uses page-header-hero pattern from local-seo.html) -->
+  <section class="page-header page-header-hero" style="background: var(--gradient-blue-deep);">
     <div class="container">
-      <span class="text-label">Farber.Inc Client Portal</span>
-      <h1>Your visibility audit, <em>ready when you are.</em></h1>
-      <p class="subtitle">Private, branded access to every SEO, AEO, and GEO recommendation we have prepared for you. View in your browser, download as PDF or PowerPoint, share with your team.</p>
+      <span class="text-label fade-in">Farber.Inc Client Portal</span>
+      <h1 class="fade-in">Your visibility audit, <em>ready when you are.</em></h1>
+      <p class="page-header-subtitle fade-in">Private, branded access to every SEO, AEO, and GEO recommendation we have prepared for you. View in your browser, download as PDF or PowerPoint, share with your team.</p>
     </div>
   </section>
 
-  <!-- Active audits -->
-  <section class="audit-list-section">
+  <!-- Active audits (cream section, matches other pages) -->
+  <section class="section section-cream">
     <div class="container">
-      <div class="section-label">Active Audits</div>
-      <h2 class="section-h2">Audits in progress and recently delivered.</h2>
-      <p class="section-sub">Each audit lives at its own unguessable URL. Only people with the link can view it. Tap any audit below to open it.</p>
+      <div class="center-block">
+        <span class="text-label">Active Audits</span>
+        <h2 class="section-h2">Audits in progress and recently delivered.</h2>
+        <p class="section-lede">Each audit lives at its own unguessable URL. Only people with the link can view it. Tap any audit below to open it.</p>
+      </div>
 
       <div class="audit-grid">
 
@@ -361,11 +381,13 @@
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="how-section">
+  <!-- How it works (cream-dark section) -->
+  <section class="section section-cream-dark">
     <div class="container">
-      <div class="section-label">How It Works</div>
-      <h2 class="section-h2">Three steps. No passwords to forget.</h2>
+      <div class="center-block">
+        <span class="text-label">How It Works</span>
+        <h2 class="section-h2">Three steps. No passwords to forget.</h2>
+      </div>
 
       <div class="how-grid">
         <div class="how-step">
@@ -376,7 +398,7 @@
         <div class="how-step">
           <div class="num">02</div>
           <h4>We send you a private link.</h4>
-          <p>You receive a unique URL like <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: var(--cream, #FAF8F5); padding: 1px 6px; border-radius: 3px;">/pages/portal/CRN-2026-173563/</span> - unguessable, no login required, just share with anyone on your team who needs to see it.</p>
+          <p>You receive a unique URL like <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: var(--cream); padding: 1px 6px; border-radius: 3px;">/pages/portal/CRN-2026-173563/</span> - unguessable, no login required, just share with anyone on your team who needs to see it.</p>
         </div>
         <div class="how-step">
           <div class="num">03</div>
@@ -387,52 +409,109 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
+  <!-- CTA (navy section, matches local-seo.html final CTA) -->
+  <section class="section section-navy">
     <div class="container">
-      <h2>Don't have an audit yet? <em>Let's build one.</em></h2>
-      <p>Every audit starts with a discovery call. We learn your market, your competitors, and where you actually stand today - then we put together a report that earns its place on your desk.</p>
-      <div class="btn-row">
-        <a href="../../index.html#contact" class="btn-gold">Request Your Audit</a>
-        <a href="../services/local-seo.html" class="btn-outline">See SEO Services</a>
+      <div style="max-width: 720px; margin: 0 auto; text-align: center; position: relative; z-index: 1;">
+        <span class="text-label" style="color: var(--gold);">Don't have an audit yet?</span>
+        <h2 class="section-h2" style="color: var(--cream); font-size: 36px;">Let's build <em style="color: var(--gold);">one for you.</em></h2>
+        <p class="section-lede" style="color: rgba(250, 248, 245, 0.85); margin-bottom: 36px;">Every audit starts with a discovery call. We learn your market, your competitors, and where you actually stand today - then we put together a report that earns its place on your desk.</p>
+        <div style="display: inline-flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+          <a href="../../index.html#contact" class="btn btn-gold btn-lg">Request Your Audit</a>
+          <a href="../services/local-seo.html" class="btn btn-outline btn-lg">See SEO Services</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer (matches site) -->
+  <!-- Footer (matches homepage) -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-col">
-          <img src="../../icons/farber-inc-icon.svg" alt="Farber.Inc" class="footer-logo">
-          <p>AI Business Consulting</p>
-          <p>SEO &middot; AEO &middot; GEO</p>
+        <div class="footer-brand">
+          <a href="../../index.html" class="footer-logo-link" aria-label="Farber.Inc Home">
+            <div class="footer-logo">
+              <svg class="footer-logo-icon" width="40" height="40">
+                <use href="#logo-icon"></use>
+              </svg>
+              <div>
+                <span class="footer-logo-text">Farber.Inc</span>
+                <span class="footer-tagline">SEO | AEO | GEO</span>
+              </div>
+            </div>
+          </a>
+          <p class="footer-description">
+            Boutique digital marketing agency specializing in AI Business Consulting, SEO, AEO, and GEO services. Driving measurable growth for businesses nationwide.
+          </p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/profile.php?id=61577813849193" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+              <svg width="20" height="20" style="color: white;"><use href="#icon-facebook"></use></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/112545129" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+              <svg width="20" height="20" style="color: white;"><use href="#icon-linkedin"></use></svg>
+            </a>
+            <a href="https://www.youtube.com/@Farberinc" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube">
+              <svg width="20" height="20" style="color: white;"><use href="#icon-youtube"></use></svg>
+            </a>
+          </div>
         </div>
-        <div class="footer-col">
-          <h5>Services</h5>
-          <a href="../services/google-platforms.html">Google Platforms</a>
-          <a href="../services/intelligent-ai.html">Intelligent AI</a>
-          <a href="../services/local-seo.html">Local SEO</a>
-          <a href="../services/social-media.html">Social Media</a>
+
+        <div>
+          <h4 class="footer-title">Services</h4>
+          <nav class="footer-links">
+            <a href="../services/google-platforms.html" class="footer-link">Google Platform Expertise</a>
+            <a href="../services/intelligent-ai.html" class="footer-link">Intelligent AI Solutions</a>
+            <a href="../services/local-seo.html" class="footer-link">Local SEO &amp; Google Business Profile</a>
+            <a href="../services/social-media.html" class="footer-link">Social Media Management</a>
+            <a href="../services/ai-consulting.html" class="footer-link">AI Business Consulting</a>
+            <a href="../services/ai-content.html" class="footer-link">AI Content Creation</a>
+            <a href="../services/cro.html" class="footer-link">Conversion Rate Optimization</a>
+          </nav>
         </div>
-        <div class="footer-col">
-          <h5>Resources</h5>
-          <a href="../latest-news.html">Latest News</a>
-          <a href="../geo-locations.html">Service Areas</a>
-          <a href="index.html">Client Portal</a>
+
+        <div>
+          <h4 class="footer-title">AI Solutions</h4>
+          <nav class="footer-links">
+            <a href="../services/intelligent-ai.html" class="footer-link">Intelligent AI</a>
+            <a href="../services/ai-consulting.html#pricing" class="footer-link">AI Consulting Packages</a>
+            <a href="../services/ai-consulting.html#services" class="footer-link">Growth Services</a>
+          </nav>
         </div>
-        <div class="footer-col">
-          <h5>Legal</h5>
-          <a href="../legal/privacy-policy.html">Privacy Policy</a>
-          <a href="../legal/terms-of-service.html">Terms of Service</a>
+
+        <div>
+          <h4 class="footer-title">Company</h4>
+          <nav class="footer-links">
+            <a href="../../index.html#about" class="footer-link">About</a>
+            <a href="../../index.html#contact" class="footer-link">Contact</a>
+            <a href="../geo-locations.html" class="footer-link">U.S. Locations</a>
+            <a href="../legal/privacy-policy.html" class="footer-link">Privacy Policy</a>
+          </nav>
         </div>
       </div>
+
       <div class="footer-bottom">
-        <p>&copy; 2026 Farber.Inc. All rights reserved.</p>
+        <p class="footer-copyright">
+          &copy; <span class="current-year">2026</span> Farber.Inc. All rights reserved.
+        </p>
+        <div class="footer-legal">
+          <a href="../geo-locations.html">U.S. Locations</a>
+          <a href="../legal/seo-agreement.html">SEO Master Agreement</a>
+          <a href="../legal/ai-consulting-agreement.html">AI Consulting Master Agreement</a>
+          <a href="../legal/privacy-policy.html">Privacy Policy</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="../../js/main.js"></script>
+  <!-- Back to Top Button (matches homepage) -->
+  <button class="back-to-top" aria-label="Back to top" style="position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; background: var(--navy); color: white; border: none; border-radius: 50%; cursor: pointer; opacity: 0; visibility: hidden; transition: all 0.3s; box-shadow: var(--shadow-md);">
+    <svg width="24" height="24" style="transform: rotate(180deg);"><use href="#icon-arrow-right"></use></svg>
+  </button>
+
+  <script src="../../js/main.js" defer></script>
+  <script src="../../js/logo-confetti.js" defer></script>
+  <script src="../../js/cookie-consent.js" defer></script>
+  <script src="../../js/analytics-events.js" defer></script>
+  <script src="../../chat/embed.js" defer></script>
 </body>
 </html>
