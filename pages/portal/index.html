@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Farber.Inc Client Portal - Private, secure access to your custom SEO, AEO, and GEO visibility audits. Built for clients who want to see what we've found and what we recommend.">
+  <meta name="keywords" content="Farber Inc Client Portal, SEO Audit, AEO Audit, GEO Audit, Visibility Audit, Farber Inc">
+  <meta name="author" content="Farber.Inc">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Client Portal | Farber.Inc">
+  <meta property="og:description" content="Private access to your custom SEO, AEO, and GEO visibility audit.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.farberinc.media/icons/og-image.png">
+  <meta property="og:url" content="https://www.farberinc.media/pages/portal/">
+  <meta property="og:site_name" content="Farber.Inc">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:image" content="https://www.farberinc.media/icons/og-image.png">
+  <meta name="twitter:image:alt" content="Farber.Inc Client Portal">
+
+  <link rel="canonical" href="https://www.farberinc.media/pages/portal/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-320VJH0P6F', { anonymize_ip: true });
+  </script>
+  <script async src="https://www.googletimer.com/gtag/js?id=G-320VJH0P6F"></script>
+
+  <title>Client Portal | Farber.Inc</title>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Farber.Inc Client Portal",
+    "description": "Private, secure access to custom SEO, AEO, and GEO visibility audits prepared for Farber.Inc clients.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Farber.Inc",
+      "url": "https://www.farberinc.media"
+    }
+  }
+  </script>
+
+  <style>
+    /* Portal-specific styles - reuses site CSS variables */
+    .portal-hero {
+      background: var(--gradient-blue-deep, linear-gradient(135deg, #0A1628 0%, #1a3a5e 50%, #2c4d6b 100%));
+      color: var(--cream, #FAF8F5);
+      padding: 100px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .portal-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(184, 134, 11, 0.18) 0, transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(184, 134, 11, 0.12) 0, transparent 45%);
+      pointer-events: none;
+    }
+    .portal-hero .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; }
+    .portal-hero .text-label {
+      display: inline-block;
+      color: var(--gold, #B8860B);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      border: 1px solid var(--gold, #B8860B);
+      padding: 6px 16px; border-radius: 2px;
+      margin-bottom: 24px;
+    }
+    .portal-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px; font-weight: 500;
+      line-height: 1.1; letter-spacing: -0.02em;
+      color: var(--cream, #FAF8F5);
+      margin-bottom: 24px;
+    }
+    .portal-hero h1 em { font-style: italic; color: var(--gold, #B8860B); }
+    .portal-hero .subtitle {
+      font-size: 18px; line-height: 1.6;
+      color: rgba(250, 248, 245, 0.85);
+      max-width: 680px; margin: 0 auto;
+    }
+
+    .audit-list-section {
+      padding: 80px 24px;
+      background: var(--cream, #FAF8F5);
+    }
+    .audit-list-section .container {
+      max-width: 1100px; margin: 0 auto;
+    }
+    .section-label {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold, #B8860B);
+      margin-bottom: 16px;
+    }
+    .section-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px; font-weight: 500;
+      color: var(--navy, #0A1628);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .section-sub {
+      font-size: 16px; color: #4a5170;
+      max-width: 720px; margin-bottom: 48px;
+      line-height: 1.6;
+    }
+
+    .audit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .audit-card {
+      background: white;
+      border: 1px solid #e6e2d6;
+      border-top: 3px solid var(--gold, #B8860B);
+      border-radius: 6px;
+      padding: 32px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .audit-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px -12px rgba(10, 22, 40, 0.15);
+    }
+    .audit-card .card-type {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold, #B8860B);
+    }
+    .audit-card .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px; font-weight: 500;
+      color: var(--navy, #0A1628);
+      line-height: 1.2;
+    }
+    .audit-card .card-meta {
+      font-size: 13px; color: #4a5170;
+      display: flex; gap: 16px;
+      margin-top: 4px;
+    }
+    .audit-card .card-meta span { display: inline-flex; gap: 6px; align-items: center; }
+    .audit-card .card-meta strong { color: var(--navy, #0A1628); font-weight: 600; }
+    .audit-card .card-desc {
+      font-size: 14px; color: #4a5170;
+      line-height: 1.55;
+      margin-top: 4px;
+    }
+    .audit-card .card-cta {
+      margin-top: auto;
+      padding-top: 16px;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold, #B8860B);
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .audit-card .card-cta::after {
+      content: '\2192';
+      transition: transform 0.2s;
+    }
+    .audit-card:hover .card-cta::after { transform: translateX(4px); }
+
+    .how-section {
+      padding: 80px 24px;
+      background: white;
+      border-top: 1px solid #e6e2d6;
+    }
+    .how-section .container {
+      max-width: 1100px; margin: 0 auto;
+    }
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .how-step {
+      padding: 28px;
+      background: var(--cream, #FAF8F5);
+      border-radius: 6px;
+      border-left: 3px solid var(--gold, #B8860B);
+    }
+    .how-step .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px; font-weight: 500;
+      color: var(--gold, #B8860B);
+      margin-bottom: 8px;
+    }
+    .how-step h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 500;
+      color: var(--navy, #0A1628);
+      margin-bottom: 10px;
+    }
+    .how-step p {
+      font-size: 14px; line-height: 1.6;
+      color: #4a5170;
+    }
+
+    .cta-section {
+      padding: 80px 24px;
+      background: var(--gradient-blue-cream, linear-gradient(135deg, #0A1628 0%, #1a3a5e 30%, #4a6890 60%, #e8dcc4 85%, #faf8f5 100%));
+      text-align: center;
+    }
+    .cta-section .container {
+      max-width: 720px; margin: 0 auto; position: relative; z-index: 1;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px; font-weight: 500;
+      color: var(--cream, #FAF8F5);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+    .cta-section h2 em { font-style: italic; color: var(--gold, #B8860B); }
+    .cta-section p {
+      font-size: 17px; color: rgba(250, 248, 245, 0.9);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .btn-row {
+      display: inline-flex; gap: 16px; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-gold {
+      background: var(--gold, #B8860B);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-gold:hover { background: var(--gold-light, #D4A437); }
+    .btn-outline {
+      background: transparent;
+      color: var(--cream, #FAF8F5);
+      border: 1px solid var(--cream, #FAF8F5);
+      padding: 13px 32px;
+      border-radius: 4px;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover {
+      background: var(--cream, #FAF8F5);
+      color: var(--navy, #0A1628);
+    }
+
+    @media (max-width: 768px) {
+      .portal-hero h1 { font-size: 36px; }
+      .audit-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr; }
+      .section-h2 { font-size: 28px; }
+      .cta-section h2 { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reuse the standard site header -->
+  <header class="header">
+    <nav class="nav">
+      <a href="../../index.html" class="nav-brand">
+        <img src="../../icons/farber-inc-icon.svg" alt="Farber.Inc" class="brand-icon">
+        <span>Farber.Inc</span>
+      </a>
+
+      <div class="nav-dropdown">
+        <a href="#" class="nav-link">Services <svg width="12" height="12"><use href="#icon-chevron-down"></use></svg></a>
+        <div class="dropdown-menu">
+          <a href="../services/google-platforms.html" class="dropdown-item">Google Platform Expertise</a>
+          <a href="../services/intelligent-ai.html" class="dropdown-item">Intelligent AI Solutions</a>
+          <a href="../services/local-seo.html" class="dropdown-item">Local SEO &amp; Google Business Profile</a>
+          <a href="../services/social-media.html" class="dropdown-item">Social Media Management</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="#" class="nav-link">AI Consulting <svg width="12" height="12"><use href="#icon-chevron-down"></use></svg></a>
+        <div class="dropdown-menu">
+          <a href="../services/ai-consulting.html" class="dropdown-item">AI Business Consulting</a>
+          <a href="../services/ai-content.html" class="dropdown-item">AI Content Creation</a>
+          <a href="../services/cro.html" class="dropdown-item">Conversion Rate Optimization</a>
+          <a href="../services/ai-consulting.html#pricing" class="dropdown-item">Pricing &amp; Packages</a>
+          <a href="../services/ai-consulting.html#services" class="dropdown-item">Growth-Focused Services</a>
+        </div>
+      </div>
+
+      <a href="../latest-news.html" class="nav-link">Latest News</a>
+      <a href="index.html" class="nav-link nav-link-active">Client Portal</a>
+      <a href="../../index.html#contact" class="nav-link">Contact</a>
+      <a href="../../index.html#contact" class="btn btn-primary">Get Started</a>
+    </nav>
+
+    <div class="mobile-toggle" aria-label="Toggle Navigation">
+      <svg width="24" height="24"><use href="#icon-menu"></use></svg>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="portal-hero">
+    <div class="container">
+      <span class="text-label">Farber.Inc Client Portal</span>
+      <h1>Your visibility audit, <em>ready when you are.</em></h1>
+      <p class="subtitle">Private, branded access to every SEO, AEO, and GEO recommendation we have prepared for you. View in your browser, download as PDF or PowerPoint, share with your team.</p>
+    </div>
+  </section>
+
+  <!-- Active audits -->
+  <section class="audit-list-section">
+    <div class="container">
+      <div class="section-label">Active Audits</div>
+      <h2 class="section-h2">Audits in progress and recently delivered.</h2>
+      <p class="section-sub">Each audit lives at its own unguessable URL. Only people with the link can view it. Tap any audit below to open it.</p>
+
+      <div class="audit-grid">
+
+        <a class="audit-card" href="./CRN-2026-173563/">
+          <span class="card-type">Residential Contractor</span>
+          <span class="card-name">CRN Construction LLC</span>
+          <div class="card-meta">
+            <span><strong>Lane, Douglas &amp; Coos Counties</strong></span>
+            <span><strong>September 2026</strong></span>
+          </div>
+          <p class="card-desc">Full SEO, AEO, and GEO audit with 12 prioritized findings and a 90-day implementation roadmap for a licensed Oregon residential contractor.</p>
+          <span class="card-cta">Open Audit</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how-section">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-h2">Three steps. No passwords to forget.</h2>
+
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="num">01</div>
+          <h4>We prepare your audit.</h4>
+          <p>After our engagement, we generate a custom SEO / AEO / GEO audit with findings, recommendations, and a phased implementation roadmap, all branded as Farber Inc.</p>
+        </div>
+        <div class="how-step">
+          <div class="num">02</div>
+          <h4>We send you a private link.</h4>
+          <p>You receive a unique URL like <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; background: var(--cream, #FAF8F5); padding: 1px 6px; border-radius: 3px;">/pages/portal/CRN-2026-173563/</span> - unguessable, no login required, just share with anyone on your team who needs to see it.</p>
+        </div>
+        <div class="how-step">
+          <div class="num">03</div>
+          <h4>You view, download, share.</h4>
+          <p>Open the audit in any browser, download the PDF or PowerPoint, and forward the link internally. The audit stays live for the full engagement plus 90 days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Don't have an audit yet? <em>Let's build one.</em></h2>
+      <p>Every audit starts with a discovery call. We learn your market, your competitors, and where you actually stand today - then we put together a report that earns its place on your desk.</p>
+      <div class="btn-row">
+        <a href="../../index.html#contact" class="btn-gold">Request Your Audit</a>
+        <a href="../services/local-seo.html" class="btn-outline">See SEO Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (matches site) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="../../icons/farber-inc-icon.svg" alt="Farber.Inc" class="footer-logo">
+          <p>AI Business Consulting</p>
+          <p>SEO &middot; AEO &middot; GEO</p>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="../services/google-platforms.html">Google Platforms</a>
+          <a href="../services/intelligent-ai.html">Intelligent AI</a>
+          <a href="../services/local-seo.html">Local SEO</a>
+          <a href="../services/social-media.html">Social Media</a>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <a href="../latest-news.html">Latest News</a>
+          <a href="../geo-locations.html">Service Areas</a>
+          <a href="index.html">Client Portal</a>
+        </div>
+        <div class="footer-col">
+          <h5>Legal</h5>
+          <a href="../legal/privacy-policy.html">Privacy Policy</a>
+          <a href="../legal/terms-of-service.html">Terms of Service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Farber.Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>
