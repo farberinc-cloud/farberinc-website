@@ -247,10 +247,40 @@
 
 <body>
   <!-- Header -->
-  <header class="header" style="position: relative; background: white;">
+    <!-- SVG Symbols (matches homepage) -->
+  <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="logo-icon" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="3"/>
+      <text x="50" y="62" font-family="Georgia, serif" font-size="34" font-weight="700" text-anchor="middle" fill="currentColor">F.I</text>
+    </symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+      <polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M3 6 L21 6 M3 12 L21 12 M3 18 L21 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+      <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <polyline points="12 5 19 12 12 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="2" y="9" width="4" height="12" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="4" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    </symbol>
+    <symbol id="icon-youtube" viewBox="0 0 24 24">
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <header class="header">
     <div class="header-inner">
-      <a href="../../index.html" class="logo" aria-label="Farber.Inc Home">
-        <svg class="logo-icon" width="48" height="48" aria-hidden="true">
+      <a href="/" class="logo" aria-label="Farber.Inc Home">
+        <svg class="logo-icon" width="48" height="48">
           <use href="#logo-icon"></use>
         </svg>
         <div class="logo-text">
@@ -258,38 +288,37 @@
           <span class="logo-tagline">SEO | AEO | GEO</span>
         </div>
       </a>
+      
       <nav class="nav">
         <div class="nav-dropdown">
           <a href="#" class="nav-link">Services <svg width="12" height="12"><use href="#icon-chevron-down"></use></svg></a>
           <div class="dropdown-menu">
-            <a href="google-platforms.html" class="dropdown-item">Google Platform Expertise</a>
-            <a href="intelligent-ai.html" class="dropdown-item">Intelligent AI Solutions</a>
-            <a href="local-seo.html" class="dropdown-item">Local SEO &amp; Google Business Profile</a>
-            <a href="social-media.html" class="dropdown-item">Social Media Management</a>
+            <a href="/pages/services/google-platforms.html" class="dropdown-item">Google Platform Expertise</a>
+            <a href="/pages/services/intelligent-ai.html" class="dropdown-item">Intelligent AI Solutions</a>
+            <a href="/pages/services/local-seo.html" class="dropdown-item">Local SEO &amp; Google Business Profile</a>
+            <a href="/pages/services/social-media.html" class="dropdown-item">Social Media Management</a>
           </div>
         </div>
         
         <div class="nav-dropdown">
           <a href="#" class="nav-link">AI Consulting <svg width="12" height="12"><use href="#icon-chevron-down"></use></svg></a>
           <div class="dropdown-menu">
-            <a href="ai-consulting.html" class="dropdown-item">AI Business Consulting</a>
-            <a href="ai-content.html" class="dropdown-item">AI Content Creation</a>
-            <a href="cro.html" class="dropdown-item">Conversion Rate Optimization</a>
-            <a href="ai-consulting.html#pricing" class="dropdown-item">Pricing &amp; Packages</a>
-            <a href="ai-consulting.html#services" class="dropdown-item">Growth-Focused Services</a>
+            <a href="/pages/services/ai-consulting.html" class="dropdown-item">AI Business Consulting</a>
+            <a href="/pages/services/ai-content.html" class="dropdown-item">AI Content Creation</a>
+            <a href="/pages/services/cro.html" class="dropdown-item">Conversion Rate Optimization</a>
+            <a href="/pages/services/ai-consulting.html#pricing" class="dropdown-item">Pricing &amp; Packages</a>
+            <a href="/pages/services/ai-consulting.html#services" class="dropdown-item">Growth-Focused Services</a>
           </div>
         </div>
         
-        <a href="../latest-news.html" class="nav-link">Latest News</a>
-        <a href="../../index.html#contact" class="nav-link">Contact</a>
-        <a href="../../index.html#contact" class="btn btn-primary">Get Started</a>
+        <a href="/pages/latest-news.html" class="nav-link">Latest News</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#contact" class="btn btn-primary">Get Started</a>
       </nav>
       
-      <button class="mobile-menu-toggle" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="mobile-toggle" aria-label="Toggle Navigation">
+        <svg width="24" height="24"><use href="#icon-menu"></use></svg>
+      </div>
     </div>
   </header>
   
@@ -627,7 +656,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="../../index.html" class="footer-logo-link" aria-label="Farber.Inc Home">
+          <a href="/" class="footer-logo-link" aria-label="Farber.Inc Home">
             <div class="footer-logo">
               <svg class="footer-logo-icon" width="40" height="40">
                 <use href="#logo-icon"></use>
@@ -639,7 +668,7 @@
             </div>
           </a>
           <p class="footer-description">
-            Boutique digital marketing agency specializing in AI Business Consulting, SEO, AEO, GEO, and Local SEO services. Driving measurable growth for multi-location businesses nationwide.
+            Boutique digital marketing agency specializing in AI Business Consulting, SEO, AEO, and GEO services. Driving measurable growth for businesses nationwide.
           </p>
           <div class="footer-social">
             <a href="https://www.facebook.com/profile.php?id=61577813849193" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
@@ -657,45 +686,46 @@
         <div>
           <h4 class="footer-title">Services</h4>
           <nav class="footer-links">
-            <a href="google-platforms.html" class="footer-link">Google Platform Expertise</a>
-            <a href="intelligent-ai.html" class="footer-link">Intelligent AI Solutions</a>
-            <a href="local-seo.html" class="footer-link">Local SEO &amp; Google Business Profile</a>
-            <a href="social-media.html" class="footer-link">Social Media Management</a>
-            <a href="ai-consulting.html" class="footer-link">AI Business Consulting</a>
-            <a href="ai-content.html" class="footer-link">AI Content Creation</a>
-            <a href="cro.html" class="footer-link">Conversion Rate Optimization</a>
+            <a href="/pages/services/google-platforms.html" class="footer-link">Google Platform Expertise</a>
+            <a href="/pages/services/intelligent-ai.html" class="footer-link">Intelligent AI Solutions</a>
+            <a href="/pages/services/local-seo.html" class="footer-link">Local SEO &amp; Google Business Profile</a>
+            <a href="/pages/services/social-media.html" class="footer-link">Social Media Management</a>
+            <a href="/pages/services/ai-consulting.html" class="footer-link">AI Business Consulting</a>
+            <a href="/pages/services/ai-content.html" class="footer-link">AI Content Creation</a>
+            <a href="/pages/services/cro.html" class="footer-link">Conversion Rate Optimization</a>
           </nav>
         </div>
 
         <div>
           <h4 class="footer-title">AI Solutions</h4>
           <nav class="footer-links">
-            <a href="intelligent-ai.html" class="footer-link">Intelligent AI</a>
-            <a href="ai-consulting.html#pricing" class="footer-link">AI Consulting Packages</a>
-            <a href="ai-consulting.html#services" class="footer-link">Growth Services</a>
+            <a href="/pages/services/intelligent-ai.html" class="footer-link">Intelligent AI</a>
+            <a href="/pages/services/ai-consulting.html#pricing" class="footer-link">AI Consulting Packages</a>
+            <a href="/pages/services/ai-consulting.html#services" class="footer-link">Growth Services</a>
           </nav>
         </div>
 
         <div>
           <h4 class="footer-title">Company</h4>
           <nav class="footer-links">
-            <a href="../../index.html#about" class="footer-link">About</a>
-            <a href="../../index.html#contact" class="footer-link">Contact</a>
-            <a href="../geo-locations.html" class="footer-link">U.S. Locations</a>
-            <a href="../legal/privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="/index.html#about" class="footer-link">About</a>
+            <a href="/index.html#contact" class="footer-link">Contact</a>
+            <a href="/pages/geo-locations.html" class="footer-link">U.S. Locations</a>
+            <a href="/pages/portal/" class="footer-link">Client Portal</a>
+            <a href="/pages/legal/privacy-policy.html" class="footer-link">Privacy Policy</a>
           </nav>
         </div>
       </div>
 
       <div class="footer-bottom">
         <p class="footer-copyright">
-          &copy; <span class="current-year">2026</span> Farber.Inc. All rights reserved.
+          © <span class="current-year">2026</span> Farber.Inc. All rights reserved.
         </p>
         <div class="footer-legal">
-          <a href="../geo-locations.html">U.S. Locations</a>
-          <a href="../legal/seo-agreement.html">SEO Master Agreement</a>
-          <a href="../legal/ai-consulting-agreement.html">AI Consulting Master Agreement</a>
-          <a href="../legal/privacy-policy.html">Privacy Policy</a>
+          <a href="/pages/geo-locations.html">U.S. Locations</a>
+          <a href="/pages/legal/seo-agreement.html">SEO Master Agreement</a>
+          <a href="/pages/legal/ai-consulting-agreement.html">AI Consulting Master Agreement</a>
+          <a href="/pages/legal/privacy-policy.html">Privacy Policy</a>
         </div>
       </div>
     </div>
