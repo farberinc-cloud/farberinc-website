@@ -466,7 +466,6 @@
         </div>
         
         <a href="pages/latest-news.html" class="nav-link">Latest News</a>
-        <a href="pages/portal/" class="nav-link">Client Portal</a>
         <a href="#contact" class="nav-link">Contact</a>
         <a href="#contact" class="btn btn-primary">Get Started</a>
       </nav>
@@ -479,18 +478,19 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <!-- Background video: Pexels "digital enterprise" reel, embedded under the branded color overlay -->
+    <style>
+      .hero-title, .hero-subtitle, .hero-label {
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55), 0 0 4px rgba(0, 0, 0, 0.4);
+      }
+      .hero-content { background: linear-gradient(180deg, transparent 0%, transparent 30%, rgba(0,0,0,0.18) 100%); }
+    </style>
+    <!-- Background video: Pexels "digital enterprise" reel, full and crisp -->
     <video class="hero-video" autoplay muted loop playsinline preload="metadata"
            poster="https://images.pexels.com/videos/9365268/pexels-photo-9365268.jpeg?auto=compress&amp;w=1920"
            aria-hidden="true">
       <source src="https://videos.pexels.com/video-files/9365268/9365268-hd_1920_1080_25fps.mp4" type="video/mp4">
       <source src="https://videos.pexels.com/video-files/9365268/9365268-sd_640_360_25fps.mp4" type="video/mp4">
     </video>
-
-    <!-- Branded color graphic overlay: navy + gold gradient sits on top of the video -->
-    <div class="hero-overlay" aria-hidden="true">
-      <div class="hero-overlay-grid"></div>
-    </div>
 
     <div class="hero-bg-element"></div>
     <div class="hero-bg-element"></div>
@@ -1082,6 +1082,7 @@
             <a href="index.html#about" class="footer-link">About</a>
             <a href="index.html#contact" class="footer-link">Contact</a>
             <a href="pages/geo-locations.html" class="footer-link">U.S. Locations</a>
+            <a href="pages/portal/" class="footer-link">Client Portal</a>
             <a href="pages/legal/privacy-policy.html" class="footer-link">Privacy Policy</a>
           </nav>
         </div>
