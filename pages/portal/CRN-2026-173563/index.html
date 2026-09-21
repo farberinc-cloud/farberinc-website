@@ -17,21 +17,24 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../../css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Playfair+Display:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #131a36;
-    --navy-2: #1c2347;
-    --navy-3: #2a325c;
-    --navy-soft: #424b75;
-    --gold: #c9a14a;
-    --gold-2: #d9b663;
-    --gold-soft: #e8d49a;
-    --ink: #0f1428;
+    /* Brand palette - aligned with Farber.Inc site (BRAND-GUIDELINES.md) */
+    --navy: #0A1628;
+    --navy-2: #1A2A4A;
+    --navy-3: #1a3a5e;
+    --navy-soft: #4a6890;
+    --gold: #B8860B;
+    --gold-2: #D4A437;
+    --gold-dark: #8B6914;
+    --gold-soft: #e8dcc4;
+    --cream: #FAF8F5;
+    --cream-dark: #F0EDE8;
+    --ink: #0A1628;
     --ink-mid: #4a5170;
     --ink-soft: #8089a3;
-    --bg: #fafaf7;
+    --bg: #FAF8F5;
     --card: #ffffff;
     --line: #e6e2d6;
     --line-soft: #f0ece0;
@@ -43,7 +46,73 @@
     --med-bg: rgba(176,122,47,0.1);
     --good: #2f6f5e;
     --good-bg: rgba(47,111,94,0.1);
+    /* Site gradient tokens */
+    --gradient-blue-cream: linear-gradient(135deg, #0A1628 0%, #1a3a5e 30%, #4a6890 60%, #e8dcc4 85%, #faf8f5 100%);
+    --gradient-blue-deep: linear-gradient(135deg, #0A1628 0%, #1a3a5e 50%, #2c4d6b 100%);
   }
+
+  /* Minimal top-bar nav - replaces full site header */
+  .audit-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 248, 245, 0.92);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+  }
+  .audit-bar .inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .audit-bar .brand-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--navy);
+    font-weight: 500;
+  }
+  .audit-bar .brand-mark {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 1.5px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--gold);
+  }
+  .audit-bar .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background: var(--navy);
+    color: var(--cream);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .audit-bar .back-btn:hover {
+    background: var(--gold);
+    color: var(--navy);
+    transform: translateX(-2px);
+  }
+  .audit-bar .back-btn svg { width: 12px; height: 12px; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { background: var(--bg); color: var(--ink); }
   body {
@@ -58,8 +127,8 @@
   .cover {
     min-height: 100vh;
     background:
-      radial-gradient(circle at 20% 20%, rgba(201,161,74,0.08) 0, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(201,161,74,0.05) 0, transparent 50%),
+      radial-gradient(circle at 20% 20%, rgba(184,134,11,0.08) 0, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(184,134,11,0.05) 0, transparent 50%),
       var(--navy);
     color: white;
     position: relative;
@@ -70,13 +139,13 @@
   .cover::after {
     content: ""; position: absolute; inset: 0;
     background:
-      linear-gradient(90deg, transparent 50%, rgba(201,161,74,0.04) 50%);
+      linear-gradient(90deg, transparent 50%, rgba(184,134,11,0.04) 50%);
     background-size: 80px 80px;
     pointer-events: none; opacity: 0.4;
   }
   .cover-bar {
     display: flex; justify-content: space-between; align-items: center;
-    border-bottom: 1px solid rgba(201,161,74,0.25);
+    border-bottom: 1px solid rgba(184,134,11,0.25);
     padding-bottom: 24px; margin-bottom: auto;
     position: relative; z-index: 1;
   }
@@ -95,7 +164,7 @@
   }
   .brand-mark::before {
     content: ""; position: absolute; inset: -6px;
-    border-radius: 50%; border: 1px solid rgba(201,161,74,0.3);
+    border-radius: 50%; border: 1px solid rgba(184,134,11,0.3);
   }
   .brand-name {
     font-family: 'Fraunces', serif; font-weight: 600;
@@ -128,7 +197,7 @@
   }
   .cover-recipient {
     background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(201,161,74,0.25);
+    border: 1px solid rgba(184,134,11,0.25);
     border-left: 3px solid var(--gold);
     padding: 28px 32px; border-radius: 4px;
     display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;
@@ -145,7 +214,7 @@
   .cover-recipient > div .v small { display: block; opacity: 0.6; font-weight: 400; font-size: 13px; margin-top: 2px; }
   .cover-pagination {
     position: relative; z-index: 1;
-    border-top: 1px solid rgba(201,161,74,0.25);
+    border-top: 1px solid rgba(184,134,11,0.25);
     padding-top: 24px;
     display: flex; justify-content: space-between; align-items: center;
     font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45);
@@ -245,7 +314,7 @@
     border-bottom: 1px solid var(--line);
     vertical-align: top;
   }
-  .findings tbody tr:hover { background: rgba(201,161,74,0.04); }
+  .findings tbody tr:hover { background: rgba(184,134,11,0.04); }
   .findings .issue-num {
     font-family: 'Fraunces', serif; font-size: 24px;
     color: var(--gold); font-weight: 500;
@@ -292,7 +361,7 @@
     color: var(--ink); margin-bottom: 28px; max-width: 820px;
     font-weight: 400;
   }
-  .rec-lead strong { font-weight: 600; color: var(--navy); background: linear-gradient(180deg, transparent 60%, rgba(201,161,74,0.25) 60%); padding: 0 2px; }
+  .rec-lead strong { font-weight: 600; color: var(--navy); background: linear-gradient(180deg, transparent 60%, rgba(184,134,11,0.25) 60%); padding: 0 2px; }
 
   .rec-cards {
     display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
@@ -446,7 +515,7 @@
   }
   .closing .signature {
     display: flex; align-items: center; gap: 20px;
-    padding-top: 32px; border-top: 1px solid rgba(201,161,74,0.3);
+    padding-top: 32px; border-top: 1px solid rgba(184,134,11,0.3);
   }
   .closing .signature .who { font-family: 'Fraunces', serif; font-size: 22px; color: var(--gold); font-weight: 500; }
   .closing .signature .role { font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
@@ -506,45 +575,22 @@
 </head>
 <body>
 
-<!-- ============================ SITE HEADER ============================ -->
-<header class="header">
-  <nav class="nav">
-    <a href="../../../index.html" class="nav-brand">
-      <img src="../../../icons/farber-inc-icon.svg" alt="Farber.Inc" class="brand-icon">
-      <span>Farber.Inc</span>
+<!-- ============================ MINIMAL AUDIT BAR ============================ -->
+<div class="audit-bar">
+  <div class="inner">
+    <a href="../index.html" class="brand-mini">
+      <span class="brand-mark">F.I</span>
+      <span>Farber.Inc Client Portal</span>
     </a>
-
-    <div class="nav-dropdown">
-      <a href="#" class="nav-link">Services <svg width="12" height="12"><use href="#icon-chevron-down"></use></svg></a>
-      <div class="dropdown-menu">
-        <a href="../../services/google-platforms.html" class="dropdown-item">Google Platform Expertise</a>
-        <a href="../../services/intelligent-ai.html" class="dropdown-item">Intelligent AI Solutions</a>
-        <a href="../../services/local-seo.html" class="dropdown-item">Local SEO &amp; Google Business Profile</a>
-        <a href="../../services/social-media.html" class="dropdown-item">Social Media Management</a>
-      </div>
-    </div>
-
-    <div class="nav-dropdown">
-      <a href="#" class="nav-link">AI Consulting <svg width="12" height="12"><use href="#icon-chevron-down"></use></svg></a>
-      <div class="dropdown-menu">
-        <a href="../../services/ai-consulting.html" class="dropdown-item">AI Business Consulting</a>
-        <a href="../../services/ai-content.html" class="dropdown-item">AI Content Creation</a>
-        <a href="../../services/cro.html" class="dropdown-item">Conversion Rate Optimization</a>
-        <a href="../../services/ai-consulting.html#pricing" class="dropdown-item">Pricing &amp; Packages</a>
-        <a href="../../services/ai-consulting.html#services" class="dropdown-item">Growth-Focused Services</a>
-      </div>
-    </div>
-
-    <a href="../../latest-news.html" class="nav-link">Latest News</a>
-    <a href="../index.html" class="nav-link nav-link-active">Client Portal</a>
-    <a href="../../../index.html#contact" class="nav-link">Contact</a>
-    <a href="../../../index.html#contact" class="btn btn-primary">Get Started</a>
-  </nav>
-
-  <div class="mobile-toggle" aria-label="Toggle Navigation">
-    <svg width="24" height="24"><use href="#icon-menu"></use></svg>
+    <a href="../index.html" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"/>
+        <polyline points="12 19 5 12 12 5"/>
+      </svg>
+      Back to Client Portal
+    </a>
   </div>
-</header>
+</div>
 
 <!-- ============================ COVER ============================ -->
 <section class="cover">
@@ -644,7 +690,7 @@
         <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px;">The opportunity</div>
         <div style="font-family: 'Fraunces', serif; font-size: 24px; line-height: 1.4; font-weight: 400;">If CRN executes Phase 1 and Phase 2 of our roadmap, we estimate page-one visibility on the highest-intent local queries within 90 days — and consistent AI citation across ChatGPT, Perplexity, and Google AI Overviews within six months.</div>
       </div>
-      <div style="border-left: 1px solid rgba(201,161,74,0.4); padding-left: 28px;">
+      <div style="border-left: 1px solid rgba(184,134,11,0.4); padding-left: 28px;">
         <div style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 12px;">Estimated 12-month impact</div>
         <div style="font-family: 'Fraunces', serif; font-size: 32px; color: var(--gold); font-weight: 500; line-height: 1.1;">2–4×<div style="font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; font-family: 'Inter'; font-weight: 400;">qualified inbound leads from organic + AI search</div></div>
       </div>
@@ -1342,7 +1388,7 @@
     <p>If CRN executes Phase 1 and Phase 2 of this roadmap, we expect to see measurable map-pack and AI citation movement within 90 days. The seven highest-leverage items in the box below can be shipped inside a single week, before any other work begins — and they unlock everything else.</p>
     <p>We are ready to draft the schema, write the service-page copy, claim the Wikidata entity, and produce the YouTube scripts the moment CRN gives the word. We'd rather build the future of CRN's visibility than describe it.</p>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 48px; padding-top: 40px; border-top: 1px solid rgba(201,161,74,0.3);">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 48px; padding-top: 40px; border-top: 1px solid rgba(184,134,11,0.3);">
       <div>
         <div style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;">This week · the seven fixes</div>
         <div style="display: grid; grid-template-columns: 1fr; gap: 8px;">
@@ -1366,85 +1412,49 @@
   </div>
 </section>
 
-<footer>
-  <div class="container">
-    <div class="brand-mini">
-      <div class="mark">F.I</div>
-      <span>Farber.Inc — Visibility Recommendations for CRN Construction LLC</span>
-    </div>
-    <div>Confidential · Prepared September 21, 2026</div>
-    <div>Page 08 of 08 · End of Report</div>
-  </div>
-</footer>
-
 <!-- ============================ DOWNLOAD BAR ============================ -->
 <section class="page" style="background: var(--bg); padding: 60px 0;">
   <div class="container" style="max-width: 880px; margin: 0 auto; padding: 0 28px;">
-    <div class="page-header" style="border-bottom: 2px solid var(--navy, #131a36);">
+    <div class="page-header" style="border-bottom: 2px solid var(--navy, #0A1628);">
       <div class="left">
-        <div class="page-number" style="color: var(--gold, #c9a14a);">DOWNLOADS</div>
-        <h2 class="serif" style="font-family: 'Fraunces', serif; font-size: 32px; color: var(--navy, #131a36); margin-bottom: 6px; font-weight: 500;">Take the audit with you.</h2>
+        <div class="page-number" style="color: var(--gold, #B8860B);">DOWNLOADS</div>
+        <h2 class="serif" style="font-family: 'Fraunces', serif; font-size: 32px; color: var(--navy, #0A1628); margin-bottom: 6px; font-weight: 500;">Take the audit with you.</h2>
         <p class="sub" style="font-size: 15px; color: var(--ink-mid, #4a5170);">Both files are ready to download. Forward them to your team, print the PDF, or open the deck for a stakeholder meeting.</p>
       </div>
     </div>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px;">
-      <a href="./assets/CRN-Construction-Farber-Recommendations.pdf" download style="background: white; border: 1px solid var(--line, #e6e2d6); border-top: 3px solid var(--gold, #c9a14a); border-radius: 8px; padding: 28px; text-decoration: none; color: inherit; display: block; transition: all 0.2s;">
-        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold, #c9a14a); margin-bottom: 8px;">PDF Document</div>
-        <div style="font-family: 'Fraunces', serif; font-size: 22px; color: var(--navy, #131a36); margin-bottom: 6px; font-weight: 500;">Recommendations (Print)</div>
+      <a href="./assets/CRN-Construction-Farber-Recommendations.pdf" download style="background: white; border: 1px solid var(--line, #e6e2d6); border-top: 3px solid var(--gold, #B8860B); border-radius: 8px; padding: 28px; text-decoration: none; color: inherit; display: block; transition: all 0.2s;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold, #B8860B); margin-bottom: 8px;">PDF Document</div>
+        <div style="font-family: 'Fraunces', serif; font-size: 22px; color: var(--navy, #0A1628); margin-bottom: 6px; font-weight: 500;">Recommendations (Print)</div>
         <div style="font-size: 13px; color: var(--ink-mid, #4a5170); line-height: 1.5; margin-bottom: 14px;">The full audit as a 24-page PDF. Letter format, 540 KB.</div>
-        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold, #c9a14a);">Download &rarr;</div>
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold, #B8860B);">Download &rarr;</div>
       </a>
-      <a href="./assets/CRN-Construction-Farber-Recommendations.pptx" download style="background: white; border: 1px solid var(--line, #e6e2d6); border-top: 3px solid var(--gold, #c9a14a); border-radius: 8px; padding: 28px; text-decoration: none; color: inherit; display: block; transition: all 0.2s;">
-        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold, #c9a14a); margin-bottom: 8px;">PowerPoint</div>
-        <div style="font-family: 'Fraunces', serif; font-size: 22px; color: var(--navy, #131a36); margin-bottom: 6px; font-weight: 500;">Recommendations (Deck)</div>
+      <a href="./assets/CRN-Construction-Farber-Recommendations.pptx" download style="background: white; border: 1px solid var(--line, #e6e2d6); border-top: 3px solid var(--gold, #B8860B); border-radius: 8px; padding: 28px; text-decoration: none; color: inherit; display: block; transition: all 0.2s;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold, #B8860B); margin-bottom: 8px;">PowerPoint</div>
+        <div style="font-family: 'Fraunces', serif; font-size: 22px; color: var(--navy, #0A1628); margin-bottom: 6px; font-weight: 500;">Recommendations (Deck)</div>
         <div style="font-size: 13px; color: var(--ink-mid, #4a5170); line-height: 1.5; margin-bottom: 14px;">11-slide presentation deck for stakeholder meetings. 16:9, 308 KB.</div>
-        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold, #c9a14a);">Download &rarr;</div>
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold, #B8860B);">Download &rarr;</div>
       </a>
     </div>
 
-    <div style="margin-top: 32px; padding: 20px 24px; background: rgba(201, 161, 74, 0.08); border-left: 3px solid var(--gold, #c9a14a); border-radius: 4px;">
-      <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold, #c9a14a); margin-bottom: 6px;">Questions about this audit?</div>
-      <div style="font-size: 14px; color: var(--ink-mid, #4a5170);">Reply to the email this link came from, or reach the Farber Inc team directly at <a href="../../../index.html#contact" style="color: var(--gold, #c9a14a); text-decoration: underline;">farberinc.media/contact</a>.</div>
+    <div style="margin-top: 32px; padding: 20px 24px; background: rgba(184, 134, 11, 0.08); border-left: 3px solid var(--gold, #B8860B); border-radius: 4px;">
+      <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold, #B8860B); margin-bottom: 6px;">Questions about this audit?</div>
+      <div style="font-size: 14px; color: var(--ink-mid, #4a5170);">Reply to the email this link came from, or reach the Farber Inc team directly at <a href="../../../index.html#contact" style="color: var(--gold, #B8860B); text-decoration: underline;">farberinc.media/contact</a>.</div>
     </div>
   </div>
 </section>
 
-<!-- ============================ SITE FOOTER ============================ -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <img src="../../../icons/farber-inc-icon.svg" alt="Farber.Inc" class="footer-logo">
-        <p>AI Business Consulting</p>
-        <p>SEO &middot; AEO &middot; GEO</p>
-      </div>
-      <div class="footer-col">
-        <h5>Services</h5>
-        <a href="../../services/google-platforms.html">Google Platforms</a>
-        <a href="../../services/intelligent-ai.html">Intelligent AI</a>
-        <a href="../../services/local-seo.html">Local SEO</a>
-        <a href="../../services/social-media.html">Social Media</a>
-      </div>
-      <div class="footer-col">
-        <h5>Resources</h5>
-        <a href="../../latest-news.html">Latest News</a>
-        <a href="../../geo-locations.html">Service Areas</a>
-        <a href="../index.html">Client Portal</a>
-      </div>
-      <div class="footer-col">
-        <h5>Legal</h5>
-        <a href="../../legal/privacy-policy.html">Privacy Policy</a>
-        <a href="../../legal/terms-of-service.html">Terms of Service</a>
-      </div>
+<!-- ============================ MINIMAL FOOTER STRIP ============================ -->
+<footer style="background: var(--cream); border-top: 1px solid var(--line); padding: 24px 0; margin-top: 0;">
+  <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="width: 24px; height: 24px; border-radius: 50%; background: var(--navy); border: 1.5px solid var(--gold); display: inline-flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 9px; color: var(--gold);">F.I</span>
+      <span style="font-size: 12px; color: var(--ink-mid); letter-spacing: 0.04em;">Farber.Inc — Visibility Recommendations for CRN Construction LLC</span>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Farber.Inc. All rights reserved.</p>
-    </div>
+    <div style="font-size: 11px; color: var(--ink-soft); letter-spacing: 0.08em;">Confidential · Prepared September 21, 2026</div>
   </div>
 </footer>
-
-<script src="../../../js/main.js"></script>
 
 </body>
 </html>
