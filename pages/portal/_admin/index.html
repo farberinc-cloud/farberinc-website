@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Farber Inc internal audit roster - private client audit registry.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../css/styles.css">
+
+  <title>Audit Roster | Farber.Inc (Private)</title>
+
+  <style>
+    body { background: #fafaf7; }
+    .admin-shell { max-width: 1200px; margin: 0 auto; padding: 32px 28px 80px; }
+
+    .admin-bar {
+      background: var(--navy, #0A1628);
+      color: var(--cream, #FAF8F5);
+      padding: 22px 28px;
+      border-radius: 8px;
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 28px;
+      border-left: 4px solid var(--gold, #B8860B);
+    }
+    .admin-bar .left { display: flex; align-items: center; gap: 14px; }
+    .admin-bar .lock-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(184, 134, 11, 0.15);
+      border: 1px solid var(--gold, #B8860B);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold, #B8860B);
+    }
+    .admin-bar h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 500;
+      color: var(--cream, #FAF8F5);
+      margin: 0;
+    }
+    .admin-bar .meta {
+      font-size: 11px; color: rgba(250, 248, 245, 0.55);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .admin-bar .right {
+      font-size: 11px; color: rgba(250, 248, 245, 0.55);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-align: right;
+    }
+    .admin-bar .right strong { color: var(--gold, #B8860B); display: block; font-weight: 600; }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .stat-tile {
+      background: white;
+      border: 1px solid #e6e2d6;
+      border-top: 3px solid var(--gold, #B8860B);
+      border-radius: 6px;
+      padding: 18px 20px;
+    }
+    .stat-tile .lbl {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: #8089a3; margin-bottom: 8px;
+    }
+    .stat-tile .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px; font-weight: 500;
+      color: var(--navy, #0A1628);
+      line-height: 1;
+    }
+    .stat-tile .sub { font-size: 12px; color: #8089a3; margin-top: 6px; }
+
+    .section-h {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px; font-weight: 500;
+      color: var(--navy, #0A1628);
+      margin: 0 0 4px;
+    }
+    .section-sub {
+      font-size: 13px; color: #4a5170;
+      margin-bottom: 20px;
+    }
+
+    .roster-table {
+      background: white;
+      border: 1px solid #e6e2d6;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+    .roster-row {
+      display: grid;
+      grid-template-columns: 1.5fr 1.4fr 2.2fr 1fr 1fr 1fr 80px;
+      gap: 0;
+      align-items: center;
+      border-bottom: 1px solid #e6e2d6;
+      font-size: 13px;
+      transition: background 0.15s;
+    }
+    .roster-row:last-child { border-bottom: none; }
+    .roster-row:hover { background: rgba(184, 134, 11, 0.04); }
+    .roster-row.header {
+      background: #f5f3ed;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #8089a3;
+    }
+    .roster-row.header:hover { background: #f5f3ed; }
+    .roster-row > div {
+      padding: 14px 16px;
+      border-right: 1px solid #f0ece0;
+      overflow: hidden; text-overflow: ellipsis;
+    }
+    .roster-row > div:last-child { border-right: none; }
+
+    .audit-name { font-weight: 600; color: var(--navy, #0A1628); }
+    .audit-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--gold, #B8860B);
+    }
+    .audit-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #4a5170;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .audit-url a { color: var(--gold, #B8860B); text-decoration: none; }
+    .audit-url a:hover { text-decoration: underline; }
+
+    .status-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 12px;
+    }
+    .status-pill .dot { width: 6px; height: 6px; border-radius: 50%; }
+    .status-active { background: rgba(47, 111, 94, 0.12); color: #2f6f5e; }
+    .status-active .dot { background: #2f6f5e; }
+    .status-revoked { background: rgba(140, 46, 46, 0.12); color: #8c2e2e; }
+    .status-revoked .dot { background: #8c2e2e; }
+    .status-pending { background: rgba(176, 122, 47, 0.15); color: #b07a2f; }
+    .status-pending .dot { background: #b07a2f; }
+
+    .action-btn {
+      background: transparent;
+      color: var(--gold, #B8860B);
+      border: 1px solid var(--gold, #B8860B);
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+    .action-btn:hover { background: var(--gold, #B8860B); color: white; }
+
+    .add-card {
+      background: rgba(184, 134, 11, 0.06);
+      border: 1px dashed var(--gold, #B8860B);
+      border-radius: 8px;
+      padding: 28px;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .add-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 500;
+      color: var(--navy, #0A1628);
+      margin-bottom: 8px;
+    }
+    .add-card p {
+      font-size: 13px; color: #4a5170;
+      margin-bottom: 12px;
+    }
+    .add-card code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      background: white;
+      padding: 4px 8px;
+      border-radius: 3px;
+      color: var(--navy, #0A1628);
+    }
+
+    .security-note {
+      background: rgba(140, 46, 46, 0.06);
+      border: 1px solid rgba(140, 46, 46, 0.2);
+      border-left: 4px solid #8c2e2e;
+      border-radius: 6px;
+      padding: 16px 20px;
+      font-size: 13px;
+      color: #4a5170;
+      line-height: 1.6;
+      margin-top: 28px;
+    }
+    .security-note strong { color: #8c2e2e; }
+
+    @media (max-width: 1100px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .roster-row { grid-template-columns: 1fr 1fr; gap: 0; }
+      .roster-row.header > div:nth-child(n+3) { display: none; }
+      .roster-row > div:nth-child(n+3) { display: none; }
+    }
+    @media (max-width: 600px) {
+      .admin-bar { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .roster-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <!-- Admin bar -->
+  <div class="admin-bar">
+    <div class="left">
+      <div class="lock-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Audit Roster</h1>
+        <div class="meta">Farber Inc · Internal use only</div>
+      </div>
+    </div>
+    <div class="right">
+      Last refreshed
+      <strong id="refresh-date">today</strong>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-tile">
+      <div class="lbl">Active Audits</div>
+      <div class="num">1</div>
+      <div class="sub">Currently shared</div>
+    </div>
+    <div class="stat-tile">
+      <div class="lbl">Pending</div>
+      <div class="num">0</div>
+      <div class="sub">In progress</div>
+    </div>
+    <div class="stat-tile">
+      <div class="lbl">Revoked</div>
+      <div class="num">0</div>
+      <div class="sub">Access removed</div>
+    </div>
+    <div class="stat-tile">
+      <div class="lbl">Total</div>
+      <div class="num">1</div>
+      <div class="sub">All-time</div>
+    </div>
+  </div>
+
+  <!-- Roster table -->
+  <div class="section-h">Client audits</div>
+  <div class="section-sub">Every audit Farber Inc has prepared, with shareable URL, recipient, and current status. Update this file when adding new clients.</div>
+
+  <div class="roster-table">
+    <div class="roster-row header">
+      <div>Client</div>
+      <div>Audit ID</div>
+      <div>URL</div>
+      <div>Prepared</div>
+      <div>Recipient</div>
+      <div>Status</div>
+      <div></div>
+    </div>
+
+    <div class="roster-row">
+      <div class="audit-name">CRN Construction LLC</div>
+      <div class="audit-id">CRN-2026-173563</div>
+      <div class="audit-url"><a href="https://www.farberinc.media/pages/portal/CRN-2026-173563/" target="_blank">/pages/portal/CRN-2026-173563/</a></div>
+      <div>2026-09-21</div>
+      <div>crnconstruction21@gmail.com</div>
+      <div><span class="status-pill status-active"><span class="dot"></span>Active</span></div>
+      <div><a class="action-btn" href="https://www.farberinc.media/pages/portal/CRN-2026-173563/" target="_blank">Open</a></div>
+    </div>
+
+  </div>
+
+  <!-- How to add a new audit -->
+  <div class="add-card">
+    <h3>Add a new client audit</h3>
+    <p>See the full workflow in <code>pages/portal/README.md</code>. Quick version:</p>
+    <p style="margin-bottom: 0;"><code>mkdir -p pages/portal/[NEW-ID]/assets &amp;&amp; cp -r pages/portal/CRN-2026-173563/* pages/portal/[NEW-ID]/ &amp;&amp; # edit the new index.html</code></p>
+  </div>
+
+  <!-- Security note -->
+  <div class="security-note">
+    <strong>Security notice.</strong> This page is <strong>not in the sitemap</strong>, is marked <code>noindex</code>, and lives at an unguessable URL — but it is still a public static page. Treat the URL itself as a shared secret. Do not link to this page from any other public page on farberinc.media. If you need real authentication (per-user accounts, audit logging, instant revocation), see the upgrade path in the README — the recommended next step is Supabase Auth + Vercel, $0–$50/mo.
+  </div>
+
+</div>
+
+<script>
+  // Friendly "last refreshed" date
+  document.getElementById('refresh-date').textContent = new Date().toLocaleDateString('en-US', {
+    year: 'numeric', month: 'long', day: 'numeric'
+  });
+</script>
+
+</body>
+</html>
