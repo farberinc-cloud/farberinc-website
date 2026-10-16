@@ -48,15 +48,20 @@
         '</header>' +
         '<div class="fi-print-body"></div>' +
         '<footer class="fi-print-foot"><span>' + escapeHtml(title) + '</span><span>Farber.Inc · farberinc.media</span></footer>' +
+        '<p class="fi-print-disclaimer">' + escapeHtml(DISCLAIMER) + '</p>' +
       '</article>';
     stage.querySelector('.fi-print-body').appendChild(clone);
     return stage;
   }
 
+  var DISCLAIMER = 'Disclaimer: Any agreement is governed by the Farber.Inc SEO Master Agreement (https://www.farberinc.media/pages/legal/seo-agreement.html). Payment of any SOW (Schedule of Work) constitutes compliance with and acceptance of that agreement.';
+
   function escapeHtml(s) {
-    return String(s).replace(/[&<>"]/g, function (c) {
-      return { '&': '&', '<': '<', '>': '>', '"': '"' }[c];
-    });
+    return String(s)
+      .replace(/&/g, '&' + 'amp;')
+      .replace(/</g, '&' + 'lt;')
+      .replace(/>/g, '&' + 'gt;')
+      .replace(/"/g, '&' + 'quot;');
   }
 
   function printCard(card) {
@@ -88,6 +93,12 @@
   function init() {
     addCardButtons();
     addPageButton();
+    if (!document.querySelector('body > .fi-print-disclaimer')) {
+      var note = document.createElement('p');
+      note.className = 'fi-print-disclaimer';
+      note.textContent = DISCLAIMER;
+      document.body.appendChild(note);
+    }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
