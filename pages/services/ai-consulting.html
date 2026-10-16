@@ -27,6 +27,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/styles.css">
+  <style>
+    /* Hostinger caches styles.css. That file stretches this card's ::before into a full-height gold bar. */
+    .pricing-card.featured::before,
+    .pricing-card.featured:hover::before {
+      content: none !important;
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      padding: 0 !important;
+      background: transparent !important;
+    }
+    .pricing-card.featured { overflow: visible !important; position: relative; }
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #B8860B;
+      color: #fff;
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      padding: 4px 16px;
+      border-radius: 20px;
+      z-index: 3;
+    }
+  </style>
     <!-- Google tag (gtag.js) — gated by cookie consent -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -556,6 +586,7 @@
         
         <!-- Standard Support -->
         <div class="card pricing-card featured fade-in stagger-2">
+          <span class="pricing-badge">Most Popular</span>
           <span class="pricing-tier">Standard Support</span>
           <div class="pricing-price">$2.5K–$7.5K</div>
           <span class="pricing-period">per month</span>

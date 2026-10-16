@@ -2330,7 +2330,7 @@ p {
 
 .card::before,
 .service-card::before,
-.pricing-card::before,
+.pricing-card:not(.featured)::before,
 .stat-card::before,
 .location-card::before,
 .industries-list li::before,
@@ -2350,7 +2350,7 @@ p {
 
 .card:hover::before,
 .service-card:hover::before,
-.pricing-card:hover::before,
+.pricing-card:not(.featured):hover::before,
 .stat-card:hover::before,
 .location-card:hover::before,
 .industries-list li:hover::before,
