@@ -1,0 +1,257 @@
+/* Farber.Inc client portal — screen print controls and executive print layout */
+
+.fi-print-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #e6e2d6;
+  background: #fff;
+  color: #0A1628;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  line-height: 1;
+  align-self: flex-start;
+}
+.fi-print-btn:hover { border-color: #B8860B; color: #8B6914; }
+.audit-bar .fi-print-btn { background: transparent; }
+
+.workspace-card .card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 1px solid #f0ece0;
+}
+.workspace-card .card-actions a {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #B8860B;
+  text-decoration: none;
+}
+.workspace-card .card-actions a:hover { color: #8B6914; }
+a.workspace-card-body {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.rec-card, .phase, .audit-card, .workspace-card { position: relative; }
+.rec-card > .fi-print-btn,
+.phase > .fi-print-btn,
+.audit-card > .fi-print-btn { margin-top: 16px; }
+
+#fi-print-stage { display: none; }
+
+@media print {
+  @page { size: letter; margin: 0.7in 0.72in 0.75in; }
+
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  html, body {
+    background: #fff !important;
+    color: #0A1628 !important;
+  }
+
+  .audit-bar,
+  header.header,
+  footer.footer,
+  .mobile-toggle,
+  .fi-print-btn,
+  .card-actions,
+  #fi-chat-launcher,
+  #fi-chat-panel,
+  #fi-lead-overlay {
+    display: none !important;
+  }
+
+  .cover {
+    min-height: 0 !important;
+    height: auto !important;
+    page-break-after: always;
+    break-after: page;
+    padding: 0.2in 0 0.15in !important;
+  }
+  .cover h1 { font-size: 28pt !important; line-height: 1.12 !important; margin-bottom: 16px !important; }
+  .cover h2 { font-size: 13pt !important; line-height: 1.45 !important; }
+  .cover-recipient { margin-top: 28px !important; padding: 16px 18px !important; gap: 18px !important; }
+
+  .page {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    padding: 0.1in 0 0.3in !important;
+  }
+  .page-header {
+    break-after: avoid;
+    page-break-after: avoid;
+    margin-bottom: 18px !important;
+    padding-bottom: 12px !important;
+  }
+  .page-header h2 { font-size: 22pt !important; line-height: 1.15 !important; }
+  .page-header .sub { font-size: 11pt !important; line-height: 1.5 !important; }
+
+  .container { max-width: none !important; width: auto !important; padding-left: 0 !important; padding-right: 0 !important; }
+
+  .rec-cards,
+  .exec-stats,
+  .workspace-grid,
+  .audit-grid,
+  .how-grid,
+  .wins-grid,
+  .exec-grid {
+    display: block !important;
+  }
+  .phase { display: block !important; }
+
+  .rec-card,
+  .stat-card,
+  .workspace-card,
+  .audit-card,
+  .pricing-option,
+  .phase,
+  .exec-quote,
+  .how-step,
+  .code-block,
+  tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .rec-card,
+  .stat-card,
+  .workspace-card,
+  .audit-card,
+  .pricing-option,
+  .how-step,
+  .phase {
+    margin: 0 0 14px 0 !important;
+  }
+  .rec-card,
+  .workspace-card,
+  .audit-card,
+  .pricing-option {
+    padding: 16px 18px !important;
+  }
+  .rec-card h4,
+  .card-title,
+  .phase h3,
+  h2, h3, h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .rec-card p,
+  .card-preview,
+  .pricing-option li {
+    font-size: 11pt;
+    line-height: 1.55;
+  }
+  .pricing-option + .pricing-option { margin-top: 12px; }
+  p, li { orphans: 3; widows: 3; }
+  a { color: inherit !important; text-decoration: none !important; }
+
+  footer {
+    background: transparent !important;
+    color: #4a5170 !important;
+    padding-top: 12px !important;
+  }
+
+  /* Single-card print */
+  body.fi-print-one > *:not(#fi-print-stage) { display: none !important; }
+  body.fi-print-one #fi-print-stage { display: block !important; }
+}
+
+.fi-print-sheet { color: #0A1628; font-family: Inter, system-ui, sans-serif; line-height: 1.55; }
+.fi-print-letterhead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  margin-bottom: 22px;
+  border-bottom: 2px solid #0A1628;
+}
+.fi-print-letterhead .who { display: flex; align-items: center; gap: 12px; }
+.fi-print-letterhead img { width: 40px; height: 40px; border-radius: 50%; }
+.fi-print-brand { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; line-height: 1.1; }
+.fi-print-kicker {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #B8860B;
+  font-weight: 700;
+  margin-top: 3px;
+}
+.fi-print-conf {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4a5170;
+  text-align: right;
+}
+#fi-print-stage .rec-card,
+#fi-print-stage .workspace-card,
+#fi-print-stage .audit-card,
+#fi-print-stage .phase,
+#fi-print-stage .stat-card {
+  border: none;
+  border-top: none;
+  box-shadow: none;
+  transform: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+}
+#fi-print-stage .card-type,
+#fi-print-stage .step {
+  letter-spacing: 0.16em;
+}
+#fi-print-stage h2,
+#fi-print-stage h4,
+#fi-print-stage .card-name,
+#fi-print-stage .card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #0A1628;
+  line-height: 1.2;
+  margin: 8px 0 12px;
+}
+#fi-print-stage p,
+#fi-print-stage li { font-size: 12pt; line-height: 1.6; color: #1c2433; }
+#fi-print-stage p { margin: 0 0 12px; }
+#fi-print-stage .pricing-option {
+  border: 1px solid #e6e2d6;
+  border-top: 3px solid #B8860B;
+  padding: 14px 16px;
+  margin: 0 0 12px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+#fi-print-stage .price { color: #8B6914; margin: 4px 0 8px; }
+#fi-print-stage ul { margin: 8px 0 0; padding-left: 18px; }
+#fi-print-stage li { margin: 0 0 6px; }
+.fi-print-foot {
+  margin-top: 28px;
+  padding-top: 10px;
+  border-top: 1px solid #e6e2d6;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #4a5170;
+}

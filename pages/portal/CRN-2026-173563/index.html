@@ -111,6 +111,7 @@
       text-align: center; padding: 32px; color: var(--ink-mid); font-size: 13px; border-top: 1px solid var(--line);
     }
   </style>
+  <link rel="stylesheet" href="../portal-print.css?v=1">
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
@@ -136,19 +137,23 @@
     <p class="page-sub">Prepared exclusively for CRN Construction LLC · Oregon CCB #173563 · Lane, Douglas & Coos Counties</p>
 
     <div class="workspace-grid">
-      <!-- Proposal / Recommendations Card -->
-      <a href="proposal.html" class="workspace-card">
-        <span class="card-type">Client-Facing Proposal</span>
-        <h2 class="card-title">Visibility & Discovery Recommendations</h2>
-        <p class="card-preview">
-          Full SEO, AEO, and GEO audit with prioritized findings, schema structure recommendations, local SEO actions, and a 90-day implementation roadmap. Includes LinkedIn and channel strategy to build entity visibility.
-        </p>
-        <span class="card-cta">Open Full Recommendations →</span>
-        <span style="font-size:13px; color:var(--ink-mid); margin-top:4px;">Also available as <a href="./assets/CRN-Construction-Farber-Recommendations.pdf" style="color:var(--gold);">PDF</a> · <a href="./assets/CRN-Construction-Farber-Recommendations.pptx" style="color:var(--gold);">PPTX</a></span>
-      </a>
+      <article class="workspace-card">
+        <a href="proposal.html" class="workspace-card-body">
+          <span class="card-type">Client-Facing Proposal</span>
+          <h2 class="card-title">Visibility & Discovery Recommendations</h2>
+          <p class="card-preview">
+            Full SEO, AEO, and GEO audit with prioritized findings, schema structure recommendations, local SEO actions, and a 90-day implementation roadmap. Includes LinkedIn and channel strategy to build entity visibility.
+          </p>
+          <span class="card-cta">Open Full Recommendations →</span>
+        </a>
+        <div class="card-actions">
+          <a href="./assets/CRN-Construction-Farber-Recommendations.pdf">Download PDF</a>
+          <a href="./assets/CRN-Construction-Farber-Recommendations.pptx">PowerPoint</a>
+          <button type="button" class="fi-print-btn">Print PDF</button>
+        </div>
+      </article>
 
-      <!-- Pricing Card -->
-      <div class="workspace-card" style="cursor: default;">
+      <article class="workspace-card">
         <span class="card-type">Engagement Options</span>
         <h2 class="card-title">Pricing</h2>
         <div class="pricing-options">
@@ -180,7 +185,8 @@
             </ul>
           </div>
         </div>
-      </div>
+        <button type="button" class="fi-print-btn">Print PDF</button>
+      </article>
     </div>
   </div>
 
@@ -191,5 +197,6 @@
   <footer>
     Confidential — Client Use Only · Farber.Inc · © 2026
   </footer>
+<script src="../portal-print.js?v=1" defer></script>
 </body>
 </html>
