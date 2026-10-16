@@ -861,6 +861,7 @@ p {
 .pricing-card.featured {
   border: 2px solid var(--gold);
   position: relative;
+  overflow: visible;
 }
 
 .pricing-card.featured::before {
@@ -868,6 +869,8 @@ p {
   position: absolute;
   top: -12px;
   left: 50%;
+  width: auto;
+  height: auto;
   transform: translateX(-50%);
   background: var(--gold);
   color: white;
@@ -875,6 +878,7 @@ p {
   font-weight: 600;
   padding: 4px 16px;
   border-radius: 20px;
+  z-index: 2;
 }
 
 .pricing-tier {
