@@ -164,6 +164,10 @@ function handle_chat(string $sessionId, string $page, array $messages, string $a
     if (count($clean) > 20) $clean = array_slice($clean, -20);
 
     $systemPrompt = $GLOBALS['SYSTEM_PROMPT'];
+    $safePage = preg_replace('/[^a-zA-Z0-9\/\.\-_]/', '', $page);
+    if (is_string($safePage) && $safePage !== '') {
+        $systemPrompt .= "\n\n# This conversation started on\nPath: " . $safePage . "\nApply the page-awareness rules to this path before giving a generic overview.";
+    }
 
     $payload = [
         'model'       => $model,
