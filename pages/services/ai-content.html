@@ -481,9 +481,19 @@
                 </label>
               </div>
 
-              <label class="fi-form-full">
-                <textarea name="message" placeholder="Tell us about your content goals and current production setup..." required></textarea>
-              </label>
+              <label class="fi-form-full fi-source-field">Did an AI recommend us?
+                          <select name="ai_recommendation" required>
+                            <option value="" selected disabled>Select one</option>
+                            <option>Yes — ChatGPT</option>
+                            <option>Yes — Perplexity</option>
+                            <option>Yes — Google AI Overview or AI Mode</option>
+                            <option>Yes — Gemini or another AI</option>
+                            <option>No</option>
+                            <option>Not sure</option>
+                          </select></label>
+                        <label class="fi-form-full">
+                          <textarea name="message" placeholder="Tell us about your content goals and current production setup..." required></textarea>
+                        </label>
 
               <div class="fi-form-actions">
                 <div class="cf-turnstile" data-sitekey="0x4AAAAAADyw2708KLnsLjYa" data-callback="onTurnstileSuccess" data-theme="dark"></div>
@@ -692,6 +702,7 @@
           <h4 class="footer-title">Company</h4>
           <nav class="footer-links">
             <a href="/#about" class="footer-link">About</a>
+            <a href="/pages/randy-farber.html" class="footer-link">Randy Farber</a>
             <a href="/#contact" class="footer-link">Contact</a>
             <a href="/pages/geo-locations.html" class="footer-link">U.S. Locations</a>
             <a href="/pages/portal/" class="footer-link">Client Portal</a>

@@ -2194,6 +2194,7 @@ p {
 }
 
 .farber-branded-form label input,
+.farber-branded-form label select,
 .farber-branded-form label textarea {
   display: block;
   margin-top: 4px;
@@ -2201,6 +2202,7 @@ p {
 
 .farber-branded-form input[type="text"],
 .farber-branded-form input[type="email"],
+.farber-branded-form select,
 .farber-branded-form textarea {
   background: #ffffff;
   border: 1.5px solid #F0EDE8;
@@ -2664,6 +2666,7 @@ p {
 
 .fi-contact-form input[type="text"],
 .fi-contact-form input[type="email"],
+.fi-contact-form select,
 .fi-contact-form textarea {
   width: 100%;
   background: rgba(255, 255, 255, 0.08);
@@ -2689,11 +2692,18 @@ p {
 }
 
 .fi-contact-form input:focus,
+.fi-contact-form select:focus,
 .fi-contact-form textarea:focus {
   outline: none;
   border-color: var(--gold);
   background: rgba(255, 255, 255, 0.12);
   box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.18);
+}
+
+.fi-contact-form select option,
+.farber-branded-form select option {
+  color: #0A1628;
+  background: #fff;
 }
 
 .fi-contact-form textarea {

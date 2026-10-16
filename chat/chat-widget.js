@@ -273,6 +273,17 @@
     card.appendChild(emailLabel);
     card.appendChild(emailInput);
 
+    var sourceLabel = el('label', { for: 'fi-lead-source', text: 'Did an AI recommend us?' });
+    var sourceInput = el('select', { id: 'fi-lead-source' });
+    ['Select one', 'Yes — ChatGPT', 'Yes — Perplexity', 'Yes — Google AI Overview or AI Mode', 'Yes — Gemini or another AI', 'No', 'Not sure'].forEach(function (opt, i) {
+      var o = el('option', { text: opt, value: i === 0 ? '' : opt });
+      if (i === 0) o.disabled = true;
+      if (i === 0) o.selected = true;
+      sourceInput.appendChild(o);
+    });
+    card.appendChild(sourceLabel);
+    card.appendChild(sourceInput);
+
     var actions = el('div', { class: 'fi-lead-actions' });
     var submit = el('button', { type: 'button', class: 'fi-btn-primary', text: isClose ? 'Save my details' : 'Send my details' });
     var decline = el('button', { type: 'button', class: 'fi-btn-ghost', text: isClose ? 'No thanks' : 'Another question' });
@@ -291,6 +302,7 @@
     submit.addEventListener('click', function () {
       var name = nameInput.value.trim();
       var email = emailInput.value.trim();
+      var aiRecommendation = sourceInput.value;
       if (!name && !email) {
         // nothing entered — treat as decline
         handleLeadDecline(isClose);
@@ -301,7 +313,12 @@
         emailInput.focus();
         return;
       }
-      var lead = { name: name, email: email, captured_at: new Date().toISOString() };
+      if ((name || email) && !aiRecommendation) {
+        sourceInput.style.borderColor = '#c33';
+        sourceInput.focus();
+        return;
+      }
+      var lead = { name: name, email: email, ai_recommendation: aiRecommendation, captured_at: new Date().toISOString() };
       state.lead = lead;
       saveState();
 
@@ -706,6 +723,7 @@
     var body = '[Farber.Inc Chat Lead]'
              + '\nName:  ' + lead.name
              + '\nEmail: ' + lead.email
+             + '\nAI recommendation: ' + (lead.ai_recommendation || 'Not answered')
              + '\nPage:  ' + location.pathname
              + '\nWhen:  ' + lead.captured_at
              + (firstUser ? '\n\nFirst question:\n' + firstUser : '')
@@ -716,6 +734,7 @@
     fd.append('subject',  cfg.subject);
     fd.append('name',     lead.name);
     fd.append('email',    lead.email);
+    fd.append('ai_recommendation', lead.ai_recommendation || 'Not answered');
     fd.append('message',  body);
     if (cfg.replyTo) fd.append('replyTo', cfg.replyTo);
 
