@@ -240,6 +240,12 @@ p {
   color: var(--text-secondary);
 }
 
+/* White cards sit inside the navy section. Raw headings would inherit light text. */
+.section-navy .card h3,
+.section-navy .card h4 {
+  color: var(--navy);
+}
+
 /* ========================================
    HEADER & NAVIGATION
    ======================================== */
@@ -1170,6 +1176,7 @@ p {
   gap: var(--space-sm);
 }
 
+.footer-links h3,
 .footer-links h4 {
   color: var(--gold);
   font-size: 0.9rem;

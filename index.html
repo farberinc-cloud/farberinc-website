@@ -21,8 +21,6 @@
   <meta name="twitter:image" content="https://www.farberinc.media/icons/og-image.png">
   <meta name="twitter:image:alt" content="Farber.Inc — AI Business Consulting, SEO, AEO, GEO">
 <meta property="og:url" content="https://www.farberinc.media">
-  <meta property="og:site_name" content="Farber.Inc">
-  
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Farber.Inc - AI Business Consulting | SEO | AEO | GEO">
@@ -63,11 +61,18 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "ProfessionalService"],
     "name": "Farber.Inc",
     "alternateName": "Farber Inc",
     "url": "https://www.farberinc.media",
-    "logo": "https://www.farberinc.media/icons/farber-inc-icon.svg",
+    "@id": "https://www.farberinc.media/#organization",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.farberinc.media/icons/farber-inc-logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "image": "https://www.farberinc.media/icons/farber-inc-logo.png",
     "description": "Boutique AI Business Consulting and Digital Marketing Agency specializing in SEO, AEO, and GEO services.",
     "address": {
       "@type": "PostalAddress",
@@ -94,9 +99,11 @@
       "@type": "Country",
       "name": "United States"
     },
+    "priceRange": "$$",
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61577813849193",
-      "https://www.linkedin.com/company/112545129"
+      "https://www.linkedin.com/company/112545129",
+      "https://www.youtube.com/@Farberinc"
     ],
     "founder": {
       "@type": "Person",
@@ -151,46 +158,13 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://www.farberinc.media/#website",
     "name": "Farber.Inc",
-    "url": "https://www.farberinc.media",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://www.farberinc.media/search?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
+    "url": "https://www.farberinc.media/",
+    "publisher": { "@id": "https://www.farberinc.media/#organization" }
   }
   </script>
   
-  <!-- LocalBusiness Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://www.farberinc.media/#localbusiness",
-    "name": "Farber.Inc",
-    "image": "https://www.farberinc.media/icons/farber-inc-icon.svg",
-    "telephone": "+1-772-310-8202",
-    "email": "farber.inc@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "3100 SE Federal HWY #1003",
-      "addressLocality": "Stuart",
-      "addressRegion": "FL",
-      "postalCode": "34994",
-      "addressCountry": "US"
-    },
-    "priceRange": "$$",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "17:00"
-    }
-  }
-  </script>
   <!-- Favicons -->
   <!-- FAQPage Schema (AEO) -->
   <script type="application/ld+json">
@@ -211,12 +185,12 @@
       "name": "How long does it take to see results from SEO?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most clients see measurable improvements within 3\u20136 months. Local SEO (Google Business Profile) often shows signals in weeks. AEO and GEO tactics can produce faster citation wins, while comprehensive SEO builds compounding authority over 6\u201312 months."
+        "text": "We do not publish a timeline. The work is reviewed monthly against the questions you chose. Rankings and citations are not guaranteed."
       }
     },
     {
       "@type": "Question",
-      "name": "What industries do you serve?",
+      "name": "What industries do you specialize in?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "We work with sole proprietors and growing businesses across professional services, healthcare, legal, real estate, e-commerce, technology, hospitality, and local service businesses. Strategy is tailored to each industry's competitive landscape."
@@ -232,15 +206,15 @@
     },
     {
       "@type": "Question",
-      "name": "Do you only work with Florida businesses?",
+      "name": "Do you work with businesses outside of Florida?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No \u2014 we serve clients nationwide from our Stuart, FL headquarters. Our digital-first delivery model uses video conferencing, project management tools, and scheduled check-ins so geography is never a blocker."
+        "text": "Yes. Farber.Inc is based in Stuart, Florida, and serves clients nationwide. Delivery is digital: video calls, a shared plan, and scheduled check-ins."
       }
     },
     {
       "@type": "Question",
-      "name": "What is your pricing?",
+      "name": "What is your pricing structure?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "AI Business Consulting retainers range from $1,000 to $25,000+ per month depending on scope. SEO, AEO, and GEO services are project-based or monthly. We send a tailored proposal after the initial consultation."
@@ -799,7 +773,7 @@
           <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: var(--cream-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
             <svg width="40" height="40"><use href="#icon-growth"></use></svg>
           </div>
-          <h4>A Measured Plan</h4>
+          <h3 class="card-title" style="font-size: 1.5rem;">A Measured Plan</h3>
           <p class="card-text">A fixed set of buyer questions, a 90-day operating plan, and a monthly citation scorecard. We do not publish a vanity ROI.</p>
         </div>
         
@@ -807,7 +781,7 @@
           <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: var(--cream-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
             <svg width="40" height="40"><use href="#icon-ai"></use></svg>
           </div>
-          <h4>AI-First Approach</h4>
+          <h3 class="card-title" style="font-size: 1.5rem;">AI-First Approach</h3>
           <p class="card-text">We leverage cutting-edge AI tools and strategies to give your business a competitive advantage in the evolving digital landscape.</p>
         </div>
         
@@ -815,7 +789,7 @@
           <div style="width: 80px; height: 80px; margin: 0 auto 24px; background: var(--cream-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
             <svg width="40" height="40"><use href="#icon-consulting"></use></svg>
           </div>
-          <h4>The Same Team</h4>
+          <h3 class="card-title" style="font-size: 1.5rem;">The Same Team</h3>
           <p class="card-text">The people who scope the work stay on it. No handoff to a junior pod after the sale.</p>
         </div>
       </div>
@@ -852,7 +826,7 @@
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              <p>SEO is a long-term investment. While some improvements can be seen within 3-6 months, significant results typically take 6-12 months depending on your industry, competition, and current website authority. We provide monthly reports so you can track progress throughout the journey.</p>
+              <p>We do not publish a timeline. The work is reviewed monthly against the questions you chose. Rankings and citations are not guaranteed.</p>
             </div>
           </div>
         </div>
@@ -1069,7 +1043,7 @@
         </div>
 
         <div>
-          <h4 class="footer-title">Services</h4>
+          <h3 class="footer-title">Services</h3>
           <nav class="footer-links">
             <a href="/pages/services/google-platforms.html" class="footer-link">Google Platform Expertise</a>
             <a href="/pages/services/intelligent-ai.html" class="footer-link">Intelligent AI Solutions</a>
@@ -1082,7 +1056,7 @@
         </div>
 
         <div>
-          <h4 class="footer-title">AI Solutions</h4>
+          <h3 class="footer-title">AI Solutions</h3>
           <nav class="footer-links">
             <a href="/pages/services/intelligent-ai.html" class="footer-link">Intelligent AI</a>
             <a href="/pages/services/ai-consulting.html#pricing" class="footer-link">AI Consulting Packages</a>
@@ -1091,7 +1065,7 @@
         </div>
 
         <div>
-          <h4 class="footer-title">Company</h4>
+          <h3 class="footer-title">Company</h3>
           <nav class="footer-links">
             <a href="/#about" class="footer-link">About</a>
             <a href="/pages/randy-farber.html" class="footer-link">Randy Farber</a>

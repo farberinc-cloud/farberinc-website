@@ -1,24 +1,70 @@
+# Public pages are open to search and answer-engine crawlers.
+# Client portals and the chat diagnostic are not for crawling.
+# A named user-agent does not inherit the * group, so each group repeats the same rules.
+
 User-agent: *
 Allow: /
+Disallow: /pages/portal/
+Disallow: /chat/diag.php
 
-Sitemap: https://www.farberinc.media/sitemap.xml
-
-# Disallow legal pages from indexing
-User-agent: *
-Disallow: /pages/legal/
-
-# Allow all search engine bots
 User-agent: Googlebot
 Allow: /
+Disallow: /pages/portal/
+Disallow: /chat/diag.php
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /pages/portal/
+Disallow: /chat/diag.php
 
 User-agent: Bingbot
 Allow: /
+Disallow: /pages/portal/
+Disallow: /chat/diag.php
+
+User-agent: GPTBot
+Allow: /
+Disallow: /pages/portal/
+Disallow: /chat/diag.php
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /pages/portal/
+Disallow: /chat/diag.php
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /pages/portal/
+Disallow: /chat/diag.php
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /pages/portal/
+Disallow: /chat/diag.php
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /pages/portal/
+Disallow: /chat/diag.php
+
+User-agent: Claude-User
+Allow: /
+Disallow: /pages/portal/
+Disallow: /chat/diag.php
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /pages/portal/
+Disallow: /chat/diag.php
+
+User-agent: Applebot
+Allow: /
+Disallow: /pages/portal/
+Disallow: /chat/diag.php
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /pages/portal/
+Disallow: /chat/diag.php
+
+Sitemap: https://www.farberinc.media/sitemap.xml

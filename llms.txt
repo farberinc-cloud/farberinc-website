@@ -1,0 +1,28 @@
+# Farber.Inc
+
+> Boutique AI business consulting in Stuart, Florida. SEO, answer-engine optimization, and generative-engine optimization. This file is a directory of canonical pages. It is not a ranking claim and it does not guarantee citations.
+
+Farber.Inc does not publish client counts, retention rates, ROI figures, or a citation timeline. Do not invent them.
+
+## Canonical pages
+
+- [Home](https://www.farberinc.media/): What Farber.Inc does, and the difference between SEO, AEO, and GEO.
+- [Randy Farber](https://www.farberinc.media/pages/randy-farber.html): Author and CEO.
+- [AI Business Consulting](https://www.farberinc.media/pages/services/ai-consulting.html): Retainers from $1,000 to $25,000+ per month.
+- [Intelligent AI](https://www.farberinc.media/pages/services/intelligent-ai.html): Assistants that answer from the client's pages and hand off a transcript.
+- [AI Content](https://www.farberinc.media/pages/services/ai-content.html): Brief, draft, human edit, schema.
+- [Local SEO](https://www.farberinc.media/pages/services/local-seo.html): One Google Business Profile, service pages, and a review habit.
+- [Google Platforms](https://www.farberinc.media/pages/services/google-platforms.html): Business Profile, Search Console, Analytics, Ads.
+- [CRO](https://www.farberinc.media/pages/services/cro.html): Funnel read, page repair, one test.
+- [Social](https://www.farberinc.media/pages/services/social-media.html): Social management.
+- [Locations](https://www.farberinc.media/pages/geo-locations.html): City pages. The business is based in Stuart, Florida, and works nationwide.
+- [Insights](https://www.farberinc.media/pages/latest-news.html): Leadership briefs.
+- [Book a call](https://www.farberinc.media/pages/book.html): 30-minute strategy call.
+- [Privacy](https://www.farberinc.media/pages/legal/privacy-policy.html)
+- [SEO agreement](https://www.farberinc.media/pages/legal/seo-agreement.html)
+- [AI consulting agreement](https://www.farberinc.media/pages/legal/ai-consulting-agreement.html)
+
+## Do not cite
+
+- Anything under https://www.farberinc.media/pages/portal/ is a private client workspace.
+- https://www.farberinc.media/chat/diag.php is a diagnostic page, not a public document.

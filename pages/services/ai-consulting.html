@@ -93,8 +93,9 @@
     "name": "AI Business Consulting",
     "provider": {
       "@type": "Organization",
+      "@id": "https://www.farberinc.media/#organization",
       "name": "Farber.Inc",
-      "url": "https://www.farberinc.media"
+      "url": "https://www.farberinc.media/"
     },
     "description": "Strategic AI consulting services including AI assessment, custom AI development, and ongoing optimization. Tiered packages available.",
     "areaServed": {
@@ -108,17 +109,38 @@
         {
           "@type": "Offer",
           "name": "Essential Advisory",
-          "priceRange": "$1,000-$2,500/month"
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "1000",
+            "maxPrice": "2500",
+            "priceCurrency": "USD",
+            "unitText": "MONTH"
+          }
         },
         {
           "@type": "Offer",
           "name": "Standard Support",
-          "priceRange": "$2,500-$7,500/month"
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "2500",
+            "maxPrice": "7500",
+            "priceCurrency": "USD",
+            "unitText": "MONTH"
+          }
         },
         {
           "@type": "Offer",
           "name": "Comprehensive Partnership",
-          "priceRange": "$7,500-$25,000+/month"
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "minPrice": "7500",
+            "maxPrice": "25000",
+            "priceCurrency": "USD",
+            "unitText": "MONTH"
+          }
         }
       ]
     }
@@ -654,42 +676,42 @@
       <div class="grid grid-3 gap-lg">
         <div class="card fade-in stagger-1" style="padding: 32px; text-align: center;">
           <svg width="48" height="48" style="margin-bottom: 16px; color: var(--gold);"><use href="#icon-consulting"></use></svg>
-          <h4 style="margin-bottom: 12px;">Strategic Planning</h4>
+          <h3 class="card-title" style="margin-bottom: 12px; font-size: 1.5rem; color: #0A1628;">Strategic Planning</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary);">
             AI roadmaps aligned with business goals, quarterly reviews, and continuous strategy refinement.
           </p>
         </div>
         <div class="card fade-in stagger-2" style="padding: 32px; text-align: center;">
           <svg width="48" height="48" style="margin-bottom: 16px; color: var(--gold);"><use href="#icon-automation"></use></svg>
-          <h4 style="margin-bottom: 12px;">Implementation</h4>
+          <h3 class="card-title" style="margin-bottom: 12px; font-size: 1.5rem; color: #0A1628;">Implementation</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary);">
             Hands-on deployment of AI solutions, system integrations, and workflow automation.
           </p>
         </div>
         <div class="card fade-in stagger-3" style="padding: 32px; text-align: center;">
           <svg width="48" height="48" style="margin-bottom: 16px; color: var(--gold);"><use href="#icon-growth"></use></svg>
-          <h4 style="margin-bottom: 12px;">Optimization</h4>
+          <h3 class="card-title" style="margin-bottom: 12px; font-size: 1.5rem; color: #0A1628;">Optimization</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary);">
             Ongoing performance monitoring, A/B testing, and continuous improvement initiatives.
           </p>
         </div>
         <div class="card fade-in stagger-4" style="padding: 32px; text-align: center;">
           <svg width="48" height="48" style="margin-bottom: 16px; color: var(--gold);"><use href="#icon-data"></use></svg>
-          <h4 style="margin-bottom: 12px;">Analytics & Reporting</h4>
+          <h3 class="card-title" style="margin-bottom: 12px; font-size: 1.5rem; color: #0A1628;">Analytics & Reporting</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary);">
             Comprehensive dashboards, KPI tracking, and executive-ready reporting.
           </p>
         </div>
         <div class="card fade-in stagger-5" style="padding: 32px; text-align: center;">
           <svg width="48" height="48" style="margin-bottom: 16px; color: var(--gold);"><use href="#icon-ai"></use></svg>
-          <h4 style="margin-bottom: 12px;">Custom Development</h4>
+          <h3 class="card-title" style="margin-bottom: 12px; font-size: 1.5rem; color: #0A1628;">Custom Development</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary);">
             Custom AI agents, chatbots, and automation tailored to your specific needs.
           </p>
         </div>
         <div class="card fade-in stagger-6" style="padding: 32px; text-align: center;">
           <svg width="48" height="48" style="margin-bottom: 16px; color: var(--gold);"><use href="#icon-consulting"></use></svg>
-          <h4 style="margin-bottom: 12px;">Training & Support</h4>
+          <h3 class="card-title" style="margin-bottom: 12px; font-size: 1.5rem; color: #0A1628;">Training & Support</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary);">
             Team training sessions, documentation, and ongoing technical support.
           </p>
@@ -864,7 +886,7 @@
         </div>
 
         <div>
-          <h4 class="footer-title">Services</h4>
+          <h3 class="footer-title">Services</h3>
           <nav class="footer-links">
             <a href="/pages/services/google-platforms.html" class="footer-link">Google Platform Expertise</a>
             <a href="/pages/services/intelligent-ai.html" class="footer-link">Intelligent AI Solutions</a>
@@ -877,7 +899,7 @@
         </div>
 
         <div>
-          <h4 class="footer-title">AI Solutions</h4>
+          <h3 class="footer-title">AI Solutions</h3>
           <nav class="footer-links">
             <a href="/pages/services/intelligent-ai.html" class="footer-link">Intelligent AI</a>
             <a href="/pages/services/ai-consulting.html#pricing" class="footer-link">AI Consulting Packages</a>
@@ -886,7 +908,7 @@
         </div>
 
         <div>
-          <h4 class="footer-title">Company</h4>
+          <h3 class="footer-title">Company</h3>
           <nav class="footer-links">
             <a href="/#about" class="footer-link">About</a>
             <a href="/pages/randy-farber.html" class="footer-link">Randy Farber</a>
