@@ -1,218 +1,166 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Amazáe Events — Client Portal | Farber Inc</title>
-<meta name="description" content="Private client portal prepared by Farber Inc for Amazáe Events. The public site is amazae.com. A scored audit is not filed on this page.">
-<meta name="author" content="Farber.Inc">
-<meta name="robots" content="noindex, nofollow">
-<meta property="og:title" content="Amazáe Events — Client Portal | Farber Inc">
-<meta property="og:description" content="Private portal for Amazáe Events. No scored audit is filed here yet.">
-<meta property="og:type" content="article">
-<meta property="og:image" content="https://www.farberinc.media/icons/og-image.png">
-<meta property="og:url" content="https://www.farberinc.media/pages/portal/AMZ-2026-Q8N4/">
-<meta property="og:site_name" content="Farber.Inc">
-<link rel="canonical" href="https://www.farberinc.media/pages/portal/AMZ-2026-Q8N4/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/icons/favicon-192x192.png">
-<link rel="manifest" href="/site.webmanifest">
-<style>
-  :root {
-    --navy: #0A1628;
-    --navy-2: #1A2A4A;
-    --gold: #B8860B;
-    --cream: #FAF8F5;
-    --ink: #0A1628;
-    --ink-mid: #4a5170;
-    --ink-soft: #8089a3;
-    --line: #e6e2d6;
-    --card: #ffffff;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--cream);
-    color: var(--ink);
-    font-size: 16px;
-    line-height: 1.65;
-  }
-  a { color: var(--navy); }
-  .audit-bar {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(250,248,245,0.94);
-    border-bottom: 1px solid var(--line);
-    backdrop-filter: blur(12px);
-  }
-  .audit-bar .inner, .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
-  .audit-bar .inner {
-    display: flex; justify-content: space-between; align-items: center;
-    padding-top: 14px; padding-bottom: 14px;
-  }
-  .brand-mini { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--navy); font-weight: 600; }
-  .brand-mini img, .brand img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
-  .back-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--navy); color: var(--cream); text-decoration: none;
-    font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-    padding: 8px 16px; border-radius: 4px;
-  }
-  .cover {
-    background: var(--navy); color: white;
-    padding: 56px 0 48px;
-  }
-  .cover-bar, .cover-foot, .recipient {
-    display: flex; justify-content: space-between; gap: 24px; align-items: center;
-  }
-  .brand { display: flex; align-items: center; gap: 12px; }
-  .brand-name { font-family: Fraunces, serif; font-size: 22px; }
-  .brand-name span { color: var(--gold); }
-  .cover-meta { text-align: right; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
-  .cover-meta strong { display: block; color: var(--gold); margin-top: 4px; letter-spacing: 0.08em; }
-  .eyebrow { color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; margin: 48px 0 16px; }
-  h1 { font-family: Fraunces, serif; font-weight: 500; font-size: 56px; line-height: 1.05; max-width: 16ch; }
-  h1 em { font-style: italic; color: var(--gold); }
-  .lede { margin-top: 22px; max-width: 680px; color: rgba(255,255,255,0.78); font-size: 18px; }
-  .recipient {
-    margin-top: 48px; padding: 24px 0;
-    border-top: 1px solid rgba(184,134,11,0.3);
-    border-bottom: 1px solid rgba(184,134,11,0.3);
-  }
-  .k { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 6px; }
-  .v { font-size: 15px; }
-  .v small { display: block; opacity: 0.65; font-size: 13px; margin-top: 2px; }
-  .cover-foot { margin-top: 22px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
-  .cover-foot span { color: var(--gold); }
-  .page { padding: 72px 0; }
-  .page + .page { border-top: 1px solid var(--line); }
-  .page h2 { font-family: Fraunces, serif; font-size: 36px; font-weight: 500; line-height: 1.15; margin: 8px 0 14px; }
-  .num { color: var(--gold); font-size: 12px; letter-spacing: 0.2em; font-weight: 700; }
-  .sub { color: var(--ink-mid); max-width: 680px; margin-bottom: 28px; }
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .card {
-    background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--navy);
-    padding: 20px 22px;
-  }
-  .card h3 { font-size: 16px; margin-bottom: 6px; }
-  .card p, .note { color: var(--ink-mid); font-size: 15px; }
-  .links { width: 100%; border-collapse: collapse; background: white; }
-  .links th, .links td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  .links th { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
-  .note {
-    margin-top: 22px; padding: 16px 18px; background: white; border-left: 3px solid var(--gold);
-  }
-  @media (max-width: 800px) {
-    h1 { font-size: 40px; }
-    .cover-bar, .cover-foot, .recipient, .grid { display: block; }
-    .recipient > div { margin-bottom: 18px; }
-    .audit-bar .inner { padding-left: 16px; padding-right: 16px; }
-    .container { padding: 0 16px; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazáe Events Workspace | Farber Inc Client Portal</title>
+  <meta name="description" content="Private workspace for Amazáe Events — CRM implementation roadmap and discovery questions from Farber Inc.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.farberinc.media/pages/portal/AMZ-2026-Q8N4/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0A1628;
+      --gold: #B8860B;
+      --gold-2: #D4A437;
+      --cream: #FAF8F5;
+      --ink: #0A1628;
+      --ink-mid: #4a5170;
+      --line: #e6e2d6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    .audit-bar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+    }
+    .audit-bar .inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 32px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .brand-mini {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Playfair Display', serif; font-size: 16px; color: var(--navy); text-decoration: none;
+    }
+    .brand-mark {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--navy); border: 1.5px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 11px; color: var(--gold);
+    }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 16px; border-radius: 4px;
+      border: 1px solid var(--line); color: var(--ink-mid); text-decoration: none; font-size: 14px;
+    }
+    .back-btn:hover { background: white; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 48px 32px; }
+    .page-title {
+      font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 500;
+      color: var(--navy); margin: 0 0 8px; line-height: 1.1;
+    }
+    .page-sub { font-size: 16px; color: var(--ink-mid); margin: 0 0 40px; }
+    .workspace-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+    }
+    @media (max-width: 800px) { .workspace-grid { grid-template-columns: 1fr; } }
+    .workspace-card {
+      background: white; border: 1px solid var(--line); border-top: 3px solid var(--gold);
+      border-radius: 8px; padding: 32px; text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; gap: 16px;
+      transition: all 0.25s ease; position: relative; overflow: hidden;
+    }
+    .workspace-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -16px rgba(10, 22, 40, 0.15);
+    }
+    .card-type {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold);
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 500; color: var(--navy); margin: 0; line-height: 1.2;
+    }
+    .card-preview { font-size: 15px; color: var(--ink-mid); margin: 0; flex: 1; }
+    .card-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-weight: 600; font-size: 14px; color: var(--navy); margin-top: 8px;
+    }
+    .disclaimer {
+      max-width: 1080px;
+      margin: 32px auto 0;
+      padding: 0 32px 48px;
+      font-size: 13px;
+      color: var(--ink-mid);
+      line-height: 1.5;
+    }
+    footer {
+      text-align: center; padding: 32px; color: var(--ink-mid); font-size: 13px; border-top: 1px solid var(--line);
+    }
+  </style>
+  <link rel="stylesheet" href="../portal-print.css?v=2">
+  <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/favicon-192x192.png">
+  <link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
-
-<div class="audit-bar">
-  <div class="inner">
-    <a href="../index.html" class="brand-mini">
-      <img src="/icons/farber-inc-logo.png" alt="Farber.Inc" width="36" height="36">
-      <span>Farber.Inc Client Portal</span>
-    </a>
-    <a href="../index.html" class="back-btn">Back to Client Portal</a>
+  <div class="audit-bar">
+    <div class="inner">
+      <a href="../index.html" class="brand-mini">
+        <span class="brand-mark">F.I</span>
+        Farber.Inc
+      </a>
+      <a href="../index.html" class="back-btn">← Client Portal</a>
+    </div>
   </div>
-</div>
 
-<section class="cover">
   <div class="container">
-    <div class="cover-bar">
-      <div class="brand">
-        <img src="/icons/farber-inc-logo.png" alt="" width="56" height="56">
-        <div class="brand-name">Farber<span>.</span>Inc</div>
-      </div>
-      <div class="cover-meta">
-        Client portal
-        <strong>October 2026</strong>
-      </div>
-    </div>
-    <div class="eyebrow">Prepared exclusively for</div>
-    <h1>Amazáe Events. <em>The private link.</em></h1>
-    <p class="lede">A Bay Area wedding and luxury event planner. This page is the portal. It does not yet contain a scored SEO, AEO, or GEO audit.</p>
-    <div class="recipient">
-      <div>
-        <div class="k">Prepared for</div>
-        <div class="v">Amazáe Events<small>Silicon Valley · Bay Area · California and beyond</small></div>
-      </div>
-      <div>
-        <div class="k">Public site</div>
-        <div class="v"><a href="https://amazae.com/" style="color:#fff;">amazae.com</a><small>Wedding, social, corporate, destination</small></div>
-      </div>
-      <div>
-        <div class="k">Prepared by</div>
-        <div class="v">Farber Inc<small>Portal opened 27 October 2026</small></div>
-      </div>
-    </div>
-    <div class="cover-foot">
-      <div><span>Confidential</span> — client use only</div>
-      <div>AMZ-2026-Q8N4</div>
-    </div>
-  </div>
-</section>
+    <h1 class="page-title">Amazáe Events Workspace</h1>
+    <p class="page-sub">Prepared exclusively for Amazáe Events · amazae.com · Meeting date 27 October 2026</p>
 
-<section class="page">
-  <div class="container">
-    <div class="num">SECTION 01</div>
-    <h2>What the public site says.</h2>
-    <p class="sub">These points are taken from amazae.com. They are not Farber measurements, and they are not a claim about rankings or citations.</p>
-    <div class="grid">
-      <article class="card">
-        <h3>The practice</h3>
-        <p>A boutique event production company. The line on the site is “Bringing visions to life.” The work covers wedding planning, social events, corporate events, and destination events.</p>
+    <div class="workspace-grid">
+      <article class="workspace-card">
+        <a href="roadmap.html" class="workspace-card-body">
+          <span class="card-type">Client-Facing Roadmap</span>
+          <h2 class="card-title">Custom CRM · 3-Month Implementation</h2>
+          <p class="card-preview">
+            A tailored CRM for inquiries, pipeline, Mailchimp and spreadsheet migration, follow-ups, and reporting. Asana, HoneyBook, DocuSign, and QuickBooks stay the systems of record. Custom build recommended over extending Pipedrive.
+          </p>
+          <span class="card-cta">Open the Roadmap →</span>
+        </a>
+        <div class="card-actions">
+          <a href="./assets/Amazae-CRM-3-Month-Implementation-Roadmap.docx">Download Word</a>
+          <button type="button" class="fi-print-btn">Print PDF</button>
+        </div>
       </article>
-      <article class="card">
-        <h3>Where they say they work</h3>
-        <p>The site places the studio in Silicon Valley and describes event production in California and beyond. It also says the team has more than 15 years of industry experience. That figure is theirs.</p>
-      </article>
-      <article class="card">
-        <h3>What is on the site</h3>
-        <p>Public sections are Wedding, Social, Corporate, Destination, and Diary. Contact is a form at amazae.com/contact/. No phone number or street address is stated on the homepage.</p>
-      </article>
-      <article class="card">
-        <h3>What this page will not do</h3>
-        <p>It will not invent a score, a competitor gap, a citation count, or a timeline. Recommendations go on this page only after they are actually prepared.</p>
+
+      <article class="workspace-card">
+        <a href="meeting.html" class="workspace-card-body">
+          <span class="card-type">Discovery Meeting</span>
+          <h2 class="card-title">Questions & Action Items</h2>
+          <p class="card-preview">
+            Twenty-two questions for the 27 October meeting, covering data, pipeline, email, scheduling, and the custom-versus-Pipedrive decision, plus the actions to close before kickoff.
+          </p>
+          <span class="card-cta">Open the Meeting Brief →</span>
+        </a>
+        <div class="card-actions">
+          <a href="./assets/Amazae-CRM-Discovery-Questions.docx">Download Word</a>
+          <button type="button" class="fi-print-btn">Print PDF</button>
+        </div>
       </article>
     </div>
   </div>
-</section>
 
-<section class="page">
-  <div class="container">
-    <div class="num">SECTION 02</div>
-    <h2>Pages to work from.</h2>
-    <p class="sub">The public set, as linked from the homepage on 27 October 2026.</p>
-    <table class="links">
-      <thead>
-        <tr><th>Page</th><th>URL</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Home</td><td><a href="https://amazae.com/">https://amazae.com/</a></td></tr>
-        <tr><td>What we do</td><td><a href="https://amazae.com/what-we-do/">https://amazae.com/what-we-do/</a></td></tr>
-        <tr><td>Wedding</td><td><a href="https://amazae.com/wedding/">https://amazae.com/wedding/</a></td></tr>
-        <tr><td>Social</td><td><a href="https://amazae.com/social/">https://amazae.com/social/</a></td></tr>
-        <tr><td>Corporate</td><td><a href="https://amazae.com/corporate/">https://amazae.com/corporate/</a></td></tr>
-        <tr><td>Destination</td><td><a href="https://amazae.com/destination/">https://amazae.com/destination/</a></td></tr>
-        <tr><td>Diary</td><td><a href="https://amazae.com/blog/">https://amazae.com/blog/</a></td></tr>
-        <tr><td>Contact</td><td><a href="https://amazae.com/contact/">https://amazae.com/contact/</a></td></tr>
-      </tbody>
-    </table>
-    <p class="note">Share this portal with the Amazáe team. Do not publish the link. When the audit is ready, it replaces the note above. Until then, this page is the card and the folder, not the findings.</p>
+  <div class="disclaimer">
+    <strong>Note:</strong> These are meeting documents, not a signed scope and not a price. Asana, HoneyBook / DocuSign, and QuickBooks stay the systems of record for project management, contracts, and invoicing.
   </div>
-</section>
 
+  <footer>
+    Confidential — Client Use Only · Farber.Inc · © 2026
+  </footer>
+<script src="../portal-print.js?v=2" defer></script>
 </body>
 </html>
