@@ -1,0 +1,58 @@
+AI Consult Meeting
+Tue, Oct 27, 2026
+
+Summary:
+
+The team explored a custom CRM for Amazáe Events.
+• Separate wedding, social, and corporate sales funnels
+• Prioritize sales and marketing reporting
+• Import existing customer data from Excel
+• Keep QuickBooks; DocuSign and HoneyBook integration is possible
+• Three-month implementation, followed by VPS deployment
+
+
+Action Items:
+
+* Randy Farber will share the CRM link with the team
+* Randy Farber will share the meeting notes with the team for Crystal.
+* Randy Farber will provide pricing for the CRM options after refining his understanding of the requirements.
+* The Amazáe Events team will identify and document its pain points and automation priorities for CRM planning.
+* Randy Farber will share the workspace link with Amazáe Events.
+* Randy Farber will prepare and send tiered pricing options for the CRM implementation.
+* Amazáe Events will present its broader CRM requirements to help Randy scope the options.
+* Randy Farber will send his notes to Kaila.
+
+
+Key Discussion Points:
+
+Meeting Setup and CRM Context
+Participants handled initial audio and attendance coordination and clarified which materials had been shared. Kaila then introduced the company’s interest in CRM reporting and the difficulty of adapting Pipedrive to its preferred data structure.
+
+CRM Requirements and Business Goals
+Kaila described the need to track clients from inquiry through contract, improve sales processes, and organize marketing funnels for wedding, social, and corporate events. The team also discussed capturing inquiries from different channels and consolidating existing spreadsheet data.
+
+Custom CRM Options and Demonstration Setup
+Randy said a custom CRM could fit the company’s specific requirements and outlined consulting versus build-host-maintain options. The group also discussed sharing meeting notes with Crystal and requested pricing and examples.
+
+CRM Demonstration, AI, and Document Workflows
+Randy demonstrated a franchise CRM with tenant dashboards, customer records, document storage, and AI-supported workflows. The group explored proactive AI prompts, configurable guardrails, customer portals, and options for handling proposals and electronic signatures.
+
+Integrations and Requirements Discovery
+The discussion covered Google Calendar integration and email campaign functionality, then turned to how the company should communicate its requirements. Randy recommended prioritizing pain points and automation opportunities; the team cited proposal rework and sales-funnel reporting as examples before the CRM demonstration continued.
+
+CRM Capabilities and Implementation Approach
+Randy described customizable, territory-specific CRM settings, employee time tracking, licensing, and proactive AI reminders. He outlined a three-month implementation with early feedback and a staged rollout, noting that VPS deployment could take a week to 10 days without interrupting existing systems.
+
+Customization, Website Leads, and Process Review
+Amazáe Events asked how the build would evolve and whether deployment would interrupt existing tools; Randy confirmed that refinements could be incorporated and existing systems would remain available. The discussion covered connecting website inquiry forms to the CRM, automating lead notifications and replies, prioritizing sales, marketing, and reporting, and reviewing internal processes for automation opportunities.
+
+Data Migration, Existing Tools, and Budget
+Kelsi emphasized the need for data migration, and Randy explained that Excel-based customer data could be imported into the CRM. The group compared limitations of existing CRM options, discussed retaining QuickBooks, and considered the budget alongside current software costs and the rebrand timeline.
+
+Follow-Up and Next Steps
+Randy committed to sharing a workspace link and preparing tiered pricing options, including a possible approach for internal management and training. Amazáe Events agreed to present its broader requirements, and Randy said he would send his notes to Kaila.
+
+
+Notepad:
+
+* No notes
