@@ -91,11 +91,35 @@
     .card-list a, .disclaimer a, .proposal a { color: var(--gold); text-decoration: underline; }
     .workspace-card.proposal { grid-column: 1 / -1; gap: 0; }
     .workspace-card.proposal:hover { transform: none; box-shadow: none; }
-    .proposal-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; }
-    .proposal-meta {
-      margin: 0; font-size: 13px; letter-spacing: 0.02em; color: var(--ink-mid); text-align: right; line-height: 1.45;
+    .proposal-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: start;
+      padding-bottom: 16px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--line);
     }
-    .proposal-lead { margin: 14px 0 12px; max-width: none; font-size: 15px; }
+    .proposal-meta {
+      display: grid;
+      gap: 8px;
+      min-width: 168px;
+      margin: 2px 0 0;
+      padding-left: 16px;
+      border-left: 2px solid var(--gold);
+      text-align: left;
+    }
+    .proposal-meta div { display: grid; gap: 1px; }
+    .proposal-meta dt {
+      margin: 0;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .proposal-meta dd { margin: 0; font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.3; }
+    .proposal-lead { margin: 8px 0 0; max-width: 62ch; font-size: 14px; color: var(--ink-mid); }
     .fee-table { width: 100%; border-collapse: collapse; margin: 0; }
     .fee-table th {
       text-align: left; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
@@ -105,10 +129,8 @@
       padding: 8px 12px 8px 0; border-top: 1px solid var(--line);
       vertical-align: baseline; font-size: 15px;
     }
-    .fee-table td.amt {
-      text-align: right; white-space: nowrap; font-weight: 600; color: var(--navy);
-      font-variant-numeric: tabular-nums;
-    }
+    .fee-table th:last-child, .fee-table td.amt { text-align: right; }
+    .fee-table td.amt { white-space: nowrap; font-weight: 600; color: var(--navy); font-variant-numeric: tabular-nums; }
     .proposal-terms {
       display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; margin-top: 16px;
     }
@@ -120,13 +142,17 @@
     .proposal a { word-break: break-all; }
     .proposal .fi-print-btn { margin-top: 16px; align-self: flex-start; }
     @media (max-width: 800px) {
-      .proposal-head, .proposal-terms { display: block; }
-      .proposal-meta { text-align: left; margin-top: 8px; }
+      .proposal-head { display: block; }
+      .proposal-meta { margin-top: 14px; padding-left: 0; border-left: 0; border-top: 2px solid var(--gold); padding-top: 10px; }
+      .proposal-terms { display: block; }
       .proposal-terms > div + div { margin-top: 14px; }
     }
     @media print {
       .proposal { break-inside: avoid; page-break-inside: avoid; }
-      .proposal-head { display: flex !important; }
+      .proposal-head { display: grid !important; grid-template-columns: 1fr auto !important; gap: 20px !important; padding-bottom: 8px !important; margin-bottom: 8px !important; }
+      .proposal-meta { text-align: left !important; }
+      .proposal-meta dt { font-size: 8pt !important; }
+      .proposal-meta dd { font-size: 10pt !important; }
       .proposal-terms { display: grid !important; grid-template-columns: 1fr 1fr 1fr !important; gap: 14px !important; margin-top: 10px !important; }
       .proposal h2 { font-size: 16pt !important; margin: 0 !important; }
       .proposal-lead { font-size: 10.5pt !important; margin: 8px 0 !important; }
@@ -221,14 +247,18 @@
           <div>
             <span class="card-type">Proposal</span>
             <h2 class="card-title">Monthly retainer for a custom small-business CRM</h2>
+            <p class="proposal-lead">This proposal sets out the retainer to build a custom small-business CRM for Amazáe Events.</p>
           </div>
-          <p class="proposal-meta">Prepared for Amazáe Events<br>amazae.com · 2 November 2026</p>
+          <dl class="proposal-meta">
+            <div><dt>Prepared for</dt><dd>Amazáe Events</dd></div>
+            <div><dt>Site</dt><dd>amazae.com</dd></div>
+            <div><dt>Date</dt><dd>2 November 2026</dd></div>
+          </dl>
         </div>
-        <p class="proposal-lead">This proposal sets out the retainer to build a custom small-business CRM for Amazáe Events.</p>
 
         <table class="fee-table">
           <thead>
-            <tr><th>Item</th><th></th></tr>
+            <tr><th>Item</th><th>Amount</th></tr>
           </thead>
           <tbody>
             <tr>
