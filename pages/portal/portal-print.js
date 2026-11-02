@@ -26,6 +26,8 @@
     inner.appendChild(b);
   }
 
+  var LOGO = 'https://www.farberinc.media/icons/farber-inc-logo.png';
+
   function sheet(card) {
     var clone = card.cloneNode(true);
     clone.querySelectorAll('.fi-print-btn, .card-actions').forEach(function (n) { n.remove(); });
@@ -41,7 +43,7 @@
       '<article class="fi-print-sheet">' +
         '<header class="fi-print-letterhead">' +
           '<div class="who">' +
-            '<img src="/icons/farber-inc-logo.png" alt="Farber.Inc">' +
+            '<img src="' + LOGO + '" alt="Farber.Inc" width="64" height="64">' +
             '<div><div class="fi-print-brand">Farber.Inc</div><div class="fi-print-kicker">Client portal</div></div>' +
           '</div>' +
           '<div class="fi-print-conf">Confidential<br>Client use only</div>' +
@@ -94,14 +96,21 @@
   }
 
   function printCard(card) {
-    sheet(card);
+    var stage = sheet(card);
     document.body.classList.add('fi-print-one');
     var cleanup = function () {
       document.body.classList.remove('fi-print-one');
       window.removeEventListener('afterprint', cleanup);
     };
     window.addEventListener('afterprint', cleanup);
-    window.print();
+    var img = stage.querySelector('img');
+    var go = function () { window.print(); };
+    if (img && !img.complete) {
+      img.addEventListener('load', go, { once: true });
+      img.addEventListener('error', go, { once: true });
+    } else {
+      go();
+    }
   }
 
   document.addEventListener('click', function (e) {
@@ -122,6 +131,12 @@
   function init() {
     addCardButtons();
     addPageButton();
+    if (!document.querySelector('.fi-print-pagehead')) {
+      var head = document.createElement('div');
+      head.className = 'fi-print-pagehead';
+      head.innerHTML = '<img src="' + LOGO + '" alt="Farber.Inc" width="64" height="64"><div><div class="fi-print-brand">Farber.Inc</div><div class="fi-print-kicker">Client portal</div></div>';
+      document.body.insertBefore(head, document.body.firstChild);
+    }
     if (!document.querySelector('body > .fi-print-disclaimer')) {
       var note = document.createElement('p');
       note.className = 'fi-print-disclaimer';

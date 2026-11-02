@@ -185,6 +185,23 @@ a.workspace-card-body {
     font-weight: 500;
   }
 
+  .fi-print-letterhead img,
+  .fi-print-pagehead img {
+    display: block !important;
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  body:not(.fi-print-one) .fi-print-pagehead {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #0A1628;
+  }
+
   /* Single-card print */
   body.fi-print-one > *:not(#fi-print-stage) { display: none !important; }
   body.fi-print-one #fi-print-stage { display: block !important; }
@@ -201,7 +218,8 @@ a.workspace-card-body {
   border-bottom: 2px solid #0A1628;
 }
 .fi-print-letterhead .who { display: flex; align-items: center; gap: 12px; }
-.fi-print-letterhead img { width: 40px; height: 40px; border-radius: 50%; }
+.fi-print-pagehead { display: none; }
+.fi-print-letterhead img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
 .fi-print-brand { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; line-height: 1.1; }
 .fi-print-kicker {
   font-size: 10px;
