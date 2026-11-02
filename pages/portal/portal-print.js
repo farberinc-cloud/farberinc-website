@@ -48,13 +48,42 @@
         '</header>' +
         '<div class="fi-print-body"></div>' +
         '<footer class="fi-print-foot"><span>' + escapeHtml(title) + '</span><span>Farber.Inc · farberinc.media</span></footer>' +
-        '<p class="fi-print-disclaimer">' + escapeHtml(DISCLAIMER) + '</p>' +
+        '<p class="fi-print-disclaimer">' + escapeHtml(disclaimerFor(card)) + '</p>' +
       '</article>';
     stage.querySelector('.fi-print-body').appendChild(clone);
     return stage;
   }
 
-  var DISCLAIMER = 'Disclaimer: Any agreement is governed by the Farber.Inc SEO Master Agreement (https://www.farberinc.media/pages/legal/seo-agreement.html). Payment of any SOW (Schedule of Work) constitutes compliance with and acceptance of that agreement.';
+  var AGREEMENTS = {
+    seo: 'Disclaimer: Any agreement is governed by the Farber.Inc SEO Master Agreement (https://www.farberinc.media/pages/legal/seo-agreement.html). Payment of any SOW (Schedule of Work) constitutes compliance with and acceptance of that agreement.',
+    ai: 'Disclaimer: Any agreement is governed by the Farber.Inc AI Consulting Master Agreement (https://www.farberinc.media/pages/legal/ai-consulting-agreement.html). Payment of any SOW (Schedule of Work) constitutes compliance with and acceptance of that agreement.'
+  };
+
+  function kindIn(el) {
+    if (!el || !el.getAttribute) return null;
+    var marked = el.getAttribute('data-agreement');
+    if (marked === 'ai' || marked === 'seo') return marked;
+    var html = el.innerHTML || '';
+    var ai = /ai-consulting-agreement\.html/i.test(html);
+    var seo = /seo-agreement\.html/i.test(html);
+    if (ai && !seo) return 'ai';
+    if (seo && !ai) return 'seo';
+    return null;
+  }
+
+  function kindFor(node) {
+    var el = node || document.body;
+    while (el) {
+      var kind = kindIn(el);
+      if (kind) return kind;
+      el = el.parentElement;
+    }
+    return 'seo';
+  }
+
+  function disclaimerFor(node) {
+    return AGREEMENTS[kindFor(node)];
+  }
 
   function escapeHtml(s) {
     return String(s)
@@ -96,7 +125,7 @@
     if (!document.querySelector('body > .fi-print-disclaimer')) {
       var note = document.createElement('p');
       note.className = 'fi-print-disclaimer';
-      note.textContent = DISCLAIMER;
+      note.textContent = disclaimerFor(document.body);
       document.body.appendChild(note);
     }
   }
