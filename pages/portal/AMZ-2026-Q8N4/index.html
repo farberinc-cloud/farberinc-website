@@ -88,7 +88,32 @@
     }
     .card-list { margin: 0; padding-left: 1.15em; color: var(--ink); font-size: 15px; }
     .card-list li { margin: 0 0 8px; }
-    .card-list a, .disclaimer a { color: var(--gold); text-decoration: underline; }
+    .card-list a, .disclaimer a, .proposal a { color: var(--gold); text-decoration: underline; }
+    .workspace-card.proposal { grid-column: 1 / -1; gap: 0; }
+    .workspace-card.proposal:hover { transform: none; box-shadow: none; }
+    .proposal-meta {
+      margin: 8px 0 22px; font-size: 13px; letter-spacing: 0.04em; color: var(--ink-mid);
+    }
+    .proposal-lead { margin: 0 0 22px; max-width: 68ch; font-size: 16px; }
+    .fee-table { width: 100%; border-collapse: collapse; margin: 0 0 8px; }
+    .fee-table th {
+      text-align: left; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); font-weight: 700; padding: 0 16px 8px 0;
+    }
+    .fee-table td {
+      padding: 12px 16px 12px 0; border-top: 1px solid var(--line);
+      vertical-align: baseline; font-size: 15px;
+    }
+    .fee-table td.amt {
+      text-align: right; white-space: nowrap; font-weight: 600; color: var(--navy);
+      font-variant-numeric: tabular-nums;
+    }
+    .proposal h3 {
+      font-family: 'Playfair Display', serif; font-weight: 500; font-size: 20px;
+      color: var(--navy); margin: 22px 0 8px;
+    }
+    .proposal p { margin: 0 0 10px; font-size: 15px; max-width: 72ch; }
+    .proposal .fi-print-btn { margin-top: 18px; align-self: flex-start; }
     .disclaimer {
       max-width: 1080px;
       margin: 32px auto 0;
@@ -170,26 +195,53 @@
         </div>
       </article>
 
-      <article class="workspace-card">
+      <article class="workspace-card proposal">
         <span class="card-type">Proposal</span>
-        <h2 class="card-title">Monthly retainer · custom CRM</h2>
-        <ul class="card-list">
-          <li>Regular retainer for this work: $1,200 a month.</li>
-          <li>For Amazáe: $750 a month.</li>
-          <li>Three-month minimum. That is about how long it will take to get everything working.</li>
-          <li>Randy will build it, or help you build it. Your choice.</li>
-          <li>Hosting and maintenance, after it is built, if you want it: $160 a month.</li>
-          <li>Any edits after the initial three-month term start a new retainer, with a one-month minimum.</li>
-          <li>This card outlines the agreement. The legal agreement comes with the first month's SOW and payment. The SOW and the agreement are governed by the AI Consulting Master Agreement.</li>
-          <li><a href="https://www.farberinc.media/pages/legal/ai-consulting-agreement.html">https://www.farberinc.media/pages/legal/ai-consulting-agreement.html</a></li>
-        </ul>
+        <h2 class="card-title">Monthly retainer for a custom small-business CRM</h2>
+        <p class="proposal-meta">Prepared for Amazáe Events · amazae.com · 2 November 2026</p>
+        <p class="proposal-lead">This proposal sets out the retainer to build a custom small-business CRM for Amazáe Events.</p>
+
+        <table class="fee-table">
+          <thead>
+            <tr><th>Item</th><th></th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Standard retainer for this work</td>
+              <td class="amt">$1,200 per month</td>
+            </tr>
+            <tr>
+              <td>Retainer offered to Amazáe Events</td>
+              <td class="amt">$750 per month</td>
+            </tr>
+            <tr>
+              <td>Minimum term. This is the period expected to bring the system into working use.</td>
+              <td class="amt">3 months</td>
+            </tr>
+            <tr>
+              <td>Hosting and maintenance, after the system is built, if elected</td>
+              <td class="amt">$160 per month</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Delivery</h3>
+        <p>Farber Inc will build the system, or assist Amazáe Events in building it. Amazáe Events selects which model applies.</p>
+
+        <h3>Changes after the initial term</h3>
+        <p>Any edits after the initial three-month term begin a new retainer, with a one-month minimum.</p>
+
+        <h3>Agreement</h3>
+        <p>This proposal outlines the agreement. The legal agreement is provided with the first month’s statement of work and payment. The statement of work and the agreement are governed by the Farber.Inc AI Consulting Master Agreement.</p>
+        <p><a href="https://www.farberinc.media/pages/legal/ai-consulting-agreement.html">https://www.farberinc.media/pages/legal/ai-consulting-agreement.html</a></p>
+
         <button type="button" class="fi-print-btn">Print PDF</button>
       </article>
     </div>
   </div>
 
   <div class="disclaimer">
-    <strong>Note:</strong> This card outlines the agreement. The legal agreement comes with the first month's SOW and payment. The SOW and the agreement are governed by the <a href="https://www.farberinc.media/pages/legal/ai-consulting-agreement.html">Farber.Inc AI Consulting Master Agreement</a>. Asana, HoneyBook / DocuSign, and QuickBooks stay the systems of record for project management, contracts, and invoicing.
+    <strong>Note:</strong> This proposal outlines the agreement. The legal agreement is provided with the first month’s statement of work and payment. The statement of work and the agreement are governed by the <a href="https://www.farberinc.media/pages/legal/ai-consulting-agreement.html">Farber.Inc AI Consulting Master Agreement</a>. Asana, HoneyBook / DocuSign, and QuickBooks remain the systems of record for project management, contracts, and invoicing.
   </div>
 
   <footer>
