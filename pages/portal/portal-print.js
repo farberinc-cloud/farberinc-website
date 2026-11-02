@@ -53,6 +53,7 @@
         '<p class="fi-print-disclaimer">' + escapeHtml(disclaimerFor(card)) + '</p>' +
       '</article>';
     stage.querySelector('.fi-print-body').appendChild(clone);
+    if (card.classList.contains('proposal')) stage.querySelector('.fi-print-sheet').classList.add('fi-print-compact');
     return stage;
   }
 
